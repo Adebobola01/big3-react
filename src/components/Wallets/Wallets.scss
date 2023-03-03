@@ -77,6 +77,19 @@
     animation: wallet 1s forwards;
 }
 
+.close-wallets{
+    padding: .6rem;
+    // border: .5px solid black;
+    // box-shadow: ;
+    position: absolute;
+    right: 1.6rem;
+    cursor: pointer;
+
+    &:hover{
+        opacity: .5;
+    }
+}
+
 @keyframes wallet {
     0% {
         transform: translateY(-1000px) translate(-50%, -50%);

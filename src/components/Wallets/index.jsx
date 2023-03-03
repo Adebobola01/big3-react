@@ -9,6 +9,7 @@ const Wallets = props => {
         <div className={`wallet__container ${props.open ? "open-wallets" : ""}` }>
             <div className="select-wallet">
                 <span> Select Wallet </span>
+                <span className="close-wallets" onClick={props.close} >X</span>
             </div>
             <div className="wallets">
                 <div className="wallet__btn metamask__btn">

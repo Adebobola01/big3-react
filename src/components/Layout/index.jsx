@@ -15,7 +15,7 @@ const Layout = props => {
     return (
         <>
             <Backdrop open={openBackdrop} click={connectWalletHandler} />
-            <Wallets open={openWallets} />
+            <Wallets open={openWallets} close={connectWalletHandler} />
             <Navbar click={connectWalletHandler} />
             {props.children}
         </>
