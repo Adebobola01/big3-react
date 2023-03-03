@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logoImg from "./assets/big3-logo.png"
+import "./Logo.scss"
 const logo = props => {
     return (
-        <div class="logo">
+        <div className="logo">
             <NavLink link="/" >
                 <img
                     src={logoImg}
