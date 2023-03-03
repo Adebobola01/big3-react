@@ -1,20 +1,13 @@
 import React from "react";
-
-
+import "./navbar.scss";
+import NavigationItem from "../Navigation/NavigationItem";
+import ConnectBtn from "../Buttons/ConnectBtn";
+import Logo from "../Logo";
 const navbar = props => {
     return (
         <header class="header">
             <div class="nav-bar">
-                <div class="logo">
-                    <a href="./index.html">
-                        <img
-                            src="./static/images/big3-logo.png"
-                            alt="logo"
-                            class="logo__icon"
-                        />
-                        <span class="logo__title">Big3</span>
-                    </a>
-                </div>
+                <Logo/>
                 <form class="search">
                     <svg class="search__icon">
                         <use
@@ -33,25 +26,19 @@ const navbar = props => {
                     />
                 </form>
                 <div class="nav">
-                    <a href="#" class="nav__link explore-link"> Explore </a>
-                    <a href="#" class="nav__link create-link"> Create</a>
-                    <a href="#" class="nav__link profile-link"> Profile</a>
+                    <NavigationItem link="/explore">Explore</NavigationItem>
+                    <NavigationItem link="/create">Create</NavigationItem>
+                    <NavigationItem link="/profile">Profile</NavigationItem>
                 </div>
-                <div class="btn__container">
-                    <span class="addr-container"></span>
-                    <button class="connect__wallet--btn pc__connect">
-                        Connect Wallet
-                    </button>
-                    <button class="connect__wallet--btn mobile__connect">
-                        svg
-                    </button>
+                <div class="btns-container">
+                    <ConnectBtn/>
                 </div>
-                <button class="toggle-button">
+                {/* <button class="toggle-button">
                     <span class="toggle-button__bar"></span>
                     <span class="toggle-button__bar"></span>
                     <span class="toggle-button__bar"></span>
                 </button>
-                <button class="logout-btn hidden">logout</button>
+                <button class="logout-btn hidden">logout</button> */}
             </div>
         </header>
                     
