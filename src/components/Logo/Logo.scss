@@ -8,7 +8,7 @@
 
     a {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
     }
 
     &__title {
@@ -18,8 +18,8 @@
     }
 
     &__icon{
-        margin-top: .5rem;
-        width: 5rem;
-        height: 5rem;
+        margin-bottom: .5rem;
+        width: 6rem;
+        height: 6rem;
     }
 }

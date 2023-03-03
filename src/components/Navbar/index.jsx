@@ -5,6 +5,8 @@ import ConnectBtn from "../Buttons/ConnectBtn";
 import Logo from "../Logo";
 import Search from "../Input/Search";
 const navbar = props => {
+
+    
     return (
         <header class="header">
             <div class="nav-bar">
@@ -16,7 +18,7 @@ const navbar = props => {
                     <NavigationItem link="/profile">Profile</NavigationItem>
                 </ul>
                 <div class="btns-container">
-                    <ConnectBtn/>
+                    <ConnectBtn click={props.click} />
                 </div>
                 {/* <button class="toggle-button">
                     <span class="toggle-button__bar"></span>

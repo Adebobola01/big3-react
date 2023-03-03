@@ -1,13 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from "../Navbar";
+import Wallets from "../Wallets";
 
-const layout = ({children}) => {
+const Layout = props => {
+
+    const [openWallets, setOpenWallets] = useState(false);
+    
+    const connectWalletHandler = () => {
+        console.log(openWallets)
+        setOpenWallets(true);
+        console.log("pressed", openWallets)
+    }
     return (
         <>
-            <Navbar />
-            {children}
+            <Wallets open={openWallets} />
+            <Navbar click={connectWalletHandler} />
+            {props.children}
         </>
     )
 }
 
-export default layout;
+export default Layout;

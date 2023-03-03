@@ -3,7 +3,7 @@ import "./ConnectBtn.scss"
 const connectBtn = props => {
     return (
         <div className="connect__wallet-container" >
-            <button className="connect__wallet-btn">
+            <button className="connect__wallet-btn" onClick={props.click} >
                 Connect Wallet
             </button>
         </div>
