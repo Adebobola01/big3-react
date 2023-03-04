@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar";
 import Wallets from "../Wallets";
 import Backdrop from "../Backdrop";
@@ -17,7 +18,7 @@ const Layout = props => {
             <Backdrop open={openBackdrop} click={connectWalletHandler} />
             <Wallets open={openWallets} close={connectWalletHandler} />
             <Navbar click={connectWalletHandler} />
-            {props.children}
+            <Outlet/>
         </>
     )
 }
