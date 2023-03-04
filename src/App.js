@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 const Explore = lazy(() => import("./pages/Explore"));
+const Details = lazy(() => import("./pages/Explore/Details"));
 
 function App() {
   return (
@@ -17,15 +18,17 @@ function App() {
                 <Home />
               </Suspense>
             }/>
-            <Route path="explore" element={
+            <Route path="/explore" element={
               <Suspense>
                 <Explore />
               </Suspense>
             }/>
-          </Route>
-          {/* <Route path='/' element={<Layout><Home /></Layout>} />
-          <Route path='/explore'  element={<Layout><Explore/></Layout>} /> */}
-          
+            <Route path='/explore/details' element={
+              <Suspense>
+                <Details/>
+              </Suspense>
+            } />
+          </Route>          
         </Routes>
       </Suspense>
     </div>
