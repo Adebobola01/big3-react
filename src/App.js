@@ -6,6 +6,7 @@ import { Suspense, lazy } from 'react';
 
 const Explore = lazy(() => import("./pages/Explore"));
 const Details = lazy(() => import("./pages/Explore/Details"));
+const Profile = lazy(() => import("./pages/Profile"));
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
                 <Details/>
               </Suspense>
             } />
+            <Route path='/profile' element={
+              <Suspense>
+                <Profile />
+              </Suspense>} />
           </Route>          
         </Routes>
       </Suspense>
