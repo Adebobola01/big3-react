@@ -7,32 +7,34 @@ const Profile = props => {
 
     const [userNfts, setUserNfts] = useState({});
     const [address, setAddress] = useState("0xdkjfkajkdjfakjffdajkfa");
+    const [token, setToken] = useState("lkfdalfjlka");
 
-    useEffect(async () => {
-        try {
-            const result = await fetch("https://big3-backend.onrender.com/profile", {
-                method: "POST",
-                headers: {
-                    Authorization: "Bearer " + getToken(),
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userAddress: address,
-                }),
-            });
-            const { data } = await result.json();
-            data.forEach((n) => {
-                if (!n.metadata) {
-                    return;
-                }
-                n.metadata.image = getImage(n.metadata.image);
-            });
-            setUserNfts = data;
+    // useEffect(async () => {
+    //     console.log("here")
+    //     // try {
+    //     //     const result = await fetch("https://big3-backend.onrender.com/profile", {
+    //     //         method: "POST",
+    //     //         headers: {
+    //     //             Authorization: "Bearer " + token,
+    //     //             "Content-Type": "application/json",
+    //     //         },
+    //     //         body: JSON.stringify({
+    //     //             userAddress: address,
+    //     //         }),
+    //     //     });
+    //     //     const { data } = await result.json();
+    //     //     data.forEach((n) => {
+    //     //         if (!n.metadata) {
+    //     //             return;
+    //     //         }
+    //     //         n.metadata.image = getImage(n.metadata.image);
+    //     //     });
+    //     //     setUserNfts = data;
             
-        } catch (error) {
-            console.log(error);
-        }
-    });
+    //     // } catch (error) {
+    //     //     console.log(error);
+    //     // }
+    // });
 
     return (
         <div className="profile">
