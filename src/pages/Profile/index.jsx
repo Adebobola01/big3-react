@@ -1,8 +1,39 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Profile.scss";
 import madaraImg from "../../assets/images/madara.png";
 import uzuFamImg from "../../assets/images/uzumakiFamily.png";
+import getImage from "../../utils/helpers";
 const Profile = props => {
+
+    const [userNfts, setUserNfts] = useState({});
+    const [address, setAddress] = useState("0xdkjfkajkdjfakjffdajkfa");
+
+    useEffect(async () => {
+        try {
+            const result = await fetch("https://big3-backend.onrender.com/profile", {
+                method: "POST",
+                headers: {
+                    Authorization: "Bearer " + getToken(),
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userAddress: address,
+                }),
+            });
+            const { data } = await result.json();
+            data.forEach((n) => {
+                if (!n.metadata) {
+                    return;
+                }
+                n.metadata.image = getImage(n.metadata.image);
+            });
+            setUserNfts = data;
+            
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
     return (
         <div className="profile">
             <div className="list-box">
