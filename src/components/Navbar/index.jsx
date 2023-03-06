@@ -4,9 +4,9 @@ import NavigationItem from "../Navigation/NavigationItem";
 import ConnectBtn from "../Buttons/ConnectBtn";
 import Logo from "../Logo";
 import Search from "../Input/Search";
-const navbar = props => {
+import ToggleBtn from "../Buttons/ToggletBtn";
 
-    
+const navbar = props => {  
     return (
         <header class="header">
             <div class="nav-bar">
@@ -19,6 +19,7 @@ const navbar = props => {
                 </ul>
                 <div class="btns-container">
                     <ConnectBtn click={props.click} />
+                    <ToggleBtn openSidebar={props.openSidebar} />
                 </div>
                 {/* <button class="toggle-button">
                     <span class="toggle-button__bar"></span>

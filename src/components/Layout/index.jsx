@@ -9,18 +9,22 @@ import Sidebar from "../Navigation/Sidebar";
 const Layout = props => {
 
     const [openWallets, setOpenWallets] = useState(false);
-    const [openBackdrop, setOpenBackdrop] = useState(false);
+    const [openSidebar, setOpenSidebar] = useState(false);
     
     const connectWalletHandler = () => {
         setOpenWallets(!openWallets);
-        setOpenBackdrop(!openBackdrop)
     }
+
+    const sidebarHandler = () => {
+        setOpenSidebar(!openSidebar);
+    }
+
+
     return (
         <>
-            <Backdrop open={openBackdrop} click={connectWalletHandler} />
-            <Wallets open={openWallets} close={connectWalletHandler} />
-            <Navbar click={connectWalletHandler} />
-            <Sidebar/>
+            <Wallets open={openWallets} walletsHandler={connectWalletHandler} />
+            <Navbar click={connectWalletHandler} openSidebar={sidebarHandler} />
+            <Sidebar open={openSidebar} sidebarHandler={sidebarHandler} />
             <Outlet />
             <Footer/>
         </>

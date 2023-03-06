@@ -2,13 +2,13 @@
 
     &-container{
         // display: none;
-        // transform: translateX(100vw);
-        position: absolute;
+        transform: translateX(1000px);
+        position: fixed;
         right: 0;
         // opacity: 0;
+        display: none;
         top: 0;  
         height: auto;
-        margin-top: 10rem;
         width: auto; 
         z-index: 101;
     }
@@ -49,7 +49,6 @@
 
 
 .open-sidebar {
-    opacity: 1 !important;
     animation: sidebar 1s forwards;
     display: block;
 }
@@ -65,4 +64,13 @@
     display: none;
     order: 1;
     position: absolute;
+}
+
+@keyframes sidebar {
+    0% {
+        transform: translateX(1000px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

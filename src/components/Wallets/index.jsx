@@ -1,11 +1,14 @@
 import React from "react";
-import "./Wallets.scss"
+import "./Wallets.scss";
+import Backdrop from "../Backdrop";
 // import metamaskLogo from "./assets/metamask-fox.svg";
 // import walletConnectLogo from "./assets/WalletConnect-icon.svg"
 
 const Wallets = props => {
     console.log(props.open)
     return (
+        <>
+        <Backdrop open={props.open} click={props.walletsHandler} />
         <div className={`wallet__container ${props.open ? "open-wallets" : ""}` }>
             <div className="select-wallet">
                 <span> Select Wallet </span>
@@ -30,6 +33,7 @@ const Wallets = props => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
