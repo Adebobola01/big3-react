@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import Wallets from "../Wallets";
 import Backdrop from "../Backdrop";
 import Footer from "../Footer";
+import Sidebar from "../Navigation/Sidebar";
 
 const Layout = props => {
 
@@ -19,6 +20,7 @@ const Layout = props => {
             <Backdrop open={openBackdrop} click={connectWalletHandler} />
             <Wallets open={openWallets} close={connectWalletHandler} />
             <Navbar click={connectWalletHandler} />
+            <Sidebar/>
             <Outlet />
             <Footer/>
         </>
