@@ -1,23 +1,13 @@
 import React from "react";
 import "./Details.scss";
-import uzuImg from "../../../assets/images/uzumakiFamily.png"
+import NftContainer from "../../../components/NftContainer";
+import uzuImg from "../../../assets/images/uzumakiFamily.png";
+
 const Details = props => {
     return (
         <div class="nft">
             <section class="profile__nft-preview">
-                <div class="nft__details--preview">
-                    <img
-                        src={uzuImg}
-                        alt="nft"
-                        class="explore__nft--image"
-                    />
-                    <div class="explore__nft--details">
-                        <p class="explore__nft--name">Azuki #25</p>
-                        <div class="explore__nft--price">
-                            <p>23 ETH</p>
-                        </div>
-                    </div>
-                </div>
+                <NftContainer/>
             </section>
             <section class="nft__details">
                 <div class="nft__details--heading">

@@ -5,11 +5,11 @@ import "./Logo.scss"
 const logo = props => {
     return (
         <div className="logo">
-            <NavLink link="/" >
+            <NavLink to="/" >
                 <img
                     src={logoImg}
                     alt="logo"
-                    class="logo__icon"
+                    className="logo__icon"
                 />
                 <span class="logo__title">Big3</span>
             </NavLink>

@@ -141,6 +141,11 @@
     }
 }
 
+.explore__nft--image{
+    flex-grow: 3;
+    width: 100%;
+}
+
 .nft__details--preview {
     display: flex;
     flex-direction: column;
