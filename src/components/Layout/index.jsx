@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar";
 import Wallets from "../Wallets";
 import Backdrop from "../Backdrop";
+import Footer from "../Footer";
 
 const Layout = props => {
 
@@ -18,7 +19,8 @@ const Layout = props => {
             <Backdrop open={openBackdrop} click={connectWalletHandler} />
             <Wallets open={openWallets} close={connectWalletHandler} />
             <Navbar click={connectWalletHandler} />
-            <Outlet/>
+            <Outlet />
+            <Footer/>
         </>
     )
 }
