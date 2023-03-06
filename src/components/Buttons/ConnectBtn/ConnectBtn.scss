@@ -10,7 +10,7 @@
         color: white;
         font-size: 1.6rem;
         transition: all 4s;
-        width: 15rem;
+        width: 100%;
         overflow: hidden;
         height: inherit;
     }
@@ -23,7 +23,7 @@
         background-position: 0% 50%;
         background-size: 150% 100%;
         height: auto;
-        
+        width: 15rem;
         &:hover {
             animation: gradient 1s forwards;
             // opacity: 0.6;
