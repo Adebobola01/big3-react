@@ -14,7 +14,7 @@
     }
     &:hover {
         border-bottom: 3px solid #db469f;
-        color: gray;
+        opacity: 0.6;
     }
     &:active {
         border-bottom: 3px solid #db469f;
@@ -33,6 +33,10 @@
         height: 100%;
 
     }
+}
+.active {
+    border-bottom: 3px solid #db469f;
+    opacity: 0.6;
 }
 
 @media (max-width: 1200px){
