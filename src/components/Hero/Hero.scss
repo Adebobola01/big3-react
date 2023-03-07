@@ -22,9 +22,11 @@
     display: flex;
 }
 .col-1-of-2 {
-    height: 40rem;
+    // height: 40rem;
     max-width: 30rem;
     font-size: 7rem;
+    // display: flex;
+    // flex-direction: column;
 
     &:not(:last-child) {
         margin-right: 10rem;
@@ -160,7 +162,6 @@
 
     .section-hero{
         padding: 5rem 0 5rem;
-        height: 50rem;
     }
     .hero__nft-container{
         display: none;
