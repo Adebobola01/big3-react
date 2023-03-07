@@ -16,9 +16,9 @@ const Sidebar = props => {
                         <span class="toggle-button__bar"></span>
                         <span class="toggle-button__bar"></span>
                     </button>
-                    <NavLink to="/explore" className="nav__link explore-link"> Explore </NavLink>
-                    <NavLink to="/create" className="nav__link create-link"> Create</NavLink>
-                    <NavLink to="/profile" className="nav__link profile-link"> Profile</NavLink>
+                    <NavLink to="/explore" className="nav__link explore-link" onClick={props.sidebarHandler} > Explore </NavLink>
+                    <NavLink to="/create" className="nav__link create-link" onClick={props.sidebarHandler}> Create</NavLink>
+                    <NavLink to="/profile" className="nav__link profile-link" onClick={props.sidebarHandler}> Profile</NavLink>
                 </div>
             </div>
         </>
