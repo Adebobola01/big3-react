@@ -39,6 +39,18 @@
     opacity: 0.6;
 }
 
+@media (max-width: 1250px){
+    .NavigationItem {
+        &:not(:last-child){
+            margin-right: 0;
+        }
+
+        &:last-child{
+            display: none;
+        }
+    }
+}
+
 @media (max-width: 1200px){
     .addr-container{
         margin-left: 0;
@@ -47,6 +59,14 @@
     .nav__link{
         &:last-child{
             width: 6rem;
+        }
+    }
+}
+
+@media (max-width: 1180px){
+    .NavigationItem {
+        &:nth-last-child(2){
+            display: none;
         }
     }
 }

@@ -23,3 +23,11 @@
         height: 6rem;
     }
 }
+
+@media (max-width: 440px){
+    .logo{
+        margin-right: 0;
+        flex-grow: 0;
+        justify-content: center;
+    }
+}
