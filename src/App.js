@@ -7,6 +7,7 @@ import { Suspense, lazy } from 'react';
 const Explore = lazy(() => import("./pages/Explore"));
 const Details = lazy(() => import("./pages/Explore/Details"));
 const Profile = lazy(() => import("./pages/Profile"));
+const Create = lazy(() => import("./pages/Create"));
 
 function App() {
   return (
@@ -33,7 +34,11 @@ function App() {
               <Suspense>
                 <Profile />
               </Suspense>} />
-          </Route>          
+              <Route path='/create' element={
+              <Suspense>
+                <Create />
+              </Suspense>} />
+          </Route>   
         </Routes>
       </Suspense>
     </div>
