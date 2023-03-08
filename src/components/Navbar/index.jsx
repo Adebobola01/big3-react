@@ -6,7 +6,7 @@ import Logo from "../Logo";
 import Search from "../Input/Search";
 import ToggleBtn from "../Buttons/ToggletBtn";
 import { AuthContext } from "../../context/auth-context";
-
+import LogoutBtn from "../Buttons/LogoutBtn";
 const Navbar = props => {  
     const authContext = useContext(AuthContext);
     
@@ -22,11 +22,11 @@ const Navbar = props => {
                 </ul>
                 <div class="btns-container">
                     {
-                        authContext.auth ? <span class="addr-container">{authContext.address}</span>
+                        authContext.auth ? <span class="addr-container">{`${authContext.address.slice(0,3)}...${authContext.address.slice(-4)}`}</span>
                             :
                         <ConnectBtn click={props.click} />
                     }
-                    <button class="logout-btn hidden">logout</button>
+                    <LogoutBtn/>
                     <ToggleBtn openSidebar={props.openSidebar} />
                 </div>
                 {/* <button class="toggle-button">
