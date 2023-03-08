@@ -22,11 +22,14 @@ const Navbar = props => {
                 </ul>
                 <div class="btns-container">
                     {
-                        authContext.auth ? <span class="addr-container">{`${authContext.address.slice(0,3)}...${authContext.address.slice(-4)}`}</span>
+                        authContext.auth ?
+                            <>            
+                                <span class="addr-container">{`${authContext.address.slice(0,3)}...${authContext.address.slice(-4)}`}</span>    
+                                <LogoutBtn/>
+                            </>
                             :
-                        <ConnectBtn click={props.click} />
+                            <ConnectBtn click={props.click} />
                     }
-                    <LogoutBtn/>
                     <ToggleBtn openSidebar={props.openSidebar} />
                 </div>
                 {/* <button class="toggle-button">

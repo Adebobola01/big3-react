@@ -3,7 +3,8 @@ const { ethereum } = window;
 export const AuthContext = createContext({
     auth: false,
     address: "",
-    connect: ()=>{}
+    connect: () => { },
+    disconnect: ()=>{}
 });
 
 const AuthContextProvider = props => {
@@ -17,8 +18,12 @@ const AuthContextProvider = props => {
         setConnected(true);
         setAddress(accounts[0]);
     }
+    const disconnectWallet = () => {
+        setConnected(false);
+        setAddress("");
+    }
     return (
-        <AuthContext.Provider value={{auth: connected, address: address, connect: connectWallet}} >
+        <AuthContext.Provider value={{auth: connected, address: address, connect: connectWallet, disconnect: disconnectWallet}} >
             {props.children}
         </AuthContext.Provider>
     )
