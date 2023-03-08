@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./Profile.scss";
 import madaraImg from "../../assets/images/madara.png";
 // import ethImg from "../../assets/images/ethereum-eth-logo.svg";
-import getImage from "../../utils/helpers";
+import {getImage} from "../../utils/helpers";
 import NftContainer from "../../components/NftContainer";
 const Profile = props => {
 
