@@ -13,6 +13,12 @@
     }
 }
 
+.addr-container{
+    font-size: 2rem;
+    width: 8rem;
+    overflow-x: hidden;
+}
+
 .header {
     // position: fixed;
     z-index: 100;
@@ -26,6 +32,7 @@
     width: 20%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     flex-grow: 1;
 }
 
@@ -44,6 +51,24 @@
     justify-content: space-between;
     height: 100%;
     
+}
+
+.logout-btn {
+    // height: 2.5rem;
+    // width: 5rem;
+    padding: .8rem;
+    background-color: transparent;
+    border: 2px solid #db469f;
+    color: #db469f;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-left: 1.6rem;
+
+    &:hover {
+        background-color: #db469f;
+        color: black;
+    }
 }
 
 @media (max-width: 1360px){
