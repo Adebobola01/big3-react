@@ -106,11 +106,14 @@
 @media (max-width: 470px) {
     .footer{
         padding-left: 2rem;
+
+        &__socials {
+            margin-left: 1.5rem;
+        }
     }
-    .copyright{
-        margin-left: 1rem;
-    }
+
 }
+
 
 @media (max-width: 425px) {
     .footer{
@@ -128,7 +131,18 @@
         }
 
         &__soc-cop{
+            margin-top: 2rem;
             flex-direction: column;
+        }
+
+        &__socials{
+            margin-left: 0;
+            margin-top: 1rem;
+            justify-content: center;
+
+            a:not(:last-child) {
+                margin-right: 1rem;
+            }
         }
 
     }
