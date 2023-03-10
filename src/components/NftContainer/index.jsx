@@ -7,11 +7,11 @@ const NftContainer = props => {
             <img
                 src={uzuImg}
                 alt="nft"
-                class="explore__nft--image"
+                class="nft-comp--image"
             />
-            <div class="explore__nft--details">
-                <p class="explore__nft--name">Azuki #25</p>
-                <div class="explore__nft--price">
+            <div class="nft-comp--details">
+                <p class="nft-comp--name">Azuki #25</p>
+                <div class="nft-comp--price">
                     <p>23 ETH</p>
                 </div>
             </div>

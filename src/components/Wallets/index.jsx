@@ -3,13 +3,8 @@ import "./Wallets.scss";
 import Backdrop from "../Backdrop";
 import metamaskLogo from "../../assets/images/MetaMask_Fox.svg";
 import walletConnectLogo from "../../assets/images/walletconnect-seeklogo.com.svg";
-import { getUserAccount } from "../../utils/helpers";
-import Web3 from "web3";
 import { AuthContext } from "../../context/auth-context";
 
-const { ethereum } = window;
-
-const web3 = new Web3(Web3.givenProvider);
 
 const Wallets = props => {
     const authContext = useContext(AuthContext);
