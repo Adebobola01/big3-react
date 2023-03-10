@@ -38,7 +38,7 @@ function App() {
               </Suspense>} />
               <Route path='/create' element={
               <Suspense fallback={<Loader/>} >
-                <Create />
+                <Loader width="100vw" height="100vh" />
               </Suspense>} />
           </Route>   
         </Routes>

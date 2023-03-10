@@ -3,7 +3,9 @@ import "./Loader.scss";
 
 const Loader = props => {
     return (
-        <span class="loader"></span>
+        <div style={{width: props.width || "100vw" , height: props.height || "100vh" , position: "relative", display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "inherit"}}  >
+            <span class="loader"></span>
+        </div>
     )
 }
 

@@ -32,7 +32,7 @@ const Wallets = props => {
                             className="wallet__img"
                         />
                         <span className="wallet__name">Metamask</span>
-                        {loading ? <Loader/> : ""} 
+                        {loading ? <Loader width="4rem" height="4rem"/> : ""} 
                     </div>
                     <div className="wallet__btn">
                         <img
@@ -41,7 +41,7 @@ const Wallets = props => {
                             className="wallet__img"
                         />
                         <span className="wallet__name">WalletConnect</span>
-                        {loading ? <Loader/> : ""}
+                        {loading ? <Loader width="4rem" height="4rem" /> : ""}
                         
                     </div>
                 </div>

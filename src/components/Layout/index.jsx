@@ -5,6 +5,7 @@ import Wallets from "../Wallets";
 import Backdrop from "../Backdrop";
 import Footer from "../Footer";
 import Sidebar from "../Navigation/Sidebar";
+import "./Layout.scss";
 
 const Layout = props => {
 
@@ -25,7 +26,9 @@ const Layout = props => {
             <Wallets open={openWallets} walletsHandler={connectWalletHandler} />
             <Navbar click={connectWalletHandler} openSidebar={sidebarHandler} />
             <Sidebar open={openSidebar} sidebarHandler={sidebarHandler} />
-            <Outlet />
+            <main className="main">
+                <Outlet />
+            </main>
             <Footer/>
         </>
     )
