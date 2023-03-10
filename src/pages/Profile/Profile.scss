@@ -130,26 +130,6 @@
     }
 }
 
-
-.nft__details--preview {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25rem;
-    height: 40rem;
-    background-color: rgb(34, 33, 49);
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    animation: rotateNFT 7s 0s infinite;
-    transition: all 5s;
-
-    &:hover {
-        transform: rotateY(0deg);
-        animation: none;
-    }
-}
-
 .list {
 
     &-box{
