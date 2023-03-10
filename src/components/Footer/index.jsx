@@ -6,7 +6,7 @@ import githubLogo from "../../assets/images/iconmonstr-github-5.svg";
 
 const Footer = props => {
     return (
-        <footer class="footer">
+        <footer class="footer" id="footer" >
                 <div class="footer__container">
                     <nav class="footer__nav">
                         <a href="#" class="footer-nav__link">MarketPlace</a>

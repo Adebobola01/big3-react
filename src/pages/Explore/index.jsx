@@ -2,9 +2,13 @@ import React from "react";
 import uzuImage from "../../assets/images/uzumakiFamily.png";
 import itachiImg from "../../assets/images/itachi.png";
 import "./Explore.scss"
+import { Link } from "react-router-dom";
 const Explore = props => {
+
+
+
     return (
-        <div class="explore__container scrollbar">
+        <div class="explore__container">
         <div class="explore__sort">
             <p>aye sort ni mo fisi ile nibi bayi</p>
             <p>aye sort ni mo fisi ile nibi bayi</p>
@@ -31,9 +35,9 @@ const Explore = props => {
             <p>aye sort ni mo fisi ile nibi bayi</p>
         </div>
         <div class="explore__main">
-            <div class="scroll-down">
+            <Link class="scroll-down" to="#footer" >
                 <span>&gt;&gt;</span>
-            </div>
+            </Link>
             <a
                 class="explore__nft--container"
                 href="/explore/details"
