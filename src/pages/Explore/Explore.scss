@@ -2,7 +2,7 @@
     &__container {
         display: flex;
         // overflow-y: scroll;
-        height: 150vh;
+        // height: 150vh;
         background-color: rgb(22 21 34);
     }
 
@@ -159,6 +159,7 @@
 
         &__main{
             justify-content: center;
+            overflow-y: visible;
         }
     }
 }
