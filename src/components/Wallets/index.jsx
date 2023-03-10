@@ -4,12 +4,16 @@ import Backdrop from "../Backdrop";
 import metamaskLogo from "../../assets/images/MetaMask_Fox.svg";
 import walletConnectLogo from "../../assets/images/walletconnect-seeklogo.com.svg";
 import { AuthContext } from "../../context/auth-context";
+import Loader from "../Loader";
 
 
 const Wallets = props => {
     const authContext = useContext(AuthContext);
-    const connectWallet = () => {
-        authContext.connect();
+    const [loading, setLoading] = useState(false);
+    const connectWallet = async() => {
+        setLoading(true);
+        await authContext.connect();
+        setLoading(false); 
         props.walletsHandler();
     }
     return (
@@ -28,6 +32,7 @@ const Wallets = props => {
                             className="wallet__img"
                         />
                         <span className="wallet__name">Metamask</span>
+                        {loading ? <Loader/> : ""} 
                     </div>
                     <div className="wallet__btn">
                         <img
@@ -36,6 +41,8 @@ const Wallets = props => {
                             className="wallet__img"
                         />
                         <span className="wallet__name">WalletConnect</span>
+                        {loading ? <Loader/> : ""}
+                        
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ export const AuthContext = createContext({
 
 const AuthContextProvider = props => {
     const [connected, setConnected] = useState(false);
-    const [address, setAddress] = useState("")
+    const [address, setAddress] = useState("");
     const connectWallet = async() => {
         const accounts = await ethereum.request({
             method: "eth_requestAccounts",

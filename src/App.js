@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Layout from './components/Layout';
 import { Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
+import Loader from './components/Loader';
 
 const Explore = lazy(() => import("./pages/Explore"));
 const Details = lazy(() => import("./pages/Explore/Details"));
@@ -13,30 +14,30 @@ const Create = lazy(() => import("./pages/Create"));
 function App() {
   return (
     <div className="App">
-      <Suspense >
+      <Suspense fallback={<Loader/>} >
         <Routes>
           <Route path='/' element={<Layout/>}>
             <Route path='' element={
-              <Suspense>
+              <Suspense fallback={<Loader/>} >
                 <Home />
               </Suspense>
             }/>
             <Route path="/explore" element={
-              <Suspense>
+              <Suspense fallback={<Loader/>} >
                 <Explore />
               </Suspense>
             }/>
             <Route path='/explore/details' element={
-              <Suspense>
+              <Suspense fallback={<Loader/>} >
                 <Details/>
               </Suspense>
             } />
             <Route path='/profile' element={
-              <Suspense>
+              <Suspense fallback={<Loader/>} >
                 <Profile />
               </Suspense>} />
               <Route path='/create' element={
-              <Suspense>
+              <Suspense fallback={<Loader/>} >
                 <Create />
               </Suspense>} />
           </Route>   
