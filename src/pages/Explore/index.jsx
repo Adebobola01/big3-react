@@ -35,9 +35,9 @@ const Explore = props => {
             <p>aye sort ni mo fisi ile nibi bayi</p>
         </div>
         <div class="explore__main">
-            <Link class="scroll-down" to="#footer" >
+            {/* <Link class="scroll-down" to="#footer" >
                 <span>&gt;&gt;</span>
-            </Link>
+            </Link> */}
             <a
                 class="explore__nft--container"
                 href="/explore/details"

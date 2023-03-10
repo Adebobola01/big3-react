@@ -31,6 +31,7 @@ const Profile = props => {
                 n.metadata.image = getImage(n.metadata.image);
             });
             setUserNfts(data);
+            console.log(data)
             
         } catch (error) {
             console.log("failed!");

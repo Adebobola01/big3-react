@@ -38,7 +38,7 @@
         margin-top: 4rem;
         transition: transform 0.5s;
 
-        &:not(:last-child) {
+        &:not(:nth-child(4n)) {
             margin-right: 1rem;
         }
         &:hover {
@@ -124,6 +124,33 @@
 }
 
 
+@media (max-width: 1526px){
+    .explore {
+        &__nft--container {
+            &:not(:nth-child(4n)) {
+                margin-right: 0;
+            }
+            &:not(:nth-child(3n)) {
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 1003px){
+    .explore {
+        &__nft--container {
+            &:not(:nth-child(3n)) {
+                margin-right: 0;
+            }
+            &:not(:nth-child(2n)) {
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+
 @media (max-width: 1330px){
     .explore {
         &__sort{
@@ -136,10 +163,15 @@
     }
 }
 
-@media (max-width: 1000px){
-    .explore{
-        &__main{
-            // justify-content: start;
+@media (max-width: 400px){
+    .explore {
+        &__nft--container {
+            &:not(:nth-child(2n)) {
+                margin-right: 0;
+            }
+            &:not(:nth-child(1n)) {
+                margin-right: 0;
+            }
         }
     }
 }
