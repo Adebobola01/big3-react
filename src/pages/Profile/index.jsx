@@ -6,6 +6,7 @@ import {getImage} from "../../utils/helpers";
 import NftContainer from "../../components/NftContainer";
 import { Link, Outlet } from "react-router-dom";
 import NavigationItem from "../../components/Navigation/NavigationItem";
+import { NavLink } from "react-router-dom";
 const Profile = props => {
 
     const [userNfts, setUserNfts] = useState();
@@ -68,6 +69,13 @@ const Profile = props => {
         </div>
         ;
     
+    const style = ({ isActive, isPending }) => {
+        return {
+            backgroundColor: isActive ? "rgba(91, 90, 97, 0.568)" : "",
+            borderBottom: isActive ? "none" : ""
+        }
+    }
+    
     return (
         <div className="profile">
             <div className="list-box">
@@ -112,15 +120,9 @@ const Profile = props => {
                     </div>
                 </div>
                 <ul className="profile__navigation">
-                    <li>
-                        <Link to='' className="profile-nav">Your Nfts</Link> 
-                    </li>
-                    <li>
-                        <Link to='created' className="profile-nav">Created</Link> 
-                    </li>
-                    <li>
-                        <Link to='listed' className="profile-nav">Listed</Link> 
-                    </li>
+                        <NavLink to='' style={style} end > <li>Your Nfts</li></NavLink> 
+                        <NavLink to='created' style={style}> <li>Created</li></NavLink> 
+                        <NavLink to='listed' style={style}><li>Listed</li></NavLink> 
                 </ul>
                 <div className="profile__user--body">
                     <Outlet/>
