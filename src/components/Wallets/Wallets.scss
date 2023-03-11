@@ -1,5 +1,5 @@
 .wallet__container {
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     opacity: 1;
@@ -60,7 +60,8 @@
 }
 
 .wallet__name {
-    width: 30%;
+    width: auto;
+
 }
 
 .wallet__img {
@@ -101,13 +102,27 @@
     }
 }
 
-@media (max-width: 400px){
+
+@media (max-width: 1000px){
     .wallet__container{
-        width: 30rem;
+        width: 45rem;
+        height: 35rem;
+    }
+
+}
+
+@media (max-width: 530px){
+    .wallet__container{
+        width: 40rem;
         height: 30rem;
     }
-    .wallet__name{
-        width: auto
+}
+
+
+@media (max-width: 430px){
+    .wallet__container{
+        width: 29rem;
+        height: 29rem;
     }
 }
 
