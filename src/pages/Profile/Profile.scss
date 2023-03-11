@@ -303,14 +303,42 @@
 }
 
 
-@media (max-width: 800px){
+@media (max-width: 1150px){
     .profile {
-        &__nft-preview {
-            width: 23rem;
+        &__user--body{
+            padding: 17rem;
+        }
+
+    }
+}
+
+@media (max-width: 1150px){
+    .profile {
+        &__nft-preview{
+            display: none;
+        }
+
+    }
+}
+
+
+@media (max-width: 950px){
+    .profile {
+        &-content{
+            padding: 8rem 6rem;
         }
 
         &__user--body{
-            padding: 0;
+            padding: 14rem;
+        }
+
+    }
+}
+
+@media (max-width: 800px){
+    .profile {
+        &__user--body{
+            padding: 8rem;
         }
 
     }
@@ -321,9 +349,6 @@
 
 @media (max-width: 730px){
     .profile{
-        &__nft-preview{
-            display: none
-        }
         &__user--body{
 
             padding: 2rem;
