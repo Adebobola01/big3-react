@@ -40,9 +40,9 @@
             margin-right: 0;
         }
 
-        &:last-child{
-            display: none;
-        }
+        // &:last-child{
+        //     display: none;
+        // }
     }
 }
 
@@ -60,9 +60,9 @@
 
 @media (max-width: 1180px){
     .NavigationItem {
-        &:nth-last-child(2){
-            display: none;
-        }
+        // &:nth-last-child(2){
+        //     display: none;
+        // }
     }
 }
 
@@ -83,9 +83,9 @@
 }
 
 @media (max-width: 1000px) {
-    .nav{
-        display: none;
-    }
+    // .nav{
+    //     display: none;
+    // }
 
     .mobile__connect{
         display: block;
@@ -95,6 +95,19 @@
     }
     .pc__connect{
         display: none;
+    }
+    .NavigationItem {
+        &:last-child{
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 750px){
+    .NavigationItem {
+        &:nth-last-child(2){
+            display: none;
+        }
     }
 }
 

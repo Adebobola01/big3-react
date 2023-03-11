@@ -132,6 +132,7 @@
 
         &__soc-cop{
             margin-top: 2rem;
+            align-items: center;
             flex-direction: column;
         }
 
@@ -172,9 +173,5 @@
     .footer{
         padding-left: .3rem;
         font-size: .4rem;
-
-        &__socials{
-            width: 7rem;
-        }
     }
 }

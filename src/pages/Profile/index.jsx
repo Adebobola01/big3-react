@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import "./Profile.scss";
 import madaraImg from "../../assets/images/madara.png";
 // import ethImg from "../../assets/images/ethereum-eth-logo.svg";
@@ -7,8 +7,9 @@ import NftContainer from "../../components/NftContainer";
 import { Link, Outlet } from "react-router-dom";
 import NavigationItem from "../../components/Navigation/NavigationItem";
 import { NavLink } from "react-router-dom";
+import {AuthContext} from "../../context/auth-context"
 const Profile = props => {
-
+    const authContext = useContext(AuthContext);
     const [userNfts, setUserNfts] = useState();
     const [address, setAddress] = useState("0xdkjfkajkdjfakjffdajkfa");
     const [token, setToken] = useState("lkfdalfjlka");
@@ -72,7 +73,8 @@ const Profile = props => {
     const style = ({ isActive, isPending }) => {
         return {
             backgroundColor: isActive ? "rgba(91, 90, 97, 0.568)" : "",
-            borderBottom: isActive ? "none" : ""
+            borderBottom: isActive ? "2px solid white" : "",
+            opacity: isActive ? "1" : ""
         }
     }
     
@@ -115,12 +117,16 @@ const Profile = props => {
                     <div className="profile__user--details">
                         <p className="profile__user--title">
                             Adebobola Oyedunmade
-                            </p>
-                        <span className="profile__user--address">0x000...000</span>
+                        </p>
+                        {authContext.address ? 
+                            <span>{`${authContext.address.slice(0,3)}...${authContext.address.slice(-6)}`}</span>
+                            :
+                            <span className="profile__user--address">0x000...000</span>
+                        }
                     </div>
                 </div>
                 <ul className="profile__navigation">
-                        <NavLink to='' style={style} end > <li>Your Nfts</li></NavLink> 
+                        <NavLink to='' style={style} end > <li>Collected</li></NavLink> 
                         <NavLink to='created' style={style}> <li>Created</li></NavLink> 
                         <NavLink to='listed' style={style}><li>Listed</li></NavLink> 
                 </ul>

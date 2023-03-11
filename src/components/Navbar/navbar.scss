@@ -64,18 +64,17 @@
 @media (max-width: 1250px){
     .nav{
         margin-left: 4rem;
-        width: 24rem;
     }
     .btns-container{
-        width: 30rem;
+        width: 25rem;
     }
 }
 
 @media (max-width: 1180px){
     .nav{
-        width: 15rem;
+        // width: 15rem;
         margin-left: 3rem;
-        justify-content: center;
+        justify-content: space-between;
     }
 }
 
@@ -88,8 +87,18 @@
 
 @media (max-width: 1000px){
     .btns-container{
-        margin-left: 0;
-        flex-grow: 1;
+        margin-left: 1.6rem;
+    }
+    .nav{
+        width: 20rem;
+        margin-left: 0;   
+    }
+}
+
+@media (max-width: 950px){
+    .nav{
+        margin-left: 2rem;
+        width: 16rem;
     }
 }
 
@@ -109,6 +118,18 @@
 @media (max-width: 815px) {
     .nav-bar{
         padding-right: 1rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .nav{
+        width: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .nav{
+        display: none;
     }
 }
 
