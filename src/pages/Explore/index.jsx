@@ -2,7 +2,6 @@ import React from "react";
 import uzuImage from "../../assets/images/uzumakiFamily.png";
 import itachiImg from "../../assets/images/itachi.png";
 import "./Explore.scss"
-import { Link } from "react-router-dom";
 const Explore = props => {
 
 
@@ -26,11 +25,6 @@ const Explore = props => {
 
             <p>aye sort ni mo fisi ile nibi bayi</p>
 
-            <p>aye sort ni mo fisi ile nibi bayi</p>
-            <p>aye sort ni mo fisi ile nibi bayi</p>
-            <p>aye sort ni mo fisi ile nibi bayi</p>
-            <p>aye sort ni mo fisi ile nibi bayi</p>
-            <p>aye sort ni mo fisi ile nibi bayi</p>
             <p>aye sort ni mo fisi ile nibi bayi</p>
             <p>aye sort ni mo fisi ile nibi bayi</p>
         </div>

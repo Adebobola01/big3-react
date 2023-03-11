@@ -1,9 +1,9 @@
 .logo {
     // width: 20%;
-    margin-right: 2rem;
     position: relative;
     height: 100%;
     display: flex;
+    min-width: 13rem;
     // align-items: center;
 
     a {
@@ -15,6 +15,8 @@
         font-size: 4rem;
         align-self: center;
         color: white;
+        position: absolute;
+        left: 5rem;
     }
 
     &__icon{
@@ -24,10 +26,10 @@
     }
 }
 
-@media (max-width: 440px){
-    .logo{
-        margin-right: 0;
-        flex-grow: 0;
-        justify-content: center;
-    }
-}
+// @media (max-width: 440px){
+//     .logo{
+//         margin-right: 0;
+//         flex-grow: 0;
+//         justify-content: center;
+//     }
+// }
