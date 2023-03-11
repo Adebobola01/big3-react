@@ -4,6 +4,8 @@ import madaraImg from "../../assets/images/madara.png";
 // import ethImg from "../../assets/images/ethereum-eth-logo.svg";
 import {getImage} from "../../utils/helpers";
 import NftContainer from "../../components/NftContainer";
+import { Link, Outlet } from "react-router-dom";
+import NavigationItem from "../../components/Navigation/NavigationItem";
 const Profile = props => {
 
     const [userNfts, setUserNfts] = useState();
@@ -109,7 +111,19 @@ const Profile = props => {
                         <span className="profile__user--address">0x000...000</span>
                     </div>
                 </div>
+                <ul className="profile__navigation">
+                    <li>
+                        <Link to='' className="profile-nav">Your Nfts</Link> 
+                    </li>
+                    <li>
+                        <Link to='created' className="profile-nav">Created</Link> 
+                    </li>
+                    <li>
+                        <Link to='listed' className="profile-nav">Listed</Link> 
+                    </li>
+                </ul>
                 <div className="profile__user--body">
+                    <Outlet/>
                     {contentBody}
                 </div>
             </section>

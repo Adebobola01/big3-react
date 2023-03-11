@@ -9,6 +9,9 @@ const Explore = lazy(() => import("./pages/Explore"));
 const Details = lazy(() => import("./pages/Explore/Details"));
 const Profile = lazy(() => import("./pages/Profile"));
 const Create = lazy(() => import("./pages/Create"));
+const Listed = lazy(() => import("./pages/Profile/Listed/index"));
+const YourNfts = lazy(() => import("./pages/Profile/YourNfts/index"));
+const Created = lazy(() => import("./pages/Profile/Created/index"));
 
 
 function App() {
@@ -35,11 +38,29 @@ function App() {
             <Route path='/profile' element={
               <Suspense fallback={<Loader/>} >
                 <Profile />
-              </Suspense>} />
-              <Route path='/create' element={
+              </Suspense>
+            }>
+              <Route path='' index element={
+                <Suspense fallback={<Loader/>} >
+                  <YourNfts/>
+                </Suspense>
+              } />
+              <Route path='created' element={
+                <Suspense fallback={<Loader/>} >
+                  <Created/>
+                </Suspense>
+              } />
+              <Route path='listed' element={
+                <Suspense fallback={<Loader/>} >
+                  <Listed/>
+                </Suspense>
+              }/>
+            </Route>
+            <Route path='/create' element={
               <Suspense fallback={<Loader/>} >
                 <Loader width="100vw" height="100vh" />
-              </Suspense>} />
+              </Suspense>
+            } />
           </Route>   
         </Routes>
       </Suspense>

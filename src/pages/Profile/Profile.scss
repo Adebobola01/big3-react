@@ -27,7 +27,6 @@
             display: flex;
             align-items: center;
             padding: 2rem;
-            border-bottom: 1px solid rgb(126, 121, 121);
             img {
                 height: 10rem;
                 width: 10rem;
@@ -53,6 +52,35 @@
             justify-content: space-around;
             flex-wrap: wrap;
             align-items: center;
+        }
+    }
+
+    &__navigation{
+        padding: 0;
+        text-align: left;
+        border-bottom: 1px solid rgb(126, 121, 121);
+        display: flex;
+
+        li{
+            list-style: none;
+            font-size: 3rem;
+            padding: 1rem;
+            color: white;
+            
+            &:not(:last-child){
+                margin-right: 2rem;
+            }
+            
+            a{
+                text-decoration: none;
+                color: #fff;
+                font-size: 2.6rem;
+                font-weight: 500;
+            }
+
+            &:hover,&:active{
+                background-color: rgba(91, 90, 97, 0.568);
+            }
         }
     }
 
