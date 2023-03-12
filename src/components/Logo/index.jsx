@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/big3-logo.png"
 import "./Logo.scss"
 const logo = props => {
@@ -11,7 +11,7 @@ const logo = props => {
                     alt="logo"
                     className="logo__icon"
                 />
-                <span class="logo__title">Big3</span>
+                <span className="logo__title">Big3</span>
             </Link>
         </div>
     )

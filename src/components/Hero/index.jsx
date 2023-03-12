@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Hero.scss"
 const Hero = props => {
     return (
-        <section class="section-hero">
-            <div class="row">
-                <div class="col-1-of-2">
-                    <div class="hero__nft-container">
+        <section className="section-hero">
+            <div className="row">
+                <div className="col-1-of-2">
+                    <div className="hero__nft-container">
                     </div>
                 </div>
-                <div class="col-1-of-2">
-                    <div class="row__content">
+                <div className="col-1-of-2">
+                    <div className="row__content">
                         <h2>Collect, sell NFTs</h2>
                         <p>
                             Explore, collect, buy and sell anime based
                             NFTs
                         </p>
                     </div>
-                    <div class="btn__container">
+                    <div className="btn__container">
                         <NavLink to="/explore" className="explore-cta">EXPLORE</NavLink>
                     </div>
                 </div>

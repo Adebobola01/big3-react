@@ -11,7 +11,7 @@ const search = props => {
             /> */}
             <input
                 type="text"
-                class="search__field"
+                className="search__field"
                 placeholder="Search Collections and Creators"
             />
         </form>

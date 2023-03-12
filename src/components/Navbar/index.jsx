@@ -11,20 +11,20 @@ const Navbar = props => {
     const authContext = useContext(AuthContext);
     
     return (
-        <header class="header">
-            <div class="nav-bar">
+        <header className="header">
+            <div className="nav-bar">
                 <Logo />
                 <Search/>
-                <ul class="nav">
+                <ul className="nav">
                     <NavigationItem link="/explore">Explore</NavigationItem>
                     <NavigationItem link="/create">Create</NavigationItem>
                     <NavigationItem link="/profile">Profile</NavigationItem>
                 </ul>
-                <div class="btns-container">
+                <div className="btns-container">
                     {
                         authContext.auth ?
                             <>            
-                                <span class="addr-container">{`${authContext.address.slice(0,3)}...${authContext.address.slice(-4)}`}</span>    
+                                <span className="addr-container">{`${authContext.address.slice(0,3)}...${authContext.address.slice(-4)}`}</span>    
                                 <LogoutBtn/>
                             </>
                             :
@@ -32,12 +32,12 @@ const Navbar = props => {
                     }
                     <ToggleBtn openSidebar={props.openSidebar} />
                 </div>
-                {/* <button class="toggle-button">
-                    <span class="toggle-button__bar"></span>
-                    <span class="toggle-button__bar"></span>
-                    <span class="toggle-button__bar"></span>
+                {/* <button className="toggle-button">
+                    <span className="toggle-button__bar"></span>
+                    <span className="toggle-button__bar"></span>
+                    <span className="toggle-button__bar"></span>
                 </button>
-                <button class="logout-btn hidden">logout</button> */}
+                <button className="logout-btn hidden">logout</button> */}
             </div>
         </header>
                     

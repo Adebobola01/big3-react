@@ -3,10 +3,10 @@ import "./ToggleBtn.scss";
 
 const ToggleBtn = props => {
     return (
-        <button class="toggle-button" onClick={props.openSidebar} >
-            <span class="toggle-button__bar"></span>
-            <span class="toggle-button__bar"></span>
-            <span class="toggle-button__bar"></span>
+        <button className="toggle-button" onClick={props.openSidebar} >
+            <span className="toggle-button__bar"></span>
+            <span className="toggle-button__bar"></span>
+            <span className="toggle-button__bar"></span>
         </button>
     )
 }

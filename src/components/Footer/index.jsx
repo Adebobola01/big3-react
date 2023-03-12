@@ -6,59 +6,59 @@ import githubLogo from "../../assets/images/iconmonstr-github-5.svg";
 
 const Footer = props => {
     return (
-        <footer class="footer" id="footer" >
-                <div class="footer__container">
-                    <nav class="footer__nav">
-                        <a href="#" class="footer-nav__link">MarketPlace</a>
+        <footer className="footer" id="footer" >
+                <div className="footer__container">
+                    <nav className="footer__nav">
+                        <a href="#" className="footer-nav__link">MarketPlace</a>
                         <a
                             href="https://github.com/Adebobola01/TheBig3-minting-website"
-                            class="footer-nav__link"
+                            className="footer-nav__link"
                             >Docs</a
                         >
-                        <a href="#" class="footer-nav__link">How to Use</a>
+                        <a href="#" className="footer-nav__link">How to Use</a>
                         <a
                             href="https://www.linkedin.com/in/adebobola-oyedunmade-34a464218/"
-                            class="footer-nav__link"
+                            className="footer-nav__link"
                             >Developer</a
                         >
                     </nav>
-                    <div class="footer__soc-cop">
-                        <p class="copyright">
-                            © 2022 by <a href="#" class="dev">Adebobola</a> . All
+                    <div className="footer__soc-cop">
+                        <p className="copyright">
+                            © 2022 by <a href="#" className="dev">Adebobola</a> . All
                             rights reserved.
                         </p>
-                        <div class="footer__socials">
+                        <div className="footer__socials">
                             <a
                                 href="https://twitter.com/AdebobolaMuhyd1"
                                 target="_blank"
-                                class="social__link"
+                                className="social__link"
                             >
                                 <img
                                     src={twitterLogo}
                                     alt="twitter"
-                                    class="social-img"
+                                    className="social-img"
                                 />
                             </a>
                             <a
                                 href="https://www.linkedin.com/in/adebobola-oyedunmade-34a464218/"
                                 target="_blank"
-                                class="social__link"
+                                className="social__link"
                             >
                                 <img
                                     src={linkedInLogo}
                                     alt="linkedIn"
-                                    class="social-img"
+                                    className="social-img"
                                 />
                             </a>
                             <a
                                 href="https://github.com/Adebobola01/TheBig3-minting-website"
                                 target="_blank"
-                                class="social__link"
+                                className="social__link"
                             >
                                 {/* <img
                                     src={githubLogo}
                                     alt="github"
-                                    class="social-img"
+                                    className="social-img"
                                 /> */}
                             <svg alt="github" className="social-img"
                                 xmlns="http://www.w3.org/2000/svg"
