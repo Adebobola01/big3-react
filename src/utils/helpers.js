@@ -36,7 +36,7 @@ export const getImage = (image) => {
 
 export const getUserAccount = async (account) => {
     try {
-        const result = await fetch("https://localhost:5000/message", {
+        const result = await fetch("http://localhost:5000/message", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -15,7 +15,7 @@ export const AuthContext = createContext({
 const AuthContextProvider = props => {
     const [connected, setConnected] = useState(false);
     const [address, setAddress] = useState("");
-    const [authSignature, setAuthSignature] = useState("");
+    // const [authSignature, setAuthSignature] = useState("");
     const connectWallet = async () => {
         try {
             const accounts = await ethereum.request({
@@ -23,8 +23,9 @@ const AuthContextProvider = props => {
             });
             const account = accounts[0];
             const message = await getUserAccount(account);
-            authSignature = await web3.eth.personal.sign(message, account);
-            const res = verifyMessage(authSignature, message);
+            const signature = await web3.eth.personal.sign(message, account);
+            const res = await verifyMessage(signature, message);
+            console.log(res);
             setConnected(true);
             setAddress(res);            
         } catch (error) {
