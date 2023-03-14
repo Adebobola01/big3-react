@@ -1,22 +1,35 @@
 import React, { createContext, useState } from "react";
+import { getUserAccount, verifyMessage } from "../utils/helpers";
+import Web3 from "web3";
 const { ethereum } = window;
+const web3 = new Web3(Web3.givenProvider);
+
 export const AuthContext = createContext({
     auth: false,
     address: "",
     connect: () => { },
-    disconnect: ()=>{}
+    disconnect: () => { },
+    
 });
 
 const AuthContextProvider = props => {
     const [connected, setConnected] = useState(false);
     const [address, setAddress] = useState("");
-    const connectWallet = async() => {
-        const accounts = await ethereum.request({
-            method: "eth_requestAccounts",
-        });
-        console.log(accounts);
-        setConnected(true);
-        setAddress(accounts[0]);
+    const [authSignature, setAuthSignature] = useState("");
+    const connectWallet = async () => {
+        try {
+            const accounts = await ethereum.request({
+                method: "eth_requestAccounts",
+            });
+            const account = accounts[0];
+            const message = await getUserAccount(account);
+            authSignature = await web3.eth.personal.sign(message, account);
+            const res = verifyMessage(authSignature, message);
+            setConnected(true);
+            setAddress(res);            
+        } catch (error) {
+            console.log(error);
+        }
     }
     const disconnectWallet = () => {
         setConnected(false);

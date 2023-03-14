@@ -17,7 +17,9 @@ const Profile = props => {
     const getUserData = async() => {        
         console.log("here")
         try {
-            const result = await fetch("https://big3-backend.onrender.com/profile", {
+            // const result = await fetch("https://big3-backend.onrender.com/profile", {
+            const result = await fetch("http://localhost:5000/profile", {
+
                 method: "POST",
                 headers: {
                     Authorization: "Bearer " + token,
@@ -28,6 +30,7 @@ const Profile = props => {
                 }),
             });
             const { data } = await result.json();
+            console.log(data);
             data.forEach((n) => {
                 if (!n.metadata) {
                     return;
