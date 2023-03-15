@@ -3,15 +3,15 @@ import uzuImg from "../../assets/images/uzumakiFamily.png";
 import "./NftContainer.scss";
 const NftContainer = props => {
     return (
-        <div class="nft__details--preview">
+        <div className="nft__details--preview">
             <img
                 src={uzuImg}
                 alt="nft"
-                class="nft-comp--image"
+                className="nft-comp--image"
             />
-            <div class="nft-comp--details">
-                <p class="nft-comp--name">Azuki #25</p>
-                <div class="nft-comp--price">
+            <div className="nft-comp--details">
+                <p className="nft-comp--name">Azuki #25</p>
+                <div className="nft-comp--price">
                     <p>23 ETH</p>
                 </div>
             </div>

@@ -7,7 +7,7 @@ const LogoutBtn = props => {
         authContext.disconnect();
     }
     return (
-        <button class="logout-btn hidden" onClick={disconnect} >logout</button>
+        <button className="logout-btn hidden" onClick={disconnect} >logout</button>
     )
 }
 

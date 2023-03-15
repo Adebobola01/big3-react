@@ -1,16 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar";
 import Wallets from "../Wallets";
-import Backdrop from "../Backdrop";
 import Footer from "../Footer";
 import Sidebar from "../Navigation/Sidebar";
 import "./Layout.scss";
+import { AuthContext } from "../../context/auth-context";
+
+const token = localStorage.getItem("token");
+const expiryDate = localStorage.getItem("expiryDate");
+const address = localStorage.getItem("address");
 
 const Layout = props => {
 
+    const authContext = useContext(AuthContext);
     const [openWallets, setOpenWallets] = useState(false);
     const [openSidebar, setOpenSidebar] = useState(false);
+
+    const init = async () => {
+        console.log("layout useEffect!")
+        const stillValid = () => {
+            if (new Date(expiryDate) > new Date()) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        
+        if (token && stillValid) {
+            authContext.autoConnect(address);
+        }
+        // model.setAutoLogout(new Date(expiryDate) - new Date());   
+    }
+
+
+
+    useEffect(() => {
+        init();
+    }, [])
     
     const connectWalletHandler = () => {
         setOpenWallets(!openWallets);

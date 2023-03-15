@@ -13,7 +13,6 @@ const Listed = lazy(() => import("./pages/Profile/Listed/index"));
 const YourNfts = lazy(() => import("./pages/Profile/YourNfts/index"));
 const Created = lazy(() => import("./pages/Profile/Created/index"));
 
-
 function App() {
   return (
     <div className="App">

@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { getUserAccount, verifyMessage } from "../utils/helpers";
+import { getUserAccount, verifyMessage, logoutHandler } from "../utils/helpers";
 import Web3 from "web3";
 const { ethereum } = window;
 const web3 = new Web3(Web3.givenProvider);
@@ -9,7 +9,7 @@ export const AuthContext = createContext({
     address: "",
     connect: () => { },
     disconnect: () => { },
-    
+    autoConnect: ()=>{}
 });
 
 const AuthContextProvider = props => {
@@ -27,17 +27,22 @@ const AuthContextProvider = props => {
             const res = await verifyMessage(signature, message);
             console.log(res);
             setConnected(true);
-            setAddress(res);            
+            setAddress(res);         
         } catch (error) {
             console.log(error);
         }
     }
     const disconnectWallet = () => {
+        logoutHandler()
         setConnected(false);
         setAddress("");
     }
+    const autoConnect = (_address) => {
+        setConnected(true);
+        setAddress(_address)
+    }
     return (
-        <AuthContext.Provider value={{auth: connected, address: address, connect: connectWallet, disconnect: disconnectWallet}} >
+        <AuthContext.Provider value={{auth: connected, address: address, connect: connectWallet, disconnect: disconnectWallet, autoConnect: autoConnect }} >
             {props.children}
         </AuthContext.Provider>
     )
