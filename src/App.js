@@ -29,7 +29,7 @@ function App() {
                 <Explore />
               </Suspense>
             }/>
-            <Route path='/explore/details' element={
+            <Route path='/explore/details/:contractAddr/:tokenId' element={
               <Suspense fallback={<Loader/>} >
                 <Details/>
               </Suspense>
