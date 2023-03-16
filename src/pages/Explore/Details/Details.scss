@@ -12,7 +12,7 @@
     // align-items: center;
     background-color: rgb(22 21 34);
     color: #fff;
-    padding: 2rem 4rem 2rem 3rem;
+    padding: 2rem 4rem 6rem 6rem;
     font-size: 1.5rem;
 
     a {
@@ -129,7 +129,8 @@
   margin-top: 3rem;
   font-size: 8rem;
   &__body {
-    width: 70%;
+    height: 10rem;
+    max-width: 50rem;
     margin-right: 0;
   }
 }
@@ -226,6 +227,12 @@
 .offer-btn {
   background-color: transparent;
   border: 1px solid #fff;
+}
+
+@media (max-width: 1000px) {
+  .profile__nft-preview {
+    display: none;
+  }
 }
 
 @media (max-width: 450px) {
