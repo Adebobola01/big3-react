@@ -5,6 +5,7 @@ import Wallets from "../Wallets";
 import Footer from "../Footer";
 import Sidebar from "../Navigation/Sidebar";
 import "./Layout.scss";
+import Error from "../Error";
 import { AuthContext } from "../../context/auth-context";
 
 const token = localStorage.getItem("token");
@@ -47,11 +48,18 @@ const Layout = props => {
         setOpenSidebar(!openSidebar);
     }
 
+    const contentError = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae
+        quas vel sint commodi repudiandae
+        consequuntur voluptatum laborum numquam
+        blanditiis harum quisquam eius sed odit
+        fugiat iusto fuga praesentium optio, eaque
+        rerum! Provident similique accusantium nemo
+    autem. Veritatis obcaecati tenetur iure eius`
 
     return (
         <>
             <Wallets open={openWallets} walletsHandler={connectWalletHandler} />
-            <Navbar click={connectWalletHandler} openSidebar={sidebarHandler} />
+            <Navbar click={ connectWalletHandler} openSidebar={sidebarHandler} />
             <Sidebar open={openSidebar} sidebarHandler={sidebarHandler} />
             <main className="main">
                 <Outlet />

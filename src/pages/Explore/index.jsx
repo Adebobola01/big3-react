@@ -34,7 +34,7 @@ const Explore = props => {
             </Link> */}
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                    href="explore/details/0x19e0q8urq0r89qr9/#25"
             >
                 <img
                     src={uzuImage}

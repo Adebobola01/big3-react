@@ -7,8 +7,12 @@ import Search from "../Input/Search";
 import ToggleBtn from "../Buttons/ToggletBtn";
 import { AuthContext } from "../../context/auth-context";
 import LogoutBtn from "../Buttons/LogoutBtn";
+import Error from "../Error";
 const Navbar = props => {  
     const authContext = useContext(AuthContext);
+    const showError = () => (
+        authContext.auth ? null : <Error errorMessage="You need to connect your wallet first!" />
+    )
     
     return (
         <header className="header">
