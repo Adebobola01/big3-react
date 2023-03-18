@@ -4,8 +4,6 @@ import itachiImg from "../../assets/images/itachi.png";
 import "./Explore.scss"
 const Explore = props => {
 
-
-
     return (
         <div className="explore__container">
         <div className="explore__sort">
@@ -34,7 +32,7 @@ const Explore = props => {
             </Link> */}
             <a
                 className="explore__nft--container"
-                    href="explore/details/0x19e0q8urq0r89qr9/#25"
+                    href="explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -60,7 +58,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -86,7 +84,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -112,7 +110,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -138,7 +136,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -164,7 +162,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -190,7 +188,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -216,7 +214,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -242,7 +240,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -268,7 +266,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -294,7 +292,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -320,7 +318,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
@@ -346,7 +344,7 @@ const Explore = props => {
             </a>
             <a
                 className="explore__nft--container"
-                href="/explore/details"
+                href="/explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
             >
                 <img
                     src={uzuImage}
