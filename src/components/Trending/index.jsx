@@ -7,7 +7,7 @@ const Trending = props => {
     return (
         <section className="Trending" >
             <span>
-                Trending
+                Trending Collections
             </span>
             <div className="Trending-nfts">
                 <div className="Trending-nft">
