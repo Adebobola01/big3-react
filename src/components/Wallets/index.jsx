@@ -41,7 +41,7 @@ const Wallets = props => {
                             className="wallet__img"
                         />
                         <span className="wallet__name">WalletConnect</span>
-                        {loading ? <Loader width="4rem" height="4rem" /> : ""}
+                        {/* {loading ? <Loader width="4rem" height="4rem" /> : ""} */}
                         
                     </div>
                 </div>

@@ -11,21 +11,25 @@ const Details = props => {
     const token = localStorage.getItem("token");
     const [details, setDetails] = useState(null);
 
-    const getDetails = async() => {
-        const result = await fetch("http://localhost:5000/nftDetails", {
-            method: "POST",
-            headers: {
-                Authorization: "Bearer " + token,
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                contractAddress: contractAddr,
-                tokenId: tokenId
-            }),
-        });
-
-        const data = await result.json();
-        setDetails(data.data);
+    const getDetails = async () => {
+        try {
+            const result = await fetch("http://localhost:5000/nftDetails", {
+                method: "POST",
+                headers: {
+                    Authorization: "Bearer " + token,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    contractAddress: contractAddr,
+                    tokenId: tokenId
+                }),
+            });
+            const data = await result.json();
+            setDetails(data.data);
+        } catch (error) {
+            setDetails(null);
+            console.log("Could not fetch nft data!")
+        }
     }
 
     useEffect(() => {
