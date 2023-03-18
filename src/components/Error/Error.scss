@@ -39,7 +39,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 2rem;
+
+    p {
+      width: 80%;
+    }
     // border-bottom: 1px solid white;
   }
   hr {
