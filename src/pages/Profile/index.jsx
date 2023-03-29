@@ -19,7 +19,6 @@ const Profile = props => {
             opacity: isActive ? "1" : ""
         }
     }
-    console.log(authContext.auth)
     return (
         !authContext.auth ? <Error errorMessage="you need connect your wallet first!" /> :
         <div className="profile">

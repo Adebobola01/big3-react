@@ -12,9 +12,13 @@
     ),
     url("../../assets/images/background-Image.jpg");
   background-size: cover;
+  // background-size: auto;
+  background-repeat: no-repeat;
+  // object-fit: cover;
   background-position: top;
+
   position: relative;
-  height: 70rem;
+  height: 80rem;
   color: #fff;
 }
 

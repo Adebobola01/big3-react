@@ -50,30 +50,39 @@ const YourNfts = props => {
 
 
     console.log(userNfts)
+    let content;
 
-    const content = userNfts.map(n => {
-        if (!n.metadata) { return null };
-    
-        return (
-            <div className="profile__nft-container" key={`${n.metadata.name} ${n.tokenId}`} >
-                <p className="list-icon">+</p>
-                <div className="profile__nft-image">
-                    <img
-                        src={n.metadata.image}
-                        alt="profile-img"
-                    />
-                </div>
-                <div className="profile__nft-details">
-                    <div className="profile__nft-description">
-                        <span>{n.name} collection</span>
-                        <h3>{n.metadata.name}</h3>
+    if (userNfts.length !== 0) {
+        console.log(userNfts)
+        content = userNfts.map(n => {
+            if (!n.metadata) { return null };
+        
+            return (
+                <div className="profile__nft-container" key={`${n.metadata.name} ${n.tokenId}`} >
+                    <p className="list-icon">+</p>
+                    <div className="profile__nft-image">
+                        <img
+                            src={n.metadata.image}
+                            alt="profile-img"
+                        />
                     </div>
-                    <button className="list-cta">List</button>
+                    <div className="profile__nft-details">
+                        <div className="profile__nft-description">
+                            <span>{n.name} collection</span>
+                            <h3>{n.metadata.name}</h3>
+                        </div>
+                        <button className="list-cta">List</button>
+                    </div>
                 </div>
-            </div>
-        )
-    })
+            )
+        })
+    } else {        
+        content = <div className="profile-content">
+            <span> No Content Available </span>
+        </div>
+    }
 
+   
 
     // if (contentBody) {
     //     console.log("hi")
