@@ -1,0 +1,31 @@
+.create {
+  height: 200rem;
+  padding-top: 8rem;
+
+  &_header {
+    color: white;
+    font-size: 6rem;
+    margin: 0;
+  }
+
+  &_file {
+    display: none;
+  }
+
+  &_label {
+    width: 24rem;
+    height: 16rem;
+    color: white;
+    display: flex;
+    margin: auto;
+    border: 1px dashed white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 3rem;
+
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+}
