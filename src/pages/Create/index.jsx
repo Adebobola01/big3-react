@@ -38,11 +38,13 @@ const Create = props => {
     return (
         <div className="create">
             <h1 className="create_header">Create New Item</h1>
-            <label for="fileInput" className="create_label" >
-                Select image
-                <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" />
-            </label>
-            <button onClick={create}>create</button>
+            <div className="create_body" >
+                <label for="fileInput" className="create_label" >
+                    Select image
+                    <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" />
+                </label>
+                <button onClick={create}>create</button>
+            </div>
         </div>
     )
 };
