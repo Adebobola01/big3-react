@@ -1,5 +1,6 @@
 import React from "react";
 import "./Create.scss";
+import CreateInput from "../../components/Input/Create";
 // import { ethereum } from window;
 import { ethers, parseEther, Contract, formatUnits } from "ethers";
 import contractAbi from "../../artifacts/contracts/Big3MarketPlace.sol/Big3Marketplace.json"
@@ -43,6 +44,8 @@ const Create = props => {
                     Select image
                     <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" />
                 </label>
+
+                <CreateInput label="Name" placeholder="Item Name" />
                 <button onClick={create}>create</button>
             </div>
         </div>

@@ -1,6 +1,9 @@
 .create {
   height: 200rem;
   padding-top: 8rem;
+  // width: 40rem;
+  text-align: left;
+  padding-left: 50rem;
 
   &_header {
     color: white;
@@ -21,12 +24,13 @@
     height: 16rem;
     color: white;
     display: flex;
-    margin: auto;
+    // margin: auto;
     border: 1px dashed white;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     font-size: 3rem;
+    margin-bottom: 2rem;
 
     &:hover {
       opacity: 0.3;
