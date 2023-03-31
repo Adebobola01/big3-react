@@ -1,12 +1,17 @@
 .createInput {
   display: flex;
   flex-direction: column;
-  width: 40rem;
+  width: 100%;
   color: white;
+
+  &:not(:last-of-type) {
+    margin-bottom: 4rem;
+  }
 
   &_label {
     font-size: 2.3rem;
     margin-bottom: 1.2rem;
+    font-weight: 700;
   }
 
   &_field {
@@ -19,5 +24,23 @@
     font-size: 2.4rem;
     padding: 1rem;
     color: white;
+  }
+
+  &_textarea {
+    border-radius: 1rem;
+    background-color: transparent;
+    height: auto;
+    font-size: 2.4rem;
+    padding: 1rem;
+    color: white;
+  }
+
+  &_option {
+    background-color: transparent;
+    color: black;
+    border-radius: 1rem;
+    &:active {
+      background-color: transparent;
+    }
   }
 }

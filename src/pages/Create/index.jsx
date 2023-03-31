@@ -14,7 +14,7 @@ const Create = props => {
         signer = await provider.getSigner();
     }
     getProvider();
-    const create = async () => {
+    const test = async () => {
         // // const balance = await provider.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
         // const tx = await signer.sendTransaction({
         //     to: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
@@ -36,17 +36,29 @@ const Create = props => {
         // console.log(tx1);
     }
 
+
+    const create = async () => {
+        const contract = new Contract("0x5FbDB2315678afecb367f032d93F642f64180aa3", contractAbi.abi, signer);
+        const tx = await contract.mint();
+        const tx1 = await tx.wait();
+        console.log(tx1);
+    }
+
     return (
         <div className="create">
-            <h1 className="create_header">Create New Item</h1>
+            <h1 className="create_header">Create New NFT</h1>
             <div className="create_body" >
-                <label for="fileInput" className="create_label" >
+                <label htmlFor="fileInput" className="create_label" >
                     Select image
                     <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" />
                 </label>
 
                 <CreateInput label="Name" placeholder="Item Name" />
-                <button onClick={create}>create</button>
+                <CreateInput label="Description" placeholder="A detailed description of your NFT" type="textarea" />
+                <CreateInput label="Collection" type="select" />
+                <CreateInput label="properties" type="property" n="4" />
+                <hr style={{ marginTop: "2rem"}} />
+                <button className="create_btn" onClick={create}>create</button>
             </div>
         </div>
     )
