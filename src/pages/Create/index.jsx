@@ -1,12 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Create.scss";
 import CreateInput from "../../components/Input/Create";
 // import { ethereum } from window;
-import { ethers, parseEther, Contract, formatUnits } from "ethers";
-import contractAbi from "../../artifacts/contracts/Big3MarketPlace.sol/Big3Marketplace.json"
+import { ethers, parseEther, Contract, formatUnits,  } from "ethers";
+import contractAbi from "../../artifacts/contracts/Big3MarketPlace.sol/Big3Marketplace.json";
+import { Web3Storage } from "web3.storage";
 // const provider = new ethers.BrowserProvider(ethereum);
 
+const client = new Web3Storage({ token: process.env.REACT_APP_API_TOKEN });
+// const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDdiYkQyMTYxZmY0MjlkZUM5QjY2MEMxREJlOWE3ZDQ2ODEwNmNBODIiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODAzMTE4MDc5NjIsIm5hbWUiOiJiaWczIn0.HR9r8OJLaIl_5-2FIoPTAseKgCNOW5LrujL7eMFpkJQ" });
+
+
 const Create = props => {
+    // const [file, setFile] = useState();
+    let file;
     let provider;
     let signer;
     const getProvider = async() => {
@@ -36,12 +43,20 @@ const Create = props => {
         // console.log(tx1);
     }
 
+    const getFile = (e) => {
+        file = e.target.files;
+        // setFile(file);
+        console.log(file);
+    }
 
     const create = async () => {
-        const contract = new Contract("0x5FbDB2315678afecb367f032d93F642f64180aa3", contractAbi.abi, signer);
-        const tx = await contract.mint();
-        const tx1 = await tx.wait();
-        console.log(tx1);
+        // const contract = new Contract("0x5FbDB2315678afecb367f032d93F642f64180aa3", contractAbi.abi, signer);
+        // const tx = await contract.mint();
+        // const tx1 = await tx.wait();
+        // console.log(tx1);
+        console.log(file)
+        const rootCID = await client.put(file);
+        console.log(rootCID);
     }
 
     return (
@@ -50,13 +65,13 @@ const Create = props => {
             <div className="create_body" >
                 <label htmlFor="fileInput" className="create_label" >
                     Select image
-                    <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" />
+                    <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" onChange={getFile} />
                 </label>
 
                 <CreateInput label="Name" placeholder="Item Name" />
                 <CreateInput label="Description" placeholder="A detailed description of your NFT" type="textarea" />
                 <CreateInput label="Collection" type="select" />
-                <CreateInput label="properties" type="property" n="4" />
+                <CreateInput label="properties" type="property"/>
                 <hr style={{ marginTop: "2rem"}} />
                 <button className="create_btn" onClick={create}>create</button>
             </div>
