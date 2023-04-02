@@ -12,6 +12,14 @@ const client = new Web3Storage({ token: process.env.REACT_APP_API_TOKEN });
 
 const Create = props => {
     // const [file, setFile] = useState();
+    const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={0} />]);
+    const [inputs, setInputs] = useState({
+        name: "",
+        description: "",
+        collection: "",
+        traits: []
+    })
+
     let file;
     let provider;
     let signer;
@@ -62,16 +70,22 @@ const Create = props => {
         { value: "New Collection" }, { value: "Naruto" }, { value: "Azuki" }, { value: "One Piece" }, { value: "Bleach" }
     ];
 
-    
-
-    const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={value} />]);
     const addProp = (value) => {
         const val = value + 1
         value = value + 1;
         setProperties(prev => (
-            [...prev, <CreateInput label="properties" type="property" key={val} />]
+            [...prev, <CreateInput label="properties" type="property" key={properties.length} />]
         ))
     }
+
+    const getName = (e) => {
+        const val = e.target.value;
+        setInputs(prev => (
+            { ...prev, name: val }
+        ))
+        console.log(inputs);
+    }
+
     return (
         <div className="create">
             <h1 className="create_header">Create New NFT</h1>
@@ -80,8 +94,7 @@ const Create = props => {
                     Select image
                     <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" onChange={getFile} />
                 </label>
-
-                <CreateInput label="Name" placeholder="Item Name"/>
+                <CreateInput label="Name" placeholder="Item Name" type="input" inputChanged={getName} />
                 <CreateInput label="Description" placeholder="A detailed description of your NFT" type="textarea" />
                 <CreateInput label="Collection" type="select" name="Collection" options={options} />
                 {properties}
