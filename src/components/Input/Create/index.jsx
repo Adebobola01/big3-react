@@ -9,19 +9,19 @@ const CreateInput = props => {
         case "textarea":
             content = <>
                 {label}
-                <textarea placeholder={props.placeholder} className="createInput_textarea" rows={"4"} onChange={props.textareaChanged} ></textarea>
+                <textarea placeholder={props.placeholder} className="createInput_textarea" rows={"4"} onChange={(e)=>props.textareaChanged(e, props.param)} ></textarea>
             </>
             break;
         case "input":
             content = <>
                 {label}
-                <input type="text" placeholder={props.placeholder} className="createInput_field" onChange={(e)=>props.inputChanged(e)} />
+                <input type="text" placeholder={props.placeholder} className="createInput_field" onChange={(e)=>props.inputChanged(e, props.param)} />
             </>
             break;
         case "select":
             content = <>
                 {label}
-                <select name={props.name} className="createInput_field" defaultValue={props.options[0].value.toLowerCase()} onChange={props.selectChanged} style={{cursor: "pointer"}} >
+                <select name={props.name} className="createInput_field" defaultValue={props.options[0].value.toLowerCase()} onChange={(e)=>props.selectChanged(e, props.param)} style={{cursor: "pointer"}} >
                 {props.options.map(op => (
                     <option className="createInput_option" value={op.value.toLowerCase()} key={op.value} >{ op.value}</option>
                 ))}
