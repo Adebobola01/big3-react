@@ -31,7 +31,6 @@ const Create = props => {
             //     ))
             //     trait = traits[key];
             // }
-            console.log(traits);
             trait[it] = val;
             return [...traits];
         })
@@ -88,9 +87,14 @@ const Create = props => {
         // const tx = await contract.mint();
         // const tx1 = await tx.wait();
         // console.log(tx1);
-        console.log(file)
-        const rootCID = await client.put(file);
-        console.log(rootCID);
+        // console.log(file)
+        // const rootCID = await client.put(file);
+        // console.log(rootCID);
+
+        const data = {}
+        data.properties = inputs;
+        data.traits = traits;
+        console.log(data);
     }
 
 
