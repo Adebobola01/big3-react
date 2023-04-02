@@ -8,7 +8,6 @@ import { Web3Storage } from "web3.storage";
 // const provider = new ethers.BrowserProvider(ethereum);
 
 const client = new Web3Storage({ token: process.env.REACT_APP_API_TOKEN });
-// const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDdiYkQyMTYxZmY0MjlkZUM5QjY2MEMxREJlOWE3ZDQ2ODEwNmNBODIiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODAzMTE4MDc5NjIsIm5hbWUiOiJiaWczIn0.HR9r8OJLaIl_5-2FIoPTAseKgCNOW5LrujL7eMFpkJQ" });
 
 
 const Create = props => {
@@ -16,6 +15,7 @@ const Create = props => {
     let file;
     let provider;
     let signer;
+    let value = 0;
     const getProvider = async() => {
         provider = new ethers.JsonRpcProvider();
         signer = await provider.getSigner();
@@ -45,7 +45,6 @@ const Create = props => {
 
     const getFile = (e) => {
         file = e.target.files;
-        // setFile(file);
         console.log(file);
     }
 
@@ -59,6 +58,20 @@ const Create = props => {
         console.log(rootCID);
     }
 
+    const options = [
+        { value: "New Collection" }, { value: "Naruto" }, { value: "Azuki" }, { value: "One Piece" }, { value: "Bleach" }
+    ];
+
+    
+
+    const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={value} />]);
+    const addProp = (value) => {
+        const val = value + 1
+        value = value + 1;
+        setProperties(prev => (
+            [...prev, <CreateInput label="properties" type="property" key={val} />]
+        ))
+    }
     return (
         <div className="create">
             <h1 className="create_header">Create New NFT</h1>
@@ -68,12 +81,13 @@ const Create = props => {
                     <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" onChange={getFile} />
                 </label>
 
-                <CreateInput label="Name" placeholder="Item Name" />
+                <CreateInput label="Name" placeholder="Item Name"/>
                 <CreateInput label="Description" placeholder="A detailed description of your NFT" type="textarea" />
-                <CreateInput label="Collection" type="select" />
-                <CreateInput label="properties" type="property"/>
+                <CreateInput label="Collection" type="select" name="Collection" options={options} />
+                {properties}
+                <button onClick={()=>{addProp(value)}} style={{padding: "1.6rem", width: "8rem", backgroundColor: "grey", border: "none", color: "white", borderRadius: "1rem", fontSize: "2rem", cursor: "pointer", marginTop: "2rem"}} > add</button>
                 <hr style={{ marginTop: "2rem"}} />
-                <button className="create_btn" onClick={create}>create</button>
+                <button className="create_btn" onClick={create} >create</button>
             </div>
         </div>
     )
