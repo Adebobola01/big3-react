@@ -11,20 +11,41 @@ const client = new Web3Storage({ token: process.env.REACT_APP_API_TOKEN });
 
 
 const Create = props => {
+    let file;
+    let provider;
+    let signer;
+    const options = [
+        { value: "New Collection" }, { value: "Naruto" }, { value: "Azuki" }, { value: "One Piece" }, { value: "Bleach" }
+    ];
+    
+
     // const [file, setFile] = useState();
-    const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={0} />]);
+    const getTraits = (e, key, it) => {
+        const val = e.target.value;
+        console.log(e.target.dataset.key);
+        setInputs(prev => {
+            const prevTraits = [...prev.traits];
+            const trait = prevTraits[key];
+            trait[it] = val;
+            return { ...prev, trait: [...prevTraits] };            
+        })
+    }
+    const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={0} dataKey={0} traitChanged={ (e)=>getTraits(e, "0", "trait") } traitValueChanged={ (e)=>getTraits(e, "0", "value") } />]);
     const [inputs, setInputs] = useState({
         name: "",
         description: "",
         collection: "new collection",
-        traits: []
+        traits: [
+            {
+                trait: "",
+                value: "",
+            }
+        ]
     })
 
-    let file;
-    let provider;
-    let signer;
-    let value = 0;
-    const getProvider = async() => {
+
+
+    const getProvider = async () => {
         provider = new ethers.JsonRpcProvider();
         signer = await provider.getSigner();
     }
@@ -66,15 +87,10 @@ const Create = props => {
         console.log(rootCID);
     }
 
-    const options = [
-        { value: "New Collection" }, { value: "Naruto" }, { value: "Azuki" }, { value: "One Piece" }, { value: "Bleach" }
-    ];
 
-    const addProp = (value) => {
-        const val = value + 1
-        value = value + 1;
+    const addProp = () => {
         setProperties(prev => (
-            [...prev, <CreateInput label="properties" type="property" key={properties.length} />]
+            [...prev, <CreateInput label="properties" type="property" key={properties.length} dataKey={properties.length} traitChanged={ (e)=>getTraits(e, "0", "trait") } traitValueChanged={ (e)=>getTraits(e, "0", "value") } />]
         ))
     }
 
@@ -83,8 +99,8 @@ const Create = props => {
         setInputs(prev => (
             { ...prev, [type]: val }
         ))
-        console.log(inputs)
     }
+
 
     // const getName = (e) => {
     //     const val = e.target.value;
@@ -114,8 +130,9 @@ const Create = props => {
                 <CreateInput label="Name" placeholder="Item Name" type="input" param="name" inputChanged={getInput} />
                 <CreateInput label="Description" placeholder="A detailed description of your NFT" param="description" type="textarea" textareaChanged={getInput} />
                 <CreateInput label="Collection" type="select" name="Collection" options={options} param="collection" selectChanged={getInput} />
+                <p className="create_properties-header" >Properties</p>
                 {properties}
-                <button onClick={()=>{addProp(value)}} style={{padding: "1.6rem", width: "8rem", backgroundColor: "grey", border: "none", color: "white", borderRadius: "1rem", fontSize: "2rem", cursor: "pointer", marginTop: "2rem"}} > add</button>
+                <button onClick={()=>{addProp()}} style={{padding: "1.6rem", width: "8rem", backgroundColor: "grey", border: "none", color: "white", borderRadius: "1rem", fontSize: "2rem", cursor: "pointer", marginTop: "4rem"}} > add</button>
                 <hr style={{ marginTop: "2rem"}} />
                 <button className="create_btn" onClick={create} >create</button>
             </div>

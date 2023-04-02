@@ -31,9 +31,9 @@ const CreateInput = props => {
         case "property":
             content = (
                 <>
-                    <div style={{ display: "flex", justifyContent: "space-between" , marginBottom: "-1rem"}} key={value + 1} >
-                        <input type="text" placeholder="Trait" className="createInput_field" style={{ width: "45%" }} />
-                        <input type="text" placeholder="Value" className="createInput_field" style={{ width: "45%" }} />
+                    <div style={{ display: "flex", justifyContent: "space-between" , marginBottom: "-2rem"}} >
+                        <input type="text" placeholder="Trait" className="createInput_field" style={{ width: "45%" }} data-key={props.dataKey} onChange={e => props.traitChanged(e)} />
+                        <input type="text" placeholder="Value" className="createInput_field" style={{ width: "45%" }} data-key={props.dataKey} onChange={e => props.traitValueChanged(e)}/>
                     </div>
                 </>
             )
