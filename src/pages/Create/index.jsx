@@ -18,38 +18,44 @@ const Create = props => {
         { value: "New Collection" }, { value: "Naruto" }, { value: "Azuki" }, { value: "One Piece" }, { value: "Bleach" }
     ];
     
-
     // const [file, setFile] = useState();
-    const getTraits = (e, key, it) => {
+    const getTraits = (e, it) => {
         const val = e.target.value;
-        console.log(e.target.dataset.key);
-        setInputs(prev => {
-            const prevTraits = [...prev.traits];
-            const trait = prevTraits[key];
+        const key = e.target.dataset.key;
+        setTraits(p => {
+            const traits = [...p];
+            let trait = traits[key];
+            // if (!trait) {
+            //     setTraits(n => (
+            //         [...n, {trait: "", value: ""}]
+            //     ))
+            //     trait = traits[key];
+            // }
+            console.log(traits);
             trait[it] = val;
-            return { ...prev, trait: [...prevTraits] };            
+            return [...traits];
         })
     }
-    const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={0} dataKey={0} traitChanged={ (e)=>getTraits(e, "0", "trait") } traitValueChanged={ (e)=>getTraits(e, "0", "value") } />]);
+    const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={0} dataKey={0} traitChanged={ (e)=>getTraits(e, "trait") } traitValueChanged={ (e)=>getTraits(e, "value") } />]);
     const [inputs, setInputs] = useState({
         name: "",
         description: "",
         collection: "new collection",
-        traits: [
-            {
-                trait: "",
-                value: "",
-            }
-        ]
-    })
-
-
+    });
+    const [traits, setTraits] = useState([
+        {
+            trait: "",
+            value: "",
+        }
+    ]);
+    
 
     const getProvider = async () => {
         provider = new ethers.JsonRpcProvider();
         signer = await provider.getSigner();
     }
     getProvider();
+
     const test = async () => {
         // // const balance = await provider.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
         // const tx = await signer.sendTransaction({
@@ -90,7 +96,10 @@ const Create = props => {
 
     const addProp = () => {
         setProperties(prev => (
-            [...prev, <CreateInput label="properties" type="property" key={properties.length} dataKey={properties.length} traitChanged={ (e)=>getTraits(e, "0", "trait") } traitValueChanged={ (e)=>getTraits(e, "0", "value") } />]
+            [...prev, <CreateInput label="properties" type="property" key={properties.length} dataKey={properties.length} traitChanged={ (e)=>getTraits(e, "trait") } traitValueChanged={ (e)=>getTraits(e, "value") } />]
+        ))
+        setTraits(i => (
+            [...i, {trait: "", value: ""}]
         ))
     }
 
@@ -102,23 +111,6 @@ const Create = props => {
     }
 
 
-    // const getName = (e) => {
-    //     const val = e.target.value;
-    //     setInputs(prev => (
-    //         { ...prev, name: val }
-    //     ))
-    // }
-    // const getDescription = (e) => {
-    //     const val = e.target.value;
-    //     setInputs(prev => (
-    //         { ...prev, description: val }
-    //     ));
-    // }
-
-    // const getCollection = (e) => {
-    //     const val = e.target.value;
-    //     setInputs(prev => v)
-    // }
     return (
         <div className="create">
             <h1 className="create_header">Create New NFT</h1>
