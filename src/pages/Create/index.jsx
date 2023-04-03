@@ -5,20 +5,19 @@ import CreateInput from "../../components/Input/Create";
 import { ethers, parseEther, Contract, formatUnits,  } from "ethers";
 import contractAbi from "../../artifacts/contracts/Big3MarketPlace.sol/Big3Marketplace.json";
 import { Web3Storage } from "web3.storage";
+import camera from "./OOjs_UI_icon_camera.svg"
 // const provider = new ethers.BrowserProvider(ethereum);
 
 const client = new Web3Storage({ token: process.env.REACT_APP_API_TOKEN });
 
 
 const Create = props => {
-    let file;
     let provider;
     let signer;
     const options = [
         { value: "New Collection" }, { value: "Naruto" }, { value: "Azuki" }, { value: "One Piece" }, { value: "Bleach" }
     ];
     
-    // const [file, setFile] = useState();
     const getTraits = (e, it) => {
         const val = e.target.value;
         const key = e.target.dataset.key;
@@ -26,8 +25,8 @@ const Create = props => {
             const traits = [...p];
             let trait = traits[key];
             // if (!trait) {
-            //     setTraits(n => (
-            //         [...n, {trait: "", value: ""}]
+                //     setTraits(n => (
+                    //         [...n, {trait: "", value: ""}]
             //     ))
             //     trait = traits[key];
             // }
@@ -35,6 +34,9 @@ const Create = props => {
             return [...traits];
         })
     }
+    
+    //states
+    const [file, setFile] = useState();
     const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={0} dataKey={0} traitChanged={ (e)=>getTraits(e, "trait") } traitValueChanged={ (e)=>getTraits(e, "value") } />]);
     const [inputs, setInputs] = useState({
         name: "",
@@ -47,6 +49,8 @@ const Create = props => {
             value: "",
         }
     ]);
+
+    const [image, setImage] = useState();
     
 
     const getProvider = async () => {
@@ -78,8 +82,14 @@ const Create = props => {
     }
 
     const getFile = (e) => {
-        file = e.target.files;
-        console.log(file);
+        const f = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = () => {
+            const i = reader.result;
+            setImage(i);
+        }
+        reader.readAsDataURL(f);
+        setFile(f)
     }
 
     const create = async () => {
@@ -94,6 +104,7 @@ const Create = props => {
         const data = {}
         data.properties = inputs;
         data.traits = traits;
+        data.file = file[0];
         console.log(data);
     }
 
@@ -115,14 +126,22 @@ const Create = props => {
     }
 
 
+    console.log(image);
+    const v = image ? <img src={image} alt="img" style={{width: "inherit", height: "inherit"}} /> : null;
+    console.log(v);
+
     return (
         <div className="create">
             <h1 className="create_header">Create New NFT</h1>
             <div className="create_body" >
                 <label htmlFor="fileInput" className="create_label" >
-                    Select image
+                    {image ?
+                        v :
+                        <img src={camera} alt="camera" style={{height: "10rem", width: "10rem", opacity:"0.8"}} />
+                    }
                     <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" onChange={getFile} />
                 </label>
+
                 <CreateInput label="Name" placeholder="Item Name" type="input" param="name" inputChanged={getInput} />
                 <CreateInput label="Description" placeholder="A detailed description of your NFT" param="description" type="textarea" textareaChanged={getInput} />
                 <CreateInput label="Collection" type="select" name="Collection" options={options} param="collection" selectChanged={getInput} />
