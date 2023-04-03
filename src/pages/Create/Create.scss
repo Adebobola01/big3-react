@@ -34,10 +34,13 @@
     margin-bottom: 2rem;
 
     &:hover {
+      .create_svg {
+        z-index: 50 !important;
+      }
+
       opacity: 0.3;
     }
   }
-
   &_properties-header {
     color: white;
     font-size: 2.3rem;

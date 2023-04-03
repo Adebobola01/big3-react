@@ -126,7 +126,6 @@ const Create = props => {
     }
 
 
-    console.log(image);
     const v = image ? <img src={image} alt="img" style={{width: "inherit", height: "inherit"}} /> : null;
     console.log(v);
 
@@ -134,11 +133,9 @@ const Create = props => {
         <div className="create">
             <h1 className="create_header">Create New NFT</h1>
             <div className="create_body" >
-                <label htmlFor="fileInput" className="create_label" >
-                    {image ?
-                        v :
-                        <img src={camera} alt="camera" style={{height: "10rem", width: "10rem", opacity:"0.8"}} />
-                    }
+                <label htmlFor="fileInput" className="create_label" style={{position: "relative"}} >
+                    {v} 
+                    <img className="create_svg" src={camera} alt="camera" style={{ height: "10rem", width: "10rem", opacity: "0.8", zIndex: v ? "-1" : "50", position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)",  }} />
                     <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" onChange={getFile} />
                 </label>
 
