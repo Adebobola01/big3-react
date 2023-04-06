@@ -1,7 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
-import "./Hero.scss"
+import "./Hero.scss";
+import { fetchData } from "../../utils/helpers";
+
+
+
 const Hero = props => {
+
+    const baseUrl = process.env.REACT_APP_BASEURL;
+
+    const [hero, setHero] = useState()
+
+    const getHeroNft = async() => {
+        const data = await fetchData("GET", "heroNft");
+        console.log(data)
+    }
+    useEffect(() => {
+        getHeroNft()
+    }, [])
+    
+
     return (
         <section className="section-hero">
             <div className="row">

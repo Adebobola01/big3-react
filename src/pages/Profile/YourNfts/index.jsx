@@ -2,8 +2,9 @@ import React, { useEffect, useContext, useState } from "react";
 import { AuthContext } from "../../../context/auth-context";
 import { getImage } from "../../../utils/helpers";
 import "./YourNfts.scss";
+import { fetchData } from "../../../utils/helpers";
 
-const baseUrl = process.env.REACT_APP_BASEURL;
+const {REACT_APP_BASEURL, REACT_APP_TITLE, REACT_APP_DESCRIPTION} = process.env;
 
 const YourNfts = props => {
     const authContext = useContext(AuthContext);
@@ -15,33 +16,34 @@ const YourNfts = props => {
     const getUserData = async() => {        
         try {
             // const result = await fetch("https://big3-backend.onrender.com/profile", {
-            const result = await fetch(`${baseUrl}/profile`, {
-                method: "POST",
-                headers: {
-                    Authorization: "Bearer " + token,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userAddress: address,
-                }),
-            });
-            if (result.status === 200 || result.status === 201) {
-                const { data } = await result.json();
-                data.forEach((n) => {
-                    if (!n.metadata) {
-                        return;
-                    }
-                    n.metadata.image = getImage(n.metadata.image);
-                });
-                setUserNfts(data);
-            } else {
-                new Error("could not get user data");
-            }
+            const {data} = await fetchData("POST", "profile", { userAddress: "0x3427bfe887eEc6E1C1e0F2b485800B5A9A7c633F" });
+            console.log(data)
+            data.forEach(n => {
+                if (!n.metadata) {
+                    return;
+                }
+                n.metadata.image = getImage(n.metadata.image);
+            })
+            setUserNfts(data);
+            // if (result.status === 200 || result.status === 201) {
+            //     const { data } = await result.json();
+            //     data.forEach((n) => {
+            //         if (!n.metadata) {
+            //             return;
+            //         }
+            //         n.metadata.image = getImage(n.metadata.image);
+            //     });
+            //     setUserNfts(data);
+            // } else {
+            //     new Error("could not get user data");
+            // }
             
         } catch (error) {
             console.log(error);
         }
     }
+
+    console.log(REACT_APP_BASEURL, REACT_APP_DESCRIPTION, REACT_APP_TITLE);
 
     useEffect(() => {
         (async () => {
@@ -60,7 +62,7 @@ const YourNfts = props => {
             if (!n.metadata) { return null };
         
             return (
-                <div className="profile__nft-container" key={`${n.metadata.name} ${n.tokenId}`} >
+                <div className="profile__nft-container" key={`${n.metadata.name} ${n.tokenId} ${n.tokenAddress}`} >
                     <p className="list-icon">+</p>
                     <div className="profile__nft-image">
                         <img

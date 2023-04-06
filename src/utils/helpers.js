@@ -5,6 +5,23 @@ const baseUrl = process.env.REACT_APP_BASEURL;
 
 const remainingMilliseconds = 180 * 60 * 1000;
 
+const token = localStorage.getItem("token")
+
+export const fetchData = async (method, endpoint, body) => {
+    console.log(body)
+    const result = await fetch(`${baseUrl}/${endpoint}`, {
+        method: method,
+        headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+
+        },
+        
+        body: body ? JSON.stringify({...body}) : null,
+    });
+    return result.json();
+}
+
 export const logoutHandler = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("expiryDate");
