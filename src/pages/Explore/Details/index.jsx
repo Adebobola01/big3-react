@@ -40,7 +40,7 @@ const Details = props => {
 
     let content;
 
-    if (details) {
+    // if (details) {
         content = [...details];
         content.map(n => (
             <section className="nft__details">
@@ -134,9 +134,9 @@ const Details = props => {
                 </div>
             </section>
         ))
-    } else {
-        content = <Error errorMessage="An error occured while getting NFT details, please try again later" />
-    }
+    // } else {
+    //     content = <Error errorMessage="An error occured while getting NFT details, please try again later" />
+    // }
 
     return (
         <div className="nft">

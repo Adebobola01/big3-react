@@ -3,6 +3,8 @@ import { AuthContext } from "../../../context/auth-context";
 import { getImage } from "../../../utils/helpers";
 import "./YourNfts.scss";
 
+const baseUrl = process.env.REACT_APP_BASEURL;
+
 const YourNfts = props => {
     const authContext = useContext(AuthContext);
     const [userNfts, setUserNfts] = useState([]);
@@ -13,7 +15,7 @@ const YourNfts = props => {
     const getUserData = async() => {        
         try {
             // const result = await fetch("https://big3-backend.onrender.com/profile", {
-            const result = await fetch("http://localhost:5000/profile", {
+            const result = await fetch(`${baseUrl}/profile`, {
                 method: "POST",
                 headers: {
                     Authorization: "Bearer " + token,

@@ -1,5 +1,8 @@
 // const { ethereum } = window;
 
+
+const baseUrl = process.env.REACT_APP_BASEURL;
+
 const remainingMilliseconds = 180 * 60 * 1000;
 
 export const logoutHandler = () => {
@@ -36,7 +39,7 @@ export const getImage = (image) => {
 
 export const getUserAccount = async (account) => {
     try {
-        const result = await fetch("http://localhost:5000/message", {
+        const result = await fetch(`${baseUrl}/message`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -58,7 +61,7 @@ export const verifyMessage = async (signature, message) => {
     try {
         if (signature) {
             // const result = await fetch("https://big3-backend.onrender.com/verify", {
-            const result = await fetch("http://localhost:5000/verify", {
+            const result = await fetch(`${baseUrl}/verify`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

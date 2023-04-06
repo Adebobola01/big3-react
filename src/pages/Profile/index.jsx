@@ -20,7 +20,7 @@ const Profile = props => {
         }
     }
     return (
-        !authContext.auth ? <Error errorMessage="you need connect your wallet first!" /> :
+        // !authContext.auth ? <Error errorMessage="you need connect your wallet first!" /> :
         <div className="profile">
             <div className="list-box">
                 <div className="list__container">
