@@ -53,11 +53,11 @@ const Create = props => {
     const [image, setImage] = useState();
     
 
-    const getProvider = async () => {
-        provider = new ethers.JsonRpcProvider();
-        signer = await provider.getSigner();
-    }
-    getProvider();
+    // const getProvider = async () => {
+    //     provider = new ethers.JsonRpcProvider();
+    //     signer = await provider.getSigner();
+    // }
+    // getProvider();
 
     const test = async () => {
         // // const balance = await provider.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
