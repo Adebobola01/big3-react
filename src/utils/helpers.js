@@ -74,9 +74,9 @@ export const getUserAccount = async (account) => {
 };
 
 
-export const verifyMessage = async (signature, message) => {
+export const verifyMessage = async (address) => {
     try {
-        if (signature) {
+        if (address) {
             // const result = await fetch("https://big3-backend.onrender.com/verify", {
             const result = await fetch(`${baseUrl}/verify`, {
                 method: "POST",
@@ -84,8 +84,7 @@ export const verifyMessage = async (signature, message) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    signature: signature,
-                    message: message,
+                    address: address
                 }),
             });
             if (result.status === 200) {

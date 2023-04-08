@@ -2,7 +2,9 @@ import React, { createContext, useState } from "react";
 import { getUserAccount, verifyMessage, logoutHandler } from "../utils/helpers";
 import Web3 from "web3";
 const { ethereum } = window;
-const web3 = new Web3(Web3.givenProvider);
+// const web3 = new Web3(Web3.givenProvider);
+const web3 = new Web3( Web3.givenProvider || "http://localhost:8545");
+
 
 export const AuthContext = createContext({
     auth: false,
@@ -22,14 +24,11 @@ const AuthContextProvider = props => {
                 method: "eth_requestAccounts",
             });
             const account = accounts[0];
-            const message = await getUserAccount(account);
-            const signature = await web3.eth.personal.sign(message, account);
-            const res = await verifyMessage(signature, message);
-            console.log(res);
+            const res = await verifyMessage(account);
             setConnected(true);
             setAddress(res);         
         } catch (error) {
-            console.log(error);
+           return console.log(error);
         }
     }
     const disconnectWallet = () => {
