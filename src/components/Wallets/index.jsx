@@ -44,6 +44,36 @@ const Wallets = props => {
                         {/* {loading ? <Loader width="4rem" height="4rem" /> : ""} */}
                         
                     </div>
+                    <div className="wallet__btn">
+                        <img
+                            src={walletConnectLogo}
+                            alt="metamask__logo"
+                            className="wallet__img"
+                        />
+                        <span className="wallet__name">WalletConnect</span>
+                        {/* {loading ? <Loader width="4rem" height="4rem" /> : ""} */}
+                        
+                    </div>
+                    <div className="wallet__btn">
+                        <img
+                            src={walletConnectLogo}
+                            alt="metamask__logo"
+                            className="wallet__img"
+                        />
+                        <span className="wallet__name">WalletConnect</span>
+                        {/* {loading ? <Loader width="4rem" height="4rem" /> : ""} */}
+                        
+                    </div>
+                    <div className="wallet__btn">
+                        <img
+                            src={walletConnectLogo}
+                            alt="metamask__logo"
+                            className="wallet__img"
+                        />
+                        <span className="wallet__name">WalletConnect</span>
+                        {/* {loading ? <Loader width="4rem" height="4rem" /> : ""} */}
+                        
+                    </div>
                 </div>
             </div>
         </>
