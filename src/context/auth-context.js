@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import { getUserAccount, verifyMessage, logoutHandler } from "../utils/helpers";
+import { useNavigate, redirect } from "react-router-dom";
 import Web3 from "web3";
 const { ethereum } = window;
 // const web3 = new Web3(Web3.givenProvider);
@@ -15,8 +16,13 @@ export const AuthContext = createContext({
 });
 
 const AuthContextProvider = props => {
+    const navigate = useNavigate();
     const [connected, setConnected] = useState(false);
     const [address, setAddress] = useState("");
+
+    const redirectHome = ()=>{
+        return navigate("/")
+    }
     // const [authSignature, setAuthSignature] = useState("");
     const connectWallet = async () => {
         try {
@@ -35,6 +41,7 @@ const AuthContextProvider = props => {
         logoutHandler()
         setConnected(false);
         setAddress("");
+
     }
     const autoConnect = (_address) => {
         setConnected(true);

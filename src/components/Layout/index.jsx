@@ -22,8 +22,8 @@ const Layout = props => {
     const currTime = new Date().getTime()
     const timeRemaining = expTime - currTime;
 
-
-    setAutoLogout(authContext.disconnect, timeRemaining);
+    setAutoLogout(6000, authContext.disconnect);
+    
     const init = async () => {
         console.log("layout useEffect!")
         const stillValid = () => {
