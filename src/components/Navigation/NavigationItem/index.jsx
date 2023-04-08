@@ -10,7 +10,7 @@ const navigationItem = props => {
     return (
         <li className="NavigationItem">
             {
-                props.nav ? 
+                props.link ? 
                     <NavLink to={link} end>{ props.children }</NavLink>
                     :
                     <span onClick={props.click}>{ props.children}</span>

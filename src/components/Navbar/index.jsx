@@ -13,11 +13,6 @@ const Navbar = props => {
     const authContext = useContext(AuthContext);
     const navigate = useNavigate();
     
-
-    const redirectToProfile = () => {
-        console.log("redirect")
-    }
-    
     return (
         <header className="header">
             <div className="nav-bar">
@@ -26,7 +21,7 @@ const Navbar = props => {
                 <ul className="nav">
                     <NavigationItem link="/explore">Explore</NavigationItem>
                     <NavigationItem link="/create">Create</NavigationItem>
-                    <NavigationItem click={redirectToProfile} >Profile</NavigationItem>
+                    <NavigationItem click={props.click}>Profile</NavigationItem>
                 </ul>
                 <div className="btns-container">
                     {
