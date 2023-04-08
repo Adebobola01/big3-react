@@ -6,8 +6,8 @@
   transform: translateY(-1000px) translate(-50%, -50%);
   background-color: rgb(22 21 34);
   color: aliceblue;
-  height: 80rem;
-  width: 55rem;
+  height: 70rem;
+  width: 50rem;
   font-size: 8rem;
   z-index: 101;
   padding: 2rem;
@@ -82,11 +82,21 @@
 }
 
 .close-wallets {
-  padding: 0.6rem;
+  width: 7rem;
+  height: 7rem;
+  padding: 2rem;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(117, 110, 110, 0.308);
   // border: .5px solid black;
   // box-shadow: ;
+  top: -7.5rem;
   position: absolute;
-  right: 1.6rem;
+  right: 0;
+  border-radius: 50%;
   cursor: pointer;
 
   &:hover {

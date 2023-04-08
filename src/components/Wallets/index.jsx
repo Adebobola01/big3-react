@@ -20,9 +20,9 @@ const Wallets = props => {
         <>
             <Backdrop open={props.open} click={props.walletsHandler} />
             <div className={`wallet__container ${props.open ? "open-wallets" : ""}` }>
+                    <span className="close-wallets" onClick={props.walletsHandler} >X</span>
                 <div className="select-wallet">
                     <span> Select Wallet </span>
-                    <span className="close-wallets" onClick={props.walletsHandler} >X</span>
                 </div>
                 <div className="wallets">
                     <div className="wallet__btn" onClick={connectWallet} >
