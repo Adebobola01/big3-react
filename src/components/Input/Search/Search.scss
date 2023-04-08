@@ -19,12 +19,14 @@
     background-color: transparent;
     font-size: 2rem;
     color: white;
+    word-spacing: 1px;
+    letter-spacing: 2px;
 
     // &:hover,
     // &:focus,
     &:active,
     &:focus {
-      border: 1px solid #db469f;
+      // border: 1px solid #db469f;
       background-color: rgba(128, 128, 128, 0.555);
       color: white;
     }

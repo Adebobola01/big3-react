@@ -6,9 +6,14 @@ import { ethers, parseEther, Contract, formatUnits,  } from "ethers";
 import contractAbi from "../../artifacts/contracts/Big3MarketPlace.sol/Big3Marketplace.json";
 import { Web3Storage } from "web3.storage";
 import camera from "./OOjs_UI_icon_camera.svg"
+import { fetchData } from "../../utils/helpers";
+import axios from "axios"
 // const provider = new ethers.BrowserProvider(ethereum);
 
 const client = new Web3Storage({ token: process.env.REACT_APP_API_TOKEN });
+const token = process.env.REACT_APP_PINATA_JWT;
+const key = process.env.REACT_APP_PINATA_API_Key;
+const secret = process.env.REACT_APP_PINATA_API_Secret;
 
 
 const Create = props => {
@@ -101,11 +106,71 @@ const Create = props => {
         // const rootCID = await client.put(file);
         // console.log(rootCID);
 
-        const data = {}
-        data.properties = inputs;
-        data.traits = traits;
-        data.file = file[0];
-        console.log(data);
+        // const data = {}
+        // data.properties = inputs;
+        // data.traits = traits;
+        // data.file = file[0];
+        // console.log(data);
+
+        const file2 = file;
+        let f2;
+        let fileReader = new FileReader();
+        fileReader.readAsArrayBuffer(file2);
+        fileReader.onload = function(ev) {
+            const result = ev.target.result;
+            f2 = result;
+            console.log(result); // here it is
+        }
+        const formData = new FormData();
+        formData.append("file", f2);
+        const options = JSON.stringify({
+            cidVersion: 0,
+          })
+        formData.append('pinataOptions', options);
+        
+        console.log(formData);
+
+        const res = await fetch(`https://api.pinata.cloud/pinning/pinFileToIPFS`, {
+            method: "POST",
+            headers: {
+                Authorization: "Bearer " + token,
+                "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+                pinata_api_key: key,
+                pinata_secret_api_key: secret,
+            },
+            body: formData,
+        // console.log(token)
+        })
+        console.log(res)
+        // try {
+        //     const res = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
+        //     maxBodyLength: "Infinity",
+        //     headers: {
+        //       'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+        //         Authorization: token,
+        //         pinata_api_key: key,
+        //         pinata_secret_api_key: secret,
+        //     }
+        //   });
+        //     console.log(res.data);
+        // } catch (error) {
+        //     console.log(error)
+        // }
+
+        
+        // const result = await res.json();
+
+        const resFile = await axios({
+            method: "post",
+            url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+            data: formData,
+            headers: {
+                pinata_api_key: key,
+                pinata_secret_api_key: secret,
+                'Content-Type': `multipart/form-data`,
+            }
+        })
+        console.log(resFile);
     }
 
 
