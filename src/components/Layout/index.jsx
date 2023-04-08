@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import Wallets from "../Wallets";
 import Footer from "../Footer";
 import Sidebar from "../Navigation/Sidebar";
+import { setAutoLogout } from "../../utils/helpers";
 import "./Layout.scss";
 import Error from "../Error";
 import { AuthContext } from "../../context/auth-context";
@@ -17,7 +18,12 @@ const Layout = props => {
     const authContext = useContext(AuthContext);
     const [openWallets, setOpenWallets] = useState(false);
     const [openSidebar, setOpenSidebar] = useState(false);
+    const expTime = new Date(localStorage.getItem("expiryDate")).getTime();
+    const currTime = new Date().getTime()
+    const timeRemaining = expTime - currTime;
 
+
+    setAutoLogout(authContext.disconnect, timeRemaining);
     const init = async () => {
         console.log("layout useEffect!")
         const stillValid = () => {

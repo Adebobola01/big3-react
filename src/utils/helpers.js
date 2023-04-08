@@ -39,9 +39,9 @@ const setToStorage = (token, userId, address) => {
     localStorage.setItem("expiryDate", expiryDate.toISOString());
 };
 
-export const setAutoLogout = (milliseconds) => {
+export const setAutoLogout = (disconnect, milliseconds) => {
     setTimeout(() => {
-        logoutHandler();
+        disconnect();
     }, milliseconds);
 };
 
