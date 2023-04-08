@@ -60,7 +60,7 @@ const Layout = props => {
         <>
             <Wallets open={openWallets} walletsHandler={connectWalletHandler} />
             <Navbar click={ connectWalletHandler} openSidebar={sidebarHandler} />
-            <Sidebar open={openSidebar} sidebarHandler={sidebarHandler} />
+            <Sidebar open={openSidebar} sidebarHandler={sidebarHandler}  />
             <main className="main">
                 <Outlet />
             </main>

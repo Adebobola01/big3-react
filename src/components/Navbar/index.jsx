@@ -1,4 +1,5 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
+import { useNavigate, redirect } from "react-router-dom";
 import "./navbar.scss";
 import NavigationItem from "../Navigation/NavigationItem";
 import ConnectBtn from "../Buttons/ConnectBtn";
@@ -10,9 +11,12 @@ import LogoutBtn from "../Buttons/LogoutBtn";
 import Error from "../Error";
 const Navbar = props => {  
     const authContext = useContext(AuthContext);
-    const showError = () => (
-        authContext.auth ? null : <Error errorMessage="You need to connect your wallet first!" />
-    )
+    const navigate = useNavigate();
+    
+
+    const redirectToProfile = () => {
+        console.log("redirect")
+    }
     
     return (
         <header className="header">
@@ -22,7 +26,7 @@ const Navbar = props => {
                 <ul className="nav">
                     <NavigationItem link="/explore">Explore</NavigationItem>
                     <NavigationItem link="/create">Create</NavigationItem>
-                    <NavigationItem link="/profile">Profile</NavigationItem>
+                    <NavigationItem click={redirectToProfile} >Profile</NavigationItem>
                 </ul>
                 <div className="btns-container">
                     {

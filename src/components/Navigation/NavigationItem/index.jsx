@@ -8,8 +8,13 @@ const navigationItem = props => {
     // const authContext = useContext(AuthContext);
     const { error, link } = props;
     return (
-        <li className="NavigationItem" >
-            <NavLink to={link} >{ props.children }</NavLink>
+        <li className="NavigationItem">
+            {
+                props.nav ? 
+                    <NavLink to={link} end>{ props.children }</NavLink>
+                    :
+                    <span onClick={props.click}>{ props.children}</span>
+            }
         </li>
     )
 }
