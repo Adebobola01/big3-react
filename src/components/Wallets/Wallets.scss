@@ -53,6 +53,8 @@
 .select-wallet {
   span {
     font-size: 2.2rem;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 900;
   }
 }
 
@@ -130,10 +132,24 @@
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 400px) {
+  .wallets {
+    margin-top: 10rem;
+  }
   .wallet__container {
-    // width: 35rem;
-    // height: 29rem;
+    height: 60rem;
+    width: 45rem;
+  }
+  .wallet__btn {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+  .close-wallets {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1rem;
+    top: -5rem;
   }
 }
 
