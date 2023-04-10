@@ -9,6 +9,7 @@ import NavigationItem from "../../components/Navigation/NavigationItem";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/auth-context"
 import Error from "../../components/Error";
+import List from "../../components/List";
 const Profile = props => {
 
     const authContext = useContext(AuthContext);
@@ -19,37 +20,11 @@ const Profile = props => {
             opacity: isActive ? "1" : ""
         }
     }
+
     return (
         // !authContext.auth ? <Error errorMessage="you need connect your wallet first!" /> :
         <div className="profile">
-            <div className="list-box">
-                <div className="list__container">
-                    <span className="list-close">X</span>
-                    <div className="list-preview">
-                        
-                    </div>
-                    <div className="list__price">
-                        <p>Price</p>
-                        <div className="list__price-container"> 
-                            <input className="list__price--input" placeholder="Amount" type="number"></input>
-                            <img src={"ethImg"} alt="eth-img" />
-                        </div>
-                    </div>
-                    <div className="list__price">
-                        <p>Duration</p>
-                        <div className="list__price-container"> 
-                            <input className="list__duration--input" placeholder="24" type="number"></input>
-                            <select name="duration" id="duration" className="list__duration--select">
-                                <option value="hours">Hours</option>
-                                <option value="days">Days</option>
-                                <option value="weeks">Weeks</option>
-                                <option value="months">Months</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button className="list-btn">List</button>
-                </div>
-            </div>
+            <List/>
             <section className="profile__nft-preview">
                 <NftContainer/>
             </section>

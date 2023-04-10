@@ -3,6 +3,7 @@ import { AuthContext } from "../../../context/auth-context";
 import { getImage } from "../../../utils/helpers";
 import "./YourNfts.scss";
 import { fetchData } from "../../../utils/helpers";
+import List from "../../../components/List";
 
 const {REACT_APP_BASEURL, REACT_APP_TITLE, REACT_APP_DESCRIPTION} = process.env;
 
@@ -75,7 +76,7 @@ const YourNfts = props => {
                             <span>{n.name} collection</span>
                             <h3>{n.metadata.name}</h3>
                         </div>
-                        <button className="list-cta">List</button>
+                        <button className="list-cta" onClick={props.list} >List</button>
                     </div>
                 </div>
             )
