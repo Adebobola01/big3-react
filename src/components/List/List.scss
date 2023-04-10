@@ -22,16 +22,22 @@
     flex-direction: column;
     align-items: center;
     background-color: rgb(30, 28, 46);
+    position: relative;
   }
   &-close {
-    width: 2rem;
-    height: 2rem;
-    background-color: rgb(18, 17, 29);
+    width: 4rem;
+    height: 4rem;
     display: flex;
+    border-radius: 50%;
     justify-content: center;
     align-items: center;
+    background-color: rgb(18, 17, 29);
     cursor: pointer;
-    align-self: flex-end;
+    position: absolute;
+    text-align: center;
+    right: 8px;
+    top: 1rem;
+    // top: -1px;
 
     &:hover {
       opacity: 0.5;
@@ -178,4 +184,16 @@
   display: block;
   opacity: 1;
   animation: sidebar 0.8s forwards;
+}
+
+@media (max-width: 500px) {
+  .list {
+    &__container {
+      padding: 5rem 3rem;
+    }
+
+    &__price {
+      margin-bottom: 4rem;
+    }
+  }
 }
