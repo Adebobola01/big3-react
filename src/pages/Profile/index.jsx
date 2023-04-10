@@ -24,7 +24,6 @@ const Profile = props => {
     return (
         // !authContext.auth ? <Error errorMessage="you need connect your wallet first!" /> :
         <div className="profile">
-            <List/>
             <section className="profile__nft-preview">
                 <NftContainer/>
             </section>

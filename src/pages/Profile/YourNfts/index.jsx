@@ -106,6 +106,7 @@ const YourNfts = props => {
 
     return (
         <>
+            <List open={true} />
             {content}
         </>
     )

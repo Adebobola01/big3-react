@@ -6,8 +6,8 @@
     transform: translate(-50%, -60%);
     // transform: translateX(100vw);
     // transition: all 1s;
-    opacity: 1;
-    display: block;
+    opacity: 0;
+    display: none;
     // right: 0;
     z-index: 101;
   }
@@ -183,7 +183,7 @@
 .open-list {
   display: block;
   opacity: 1;
-  animation: sidebar 0.8s forwards;
+  //   animation: sidebar 0.8s forwards;
 }
 
 @media (max-width: 500px) {
