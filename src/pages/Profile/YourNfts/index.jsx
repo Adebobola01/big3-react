@@ -10,8 +10,16 @@ const {REACT_APP_BASEURL, REACT_APP_TITLE, REACT_APP_DESCRIPTION} = process.env;
 const YourNfts = props => {
     const authContext = useContext(AuthContext);
     const [userNfts, setUserNfts] = useState([]);
+    const [listing, setListing] = useState(true);
+
+
     const token = localStorage.getItem("token");
     const address = authContext.address;
+
+    const list = () => {
+        console.log(listing)
+        setListing(true);
+    }
 
 
     const getUserData = async() => {        
@@ -44,8 +52,6 @@ const YourNfts = props => {
         }
     }
 
-    console.log(REACT_APP_BASEURL, REACT_APP_DESCRIPTION, REACT_APP_TITLE);
-
     useEffect(() => {
         (async () => {
             console.log("useEffect!")
@@ -76,7 +82,7 @@ const YourNfts = props => {
                             <span>{n.name} collection</span>
                             <h3>{n.metadata.name}</h3>
                         </div>
-                        <button className="list-cta" onClick={props.list} >List</button>
+                        <button className="list-cta" onClick={list} >List</button>
                     </div>
                 </div>
             )
@@ -102,11 +108,9 @@ const YourNfts = props => {
     //     )
     // }
 
-    console.log(content);
-
     return (
         <>
-            <List open={true} />
+            {listing ? <List/> : null}
             {content}
         </>
     )

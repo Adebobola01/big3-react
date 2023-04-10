@@ -6,17 +6,22 @@ import ethUrl from "../../assets/images/madara.png"
 
 
 const List = props => {
+
     const [open, setOpen] = useState(true);
 
-    const close = () => {
-        setOpen(false);
+    const toggle = () => {
+        setOpen(!open);
     }
+
+    // const openList = () => {
+    //     setOpen(true);
+    // }
     return (
         <>
-            <Backdrop open={open} click={close} />
+            <Backdrop open={open} click={toggle} />
             <div className={`list-box ${open ? "open-list" : ""}`}>
                 <div className="list__container">
-                    <span className="list-close" onClick={close} >X</span>
+                    <span className="list-close" onClick={toggle} >X</span>
                     <div className="list-preview">
                         <img src={ethUrl} className="list-preview__image"/>
                     </div>

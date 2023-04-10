@@ -21,7 +21,10 @@ const Navbar = props => {
                 <ul className="nav">
                     <NavigationItem link="/explore">Explore</NavigationItem>
                     <NavigationItem link="/create">Create</NavigationItem>
-                    <NavigationItem click={props.click}>Profile</NavigationItem>
+
+                    {authContext.auth ?
+                        <NavigationItem link="/profile">Profile</NavigationItem> :
+                        <NavigationItem click={props.click}>Profile</NavigationItem> }
                 </ul>
                 <div className="btns-container">
                     {
