@@ -119,7 +119,6 @@ const Create = props => {
         fileReader.onload = function(ev) {
             const result = ev.target.result;
             f2 = result;
-            console.log(result); // here it is
         }
         const formData = new FormData();
         formData.append("file", f2);
@@ -127,8 +126,7 @@ const Create = props => {
             cidVersion: 0,
           })
         formData.append('pinataOptions', options);
-        
-        console.log(formData);
+    
 
         const res = await fetch(`https://api.pinata.cloud/pinning/pinFileToIPFS`, {
             method: "POST",
@@ -190,9 +188,7 @@ const Create = props => {
         ))
     }
 
-
     const v = image ? <img src={image} alt="img" style={{width: "inherit", height: "inherit"}} /> : null;
-    console.log(v);
 
     return (
         <div className="create">
