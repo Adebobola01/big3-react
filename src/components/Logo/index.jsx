@@ -4,16 +4,16 @@ import logoImg from "../../assets/images/big3-logo.png"
 import "./Logo.scss"
 const logo = props => {
     return (
-        <div className="logo">
-            <Link to="/" >
+        <Link to="/" >
+            <div className="logo">
                 <img
                     src={logoImg}
                     alt="logo"
                     className="logo__icon"
                 />
                 <span className="logo__title">Big3</span>
-            </Link>
-        </div>
+            </div>
+        </Link>
     )
 }
 
