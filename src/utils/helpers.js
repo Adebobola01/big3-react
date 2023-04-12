@@ -46,11 +46,19 @@ export const setAutoLogout = (milliseconds, disconnect) => {
 };
 
 export const getImage = (image) => {
+    // console.log(image)
     if (!image) {
         return;
     }
-    const link = image.split("//")[1];
-    return `https://ipfs.moralis.io:2053/ipfs/${link}`;
+    const link = image.split("//")[1] ? image.split("//")[1] : image;
+    console.log(link)
+    if (link[0] === "Q") {
+        return `https://ipfs.moralis.io:2053/ipfs/${link}`
+    }
+    if (link.split("/")[0] === "data:image") {
+        return link;
+    }
+    return `https://${link}`;
 };
 
 
@@ -70,6 +78,7 @@ export const getUserAccount = async (account) => {
         // state.signature = await web3.eth.personal.sign(state.message, account);
     } catch (error) {
         console.log(error);
+        return null;
     }
 };
 
@@ -98,6 +107,6 @@ export const verifyMessage = async (address) => {
             return console.log("could not connect to wallet");
         }
     } catch (error) {
-        console.log(error);
+        return null;
     }
 };

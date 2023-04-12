@@ -12,7 +12,8 @@ import Error from "../Error";
 const Navbar = props => {  
     const authContext = useContext(AuthContext);
     const navigate = useNavigate();
-    
+
+    console.log(authContext.auth)
     return (
         <header className="header">
             <div className="nav-bar">

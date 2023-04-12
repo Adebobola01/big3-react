@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "./List.scss";
 import Backdrop from "../Backdrop";
 // import ethUrl from "../../assets/images/ethereum-eth-logo.svg";
@@ -6,24 +6,16 @@ import ethUrl from "../../assets/images/madara.png"
 
 
 const List = props => {
+    const details = { ...props.details };
 
-    const [open, setOpen] = useState(true);
-
-    const toggle = () => {
-        setOpen(!open);
-    }
-
-    // const openList = () => {
-    //     setOpen(true);
-    // }
     return (
         <>
-            <Backdrop open={open} click={toggle} />
-            <div className={`list-box ${open ? "open-list" : ""}`}>
+            <Backdrop open={props.open} click={props.listHandler} />
+            <div className={`list-box ${props.open ? "open-list" : ""}`}>
                 <div className="list__container">
-                    <span className="list-close" onClick={toggle} >X</span>
+                    <span className="list-close" onClick={props.listHandler} >X</span>
                     <div className="list-preview">
-                        <img src={ethUrl} className="list-preview__image"/>
+                        <img src={details.image} className="list-preview__image"/>
                     </div>
                     <div className="list__price">
                         <p>Price</p>

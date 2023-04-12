@@ -31,6 +31,10 @@ const AuthContextProvider = props => {
             });
             const account = accounts[0];
             const res = await verifyMessage(account);
+            console.log(res)
+            if (!res) {
+                return;
+            }
             setConnected(true);
             setAddress(res);         
         } catch (error) {

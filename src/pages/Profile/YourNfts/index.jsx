@@ -10,15 +10,17 @@ const {REACT_APP_BASEURL, REACT_APP_TITLE, REACT_APP_DESCRIPTION} = process.env;
 const YourNfts = props => {
     const authContext = useContext(AuthContext);
     const [userNfts, setUserNfts] = useState([]);
-    const [listing, setListing] = useState(true);
+    const [listing, setListing] = useState(false);
+    const [listDetails, setListDetails] = useState({});
 
 
     const token = localStorage.getItem("token");
     const address = authContext.address;
 
-    const list = () => {
-        console.log(listing)
-        setListing(true);
+    const listHandler = (details) => {
+        console.log("listing")
+        setListDetails(details.metadata);
+        setListing(!listing);
     }
 
 
@@ -60,11 +62,9 @@ const YourNfts = props => {
     }, []);
 
 
-    console.log(userNfts)
     let content;
 
     if (userNfts.length !== 0) {
-        console.log(userNfts)
         content = userNfts.map(n => {
             if (!n.metadata) { return null };
         
@@ -82,7 +82,9 @@ const YourNfts = props => {
                             <span>{n.name} collection</span>
                             <h3>{n.metadata.name}</h3>
                         </div>
-                        <button className="list-cta" onClick={list} >List</button>
+                        <button className="list-cta" onClick={() => {
+                            listHandler(n)
+                        }} >List</button>
                     </div>
                 </div>
             )
@@ -110,7 +112,7 @@ const YourNfts = props => {
 
     return (
         <>
-            {listing ? <List/> : null}
+            <List open={listing} listHandler={listHandler} details={listDetails} />
             {content}
         </>
     )
