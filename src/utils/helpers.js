@@ -8,7 +8,6 @@ const remainingMilliseconds = 180 * 60 * 1000;
 const token = localStorage.getItem("token")
 
 export const fetchData = async (method, endpoint, body) => {
-    console.log(body)
     const result = await fetch(`${baseUrl}/${endpoint}`, {
         method: method,
         headers: {

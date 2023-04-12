@@ -25,7 +25,6 @@ const Layout = props => {
     setAutoLogout(timeRemaining, authContext.disconnect);
     
     const init = async () => {
-        console.log("layout useEffect!")
         const stillValid = () => {
             if (new Date(expiryDate) > new Date()) {
                 return true;

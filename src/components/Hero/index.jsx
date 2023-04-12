@@ -13,7 +13,6 @@ const Hero = props => {
 
     const getHeroNft = async() => {
         const data = await fetchData("GET", "heroNft");
-        console.log(data)
     }
     useEffect(() => {
         getHeroNft()
