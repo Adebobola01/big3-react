@@ -23,6 +23,10 @@ const YourNfts = props => {
         setListing(!listing);
     }
 
+    const list = () => {
+        
+    }
+
 
     const getUserData = async() => {        
         try {
@@ -112,7 +116,7 @@ const YourNfts = props => {
 
     return (
         <>
-            <List open={listing} listHandler={listHandler} details={listDetails} />
+            <List open={listing} listHandler={listHandler} details={listDetails} submit={list} />
             {content}
         </>
     )
