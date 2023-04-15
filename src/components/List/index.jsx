@@ -8,7 +8,6 @@ import ethUrl from "../../assets/images/madara.png"
 
 const List = props => {
     const details = { ...props.details };
-    console.log(details)
     const [price, setPrice] = useState();
     const [duration, setDuration] = useState({
         value: null,
@@ -17,7 +16,6 @@ const List = props => {
 
     const convTime = (val, unit) => {
         let exp
-        console.log(val, unit)
         switch (unit) {
             case "hours":
                 exp = val * 60 * 60 * 1000;
@@ -41,7 +39,6 @@ const List = props => {
         e.preventDefault();
         const expiryDate = new Date().getTime() + convTime(duration.value, duration.unit);
         // const expiryDate = convTime(duration.value, duration.unit);
-        console.log("listing nft", details)
         const res = await fetchData("POST", "list", {
             ...details,
             expiryDate: expiryDate,

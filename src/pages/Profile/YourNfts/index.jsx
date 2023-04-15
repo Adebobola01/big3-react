@@ -18,7 +18,6 @@ const YourNfts = props => {
     const address = authContext.address;
 
     const listHandler = (details) => {
-        console.log(details)
         setListDetails(details);
         setListing(!listing);
     }
@@ -56,7 +55,6 @@ const YourNfts = props => {
 
     useEffect(() => {
         (async () => {
-            console.log("useEffect!")
             await getUserData();
         })();
     }, []);
