@@ -18,13 +18,9 @@ const YourNfts = props => {
     const address = authContext.address;
 
     const listHandler = (details) => {
-        console.log("listing")
-        setListDetails(details.metadata);
+        console.log(details)
+        setListDetails(details);
         setListing(!listing);
-    }
-
-    const list = () => {
-        
     }
 
 
@@ -99,8 +95,6 @@ const YourNfts = props => {
         </div>
     }
 
-   
-
     // if (contentBody) {
     //     console.log("hi")
     //     contentBody.forEach(n => (            
@@ -116,7 +110,7 @@ const YourNfts = props => {
 
     return (
         <>
-            <List open={listing} listHandler={listHandler} details={listDetails} submit={list} />
+            <List open={listing} listHandler={listHandler} details={listDetails}/>
             {content}
         </>
     )
