@@ -24,7 +24,7 @@ const Explore = props => {
             const owner = nft.ownerAddress;
            return <a
                 className="explore__nft--container"
-                href="explore/details/0x804dB972ab4df78782deD04bE123430129bfaAF0/25"
+                href={`explore/details/${nft.contractAddr}/${nft.tokenId}`}
                 key={`${nft.contractAddr} ${nft.tokenId}`} >
                 <img
                     src={nft.imageUrl}
