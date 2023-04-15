@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import "./Details.scss";
 import NftContainer from "../../../components/NftContainer";
+import { fetchData } from "../../../utils/helpers";
 import uzuImg from "../../../assets/images/uzumakiFamily.png";
 import Error from "../../../components/Error";
 
@@ -13,19 +14,11 @@ const Details = props => {
 
     const getDetails = async () => {
         try {
-            const result = await fetch("http://localhost:5000/nftDetails", {
-                method: "POST",
-                headers: {
-                    Authorization: "Bearer " + token,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    contractAddress: contractAddr,
-                    tokenId: tokenId
-                }),
-            });
-            const data = await result.json();
-            setDetails(data.data);
+            const result = await fetchData("POST", "getNftDetails", {
+                contractAddress: contractAddr,
+                tokenId: tokenId
+            })
+            setDetails(result.nft);
         } catch (error) {
             setDetails(null);
             console.log("Could not fetch nft data!")
@@ -36,24 +29,25 @@ const Details = props => {
         (async () => {
             await getDetails(); 
         })()
-    })
+    }, [])
 
     let content;
+    let contentData;
 
     if (details) {
-        content = [...details];
-        content.map(n => (
+        content = {...details};
+        contentData =  (
             <section className="nft__details">
                 <div className="nft__details--heading">
-                    <a href="#" className="nft__details--collection">{n.collectionName}</a>
-                    <h3 className="nft___details--name">n.name</h3>
+                    <a href="#" className="nft__details--collection">{content.collectionName}</a>
+                    <h3 className="nft___details--name">{content.name}</h3>
                     <p className="nft__details--owner">
-                        Owned by <a href="#">{ n.owner }</a>
+                        Owned by <a href="#">{`${content.ownerAddress.slice(0, 3)}...${content.ownerAddress.slice(-4)}`}</a>
                     </p>
                 </div>
                 <div className="purchase">
                     <p>Current Price</p>
-                    <span>{n.price} ETH</span>
+                    <span>{content.price} ETH</span>
                     <div className="purchase__btns">
                         <button className="purchase__btn buy-btn">BUY</button>
                         <button className="purchase__btn offer-btn">
@@ -66,7 +60,7 @@ const Details = props => {
                         <h2>Description</h2>
                         <div className="description__body">
                             <p>
-                                {n.description}
+                                {content.description}
                             </p>
                         </div>
                     </div>
@@ -119,11 +113,11 @@ const Details = props => {
                         <div className="details__body">
                             <div className="detail">
                                 <span>Contract Address</span>
-                                <span>{n.contractAddress}</span>
+                                <span>{`${content.contractAddr.slice(0, 3)}...${content.contractAddr.slice(-7)}`}</span>
                             </div>
                             <div className="detail">
                                 <span>Token ID</span>
-                                <span>{tokenId}</span>
+                                <span>{content.tokenId}</span>
                             </div>
                             <div className="detail">
                                 <span>Chain</span>
@@ -133,7 +127,7 @@ const Details = props => {
                     </div>
                 </div>
             </section>
-        ))
+        )
     } else {
         content = <div style={{height: "90rem", display: "flex", justifyContent: "center", alignItems: "center", width: "100%"}} ><span style={{color: "white"}} >No content available!</span></div>
     }
@@ -141,9 +135,9 @@ const Details = props => {
     return (
         <div className="nft">
             <section className="profile__nft-preview">
-                <NftContainer/>
+                <NftContainer image={details ? details?.imageUrl : ""} name={details ? details.name : ""}  price={details ? details.price : ""} />
             </section>
-            {content}
+            {contentData}
             {/* <section className="nft__details">
                 <div className="nft__details--heading">
                     <a href="#" className="nft__details--collection">Azuki</a>

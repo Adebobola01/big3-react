@@ -5,14 +5,14 @@ const NftContainer = props => {
     return (
         <div className="nft__details--preview">
             <img
-                src={uzuImg}
+                src={props.image}
                 alt="nft"
                 className="nft-comp--image"
             />
             <div className="nft-comp--details">
-                <p className="nft-comp--name">Azuki #25</p>
+                <p className="nft-comp--name">{props.name}</p>
                 <div className="nft-comp--price">
-                    <p>23 ETH</p>
+                    <p>{props.price} ETH</p>
                 </div>
             </div>
         </div>
