@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import "./Details.scss";
 import NftContainer from "../../../components/NftContainer";
+import Loader from "../../../components/Loader"
 import { fetchData } from "../../../utils/helpers";
 import uzuImg from "../../../assets/images/uzumakiFamily.png";
 import Error from "../../../components/Error";
@@ -11,14 +12,17 @@ const Details = props => {
     const { contractAddr, tokenId } = useParams();
     const token = localStorage.getItem("token");
     const [details, setDetails] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const getDetails = async () => {
         try {
+            setLoading(true);
             const result = await fetchData("POST", "getNftDetails", {
                 contractAddress: contractAddr,
                 tokenId: tokenId
             })
             setDetails(result.nft);
+            // setLoading(false);
         } catch (error) {
             setDetails(null);
             console.log("Could not fetch nft data!")
@@ -28,6 +32,7 @@ const Details = props => {
     useEffect(() => {
         (async () => {
             await getDetails(); 
+            setLoading(false)
         })()
     }, [])
 
@@ -132,12 +137,13 @@ const Details = props => {
         content = <div style={{height: "90rem", display: "flex", justifyContent: "center", alignItems: "center", width: "100%"}} ><span style={{color: "white"}} >No content available!</span></div>
     }
 
+    // setLoading(false);
     return (
         <div className="nft">
             <section className="profile__nft-preview">
                 <NftContainer image={details ? details?.imageUrl : ""} name={details ? details.name : ""}  price={details ? details.price : ""} />
             </section>
-            {contentData}
+            { loading ? <Loader/> : contentData}
             {/* <section className="nft__details">
                 <div className="nft__details--heading">
                     <a href="#" className="nft__details--collection">Azuki</a>
