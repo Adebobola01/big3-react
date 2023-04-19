@@ -3,7 +3,7 @@ import "./Created.scss";
 
 const Created = props => {
     const [created, setCreated] = useState([]);
-
+    document.title = "Created";
     useEffect(() => {
         setCreated([]);
         console.log("useEffect");

@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react";
 import "./Listed.scss";
 
 const Listed = props => {
-    const [listed, setListed] = useState([])
+    const [listed, setListed] = useState([]);
+    document.title = "Listed";
     useEffect(() => {
         setListed([]);
     }, []);

@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { AuthContext } from "../../../context/auth-context";
 import { getImage } from "../../../utils/helpers";
+import Loader from "../../../components/Loader";
 import "./YourNfts.scss";
 import { fetchData } from "../../../utils/helpers";
 import List from "../../../components/List";
@@ -12,11 +13,12 @@ const YourNfts = props => {
     const [userNfts, setUserNfts] = useState([]);
     const [listing, setListing] = useState(false);
     const [listDetails, setListDetails] = useState({});
+    const [loading, setLoading] = useState(false);
 
 
     const token = localStorage.getItem("token");
     const address = authContext.address;
-
+    document.title = "Your Nfts";
     const listHandler = (details) => {
         setListDetails(details);
         setListing(!listing);
@@ -25,8 +27,9 @@ const YourNfts = props => {
 
     const getUserData = async() => {        
         try {
+            setLoading(true);
             // const result = await fetch("https://big3-backend.onrender.com/profile", {
-            const {data} = await fetchData("POST", "profile", { userAddress: "0x3427bfe887eEc6E1C1e0F2b485800B5A9A7c633F" });
+            const {data} = await fetchData("POST", "profile", { userAddress: authContext.address });
             console.log(data)
             data.forEach(n => {
                 if (!n.metadata) {
@@ -35,19 +38,6 @@ const YourNfts = props => {
                 n.metadata.image = getImage(n.metadata.image);
             })
             setUserNfts(data);
-            // if (result.status === 200 || result.status === 201) {
-            //     const { data } = await result.json();
-            //     data.forEach((n) => {
-            //         if (!n.metadata) {
-            //             return;
-            //         }
-            //         n.metadata.image = getImage(n.metadata.image);
-            //     });
-            //     setUserNfts(data);
-            // } else {
-            //     new Error("could not get user data");
-            // }
-            
         } catch (error) {
             console.log(error);
         }
@@ -56,6 +46,7 @@ const YourNfts = props => {
     useEffect(() => {
         (async () => {
             await getUserData();
+            setLoading(false)
         })();
     }, []);
 
@@ -109,7 +100,7 @@ const YourNfts = props => {
     return (
         <>
             <List open={listing} listHandler={listHandler} details={listDetails}/>
-            {content}
+            { loading ? <Loader/> : content}
         </>
     )
 }

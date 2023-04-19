@@ -14,6 +14,7 @@ const Details = props => {
     const [details, setDetails] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    document.title = "Details";
     const getDetails = async () => {
         try {
             setLoading(true);

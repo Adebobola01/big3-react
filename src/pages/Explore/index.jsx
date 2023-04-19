@@ -6,7 +6,7 @@ import "./Explore.scss"
 const Explore = props => {
     const [exploreNfts, setExploreNfts] = useState([]);
 
-
+    document.title = "Explore";
     const explore = async() => {
         const data = await fetchData("GET", "explore");
         setExploreNfts(data.nfts);

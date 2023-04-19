@@ -3,7 +3,7 @@ import "./List.scss";
 import Backdrop from "../Backdrop";
 // import ethUrl from "../../assets/images/ethereum-eth-logo.svg";
 import { fetchData } from "../../utils/helpers";
-import ethUrl from "../../assets/images/madara.png"
+import ethUrl from "../../assets/images/ethereum-1.svg"
 
 
 const List = props => {
@@ -60,20 +60,20 @@ const List = props => {
                         <p>Price</p>
                         <div className="list__price-container"> 
                             <input className="list__price--input" placeholder="Amount" type="number" step={0.0001} onChange={(e)=>setPrice(e.target.value)} ></input>
-                            <img src="{ ethUrl}" />
+                            <img src={ethUrl} />
                         </div>
                     </div>
                     <div className="list__price">
-                    <p>Duration</p>
-                    <div className="list__price-container"> 
+                        <p>Duration</p>
+                        <div className="list__price-container"> 
                             <input className="list__duration--input" placeholder="24" type="number" onChange={(e) => setDuration((prev) => ({...prev, value: e.target.value}))} ></input>
-                        <select name="duration" id="duration" className="list__duration--select" onChange={(e) => setDuration((prev) => ({...prev, unit: e.target.value}))}>
-                            <option value="hours">Hours</option>
-                            <option value="days">Days</option>
-                            <option value="weeks">Weeks</option>
-                            <option value="months">Months</option>
-                        </select>
-                    </div>
+                            <select name="duration" id="duration" className="list__duration--select" onChange={(e) => setDuration((prev) => ({...prev, unit: e.target.value}))}>
+                                <option value="hours">Hours</option>
+                                <option value="days">Days</option>
+                                <option value="weeks">Weeks</option>
+                                <option value="months">Months</option>
+                            </select>
+                        </div>
                     </div>
                     <button className="list-btn" onClick={list} >List</button>
                 </form>

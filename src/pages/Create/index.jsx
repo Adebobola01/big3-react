@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Create.scss";
 import CreateInput from "../../components/Input/Create";
 // import { ethereum } from window;
@@ -23,6 +23,8 @@ const Create = props => {
         { value: "New Collection" }, { value: "Naruto" }, { value: "Azuki" }, { value: "One Piece" }, { value: "Bleach" }
     ];
     
+    document.title = "Create";
+
     const getTraits = (e, it) => {
         const val = e.target.value;
         const key = e.target.dataset.key;
@@ -192,6 +194,9 @@ const Create = props => {
 
     return (
         <div className="create">
+            <head>
+                <title>Create</title>
+            </head>
             <h1 className="create_header">Create New NFT</h1>
             <div className="create_body" >
                 <label htmlFor="fileInput" className="create_label" style={{position: "relative"}} >
