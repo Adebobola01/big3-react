@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Error from "../../Error";
 import { AuthContext } from "../../../context/auth-context";
 
-const navigationItem = props => {
+const navigationItem = (props: any) => {
     // const authContext = useContext(AuthContext);
     const { error, link } = props;
     return (

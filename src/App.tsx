@@ -1,8 +1,8 @@
 import './App.css';
+import React, { Suspense, lazy } from 'react';
 import Home from './pages/Home';
 import Layout from './components/Layout';
 import { Routes, Route } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
 import Loader from './components/Loader';
 
 const Explore = lazy(() => import("./pages/Explore"));

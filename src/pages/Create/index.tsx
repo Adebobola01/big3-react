@@ -5,59 +5,77 @@ import CreateInput from "../../components/Input/Create";
 import { ethers, parseEther, Contract, formatUnits,  } from "ethers";
 import contractAbi from "../../artifacts/contracts/Big3MarketPlace.sol/Big3Marketplace.json";
 import { Web3Storage } from "web3.storage";
-import camera from "./OOjs_UI_icon_camera.svg"
+// import camera from "./OOjs_UI_icon_camera.svg"
 import { fetchData } from "../../utils/helpers";
 import axios from "axios"
 // const provider = new ethers.BrowserProvider(ethereum);
 
-const client = new Web3Storage({ token: process.env.REACT_APP_API_TOKEN });
+// const web3Token: string | undefined = process.env.REACT_APP_API_TOKEN;
+// const client = new Web3Storage({ token: web3Token });
 const token = process.env.REACT_APP_PINATA_JWT;
 const key = process.env.REACT_APP_PINATA_API_Key;
 const secret = process.env.REACT_APP_PINATA_API_Secret;
 
 
-const Create = props => {
+const Create = (props: any) => {
     let provider;
-    let signer;
+    let signer: any = "";
     const options = [
         { value: "New Collection" }, { value: "Naruto" }, { value: "Azuki" }, { value: "One Piece" }, { value: "Bleach" }
     ];
     
     document.title = "Create";
+    interface TraitType {
+        "trait_type": string;
+        "value": string
+    }
 
-    const getTraits = (e, it) => {
+    const traitTemp: TraitType = {
+        "trait_type": "",
+        "value": ""
+    }
+    const [traits, setTraits]: [TraitType[], any] = useState([
+        traitTemp
+    ]);
+
+    const getTraits = (e: any, _it: string) => {
         const val = e.target.value;
         const key = e.target.dataset.key;
-        setTraits(p => {
+        setTraits((p: TraitType[]) => {
             const traits = [...p];
-            let trait = traits[key];
-            // if (!trait) {
-                //     setTraits(n => (
-                    //         [...n, {trait: "", value: ""}]
-            //     ))
-            //     trait = traits[key];
-            // }
-            trait[it] = val;
+            let trait: TraitType = traits[key];
+            let key2 = _it === "trait_type" ? "trait_type" : "value"
+            switch (_it) {
+                case "trait_type":
+                    trait.trait_type = val;
+                    break;
+                case "value":
+                    trait.value = val;
+                    break;
+                default:
+                    break;
+            }
             return [...traits];
         })
+    }
+
+    interface InputType {
+        name: string;
+        description: string;
+        collection: string;
     }
     
     //states
     const [file, setFile] = useState();
-    const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={0} dataKey={0} traitChanged={ (e)=>getTraits(e, "trait") } traitValueChanged={ (e)=>getTraits(e, "value") } />]);
-    const [inputs, setInputs] = useState({
+    const [properties, setProperties] = useState([<CreateInput label="properties" type="property" key={0} dataKey={0} traitChanged={ (e: any)=>getTraits(e, "trait_type") } traitValueChanged={ (e: any)=>getTraits(e, "value") } />]);
+    const [inputs, setInputs]: [InputType, any] = useState({
         name: "",
         description: "",
         collection: "new collection",
     });
-    const [traits, setTraits] = useState([
-        {
-            trait: "",
-            value: "",
-        }
-    ]);
 
-    const [image, setImage] = useState();
+
+    const [image, setImage]: [null | string | ArrayBuffer, any] = useState("");
     
 
     // const getProvider = async () => {
@@ -88,7 +106,7 @@ const Create = props => {
         // console.log(tx1);
     }
 
-    const getFile = (e) => {
+    const getFile = (e: any) => {
         const f = e.target.files[0];
         const reader = new FileReader();
         reader.onload = () => {
@@ -96,10 +114,29 @@ const Create = props => {
             setImage(i);
         }
         reader.readAsDataURL(f);
-        setFile(f)
+        setFile(f);
     }
 
     const create = async () => {
+        // const formData = new FormData();
+        // const data = {
+        //     details: inputs,
+        //     attributes: traits
+        // }
+        // formData.append("file", file);
+        // formData.append("data", data);
+        // for (var pair of formData.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]); 
+        // }
+        // const config = {     
+        //     headers: { 'content-type': 'multipart/form-data' }
+        // }
+        // axios.post("http://localhost:5000/createNft", formData, config).then(response => {
+        //     console.log(response);
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // });
         // const contract = new Contract("0x5FbDB2315678afecb367f032d93F642f64180aa3", contractAbi.abi, signer);
         // const tx = await contract.mint();
         // const tx1 = await tx.wait();
@@ -114,34 +151,34 @@ const Create = props => {
         // data.file = file[0];
         // console.log(data);
 
-        const file2 = file;
-        let f2;
-        let fileReader = new FileReader();
-        fileReader.readAsArrayBuffer(file2);
-        fileReader.onload = function(ev) {
-            const result = ev.target.result;
-            f2 = result;
-        }
-        const formData = new FormData();
-        formData.append("file", f2);
-        const options = JSON.stringify({
-            cidVersion: 0,
-          })
-        formData.append('pinataOptions', options);
+        // const file2 = file;
+        // let f2;
+        // let fileReader = new FileReader();
+        // fileReader.readAsArrayBuffer(file2);
+        // fileReader.onload = function(ev) {
+        //     const result = ev.target.result;
+        //     f2 = result;
+        // }
+        // const formData = new FormData();
+        // formData.append("file", f2);
+        // const options = JSON.stringify({
+        //     cidVersion: 0,
+        //   })
+        // formData.append('pinataOptions', options);
     
 
-        const res = await fetch(`https://api.pinata.cloud/pinning/pinFileToIPFS`, {
-            method: "POST",
-            headers: {
-                Authorization: "Bearer " + token,
-                "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
-                pinata_api_key: key,
-                pinata_secret_api_key: secret,
-            },
-            body: formData,
-        // console.log(token)
-        })
-        console.log(res)
+        // const res = await fetch(`https://api.pinata.cloud/pinning/pinFileToIPFS`, {
+        //     method: "POST",
+        //     headers: {
+        //         Authorization: "Bearer " + token,
+        //         "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+        //         pinata_api_key: key,
+        //         pinata_secret_api_key: secret,
+        //     },
+        //     body: formData,
+        // // console.log(token)
+        // })
+        // console.log(res)
         // try {
         //     const res = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
         //     maxBodyLength: "Infinity",
@@ -160,32 +197,32 @@ const Create = props => {
         
         // const result = await res.json();
 
-        const resFile = await axios({
-            method: "post",
-            url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
-            data: formData,
-            headers: {
-                pinata_api_key: key,
-                pinata_secret_api_key: secret,
-                'Content-Type': `multipart/form-data`,
-            }
-        })
-        console.log(resFile);
+        // const resFile = await axios({
+        //     method: "post",
+        //     url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+        //     data: formData,
+        //     headers: {
+        //         pinata_api_key: key,
+        //         pinata_secret_api_key: secret,
+        //         'Content-Type': `multipart/form-data`,
+        //     }
+        // })
+        // console.log(resFile);
     }
 
 
     const addProp = () => {
         setProperties(prev => (
-            [...prev, <CreateInput label="properties" type="property" key={properties.length} dataKey={properties.length} traitChanged={ (e)=>getTraits(e, "trait") } traitValueChanged={ (e)=>getTraits(e, "value") } />]
+            [...prev, <CreateInput label="properties" type="property" key={properties.length} dataKey={properties.length} traitChanged={ (e: any)=>getTraits(e, "trait_type") } traitValueChanged={ (e: any)=>getTraits(e, "value") } />]
         ))
-        setTraits(i => (
+        setTraits((i: TraitType[]) => (
             [...i, {trait: "", value: ""}]
         ))
     }
 
-    const getInput = (e, type) => {
+    const getInput = (e: any, type: string) => {
         const val = e.target.value;
-        setInputs(prev => (
+        setInputs((prev: InputType) => (
             { ...prev, [type]: val }
         ))
     }
@@ -201,7 +238,7 @@ const Create = props => {
             <div className="create_body" >
                 <label htmlFor="fileInput" className="create_label" style={{position: "relative"}} >
                     {v} 
-                    <img className="create_svg" src={camera} alt="camera" style={{ height: "10rem", width: "10rem", opacity: "0.8", zIndex: v ? "-1" : "50", position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)",  }} />
+                    <img className="create_svg" src={"camera"} alt="camera" style={{ height: "10rem", width: "10rem", opacity: "0.8", zIndex: v ? "-1" : "50", position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)",  }} />
                     <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" onChange={getFile} />
                 </label>
 

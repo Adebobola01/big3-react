@@ -5,7 +5,7 @@ import { fetchData } from "../../utils/helpers";
 
 
 
-const Hero = props => {
+const Hero = (props: any) => {
 
     const baseUrl = process.env.REACT_APP_BASEURL;
 

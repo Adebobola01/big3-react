@@ -1,7 +1,7 @@
 import React from "react";
-import uzuImg from "../../assets/images/uzumakiFamily.png";
+// import uzuImg from "../../assets/images/uzumakiFamily.png";
 import "./NftContainer.scss";
-const NftContainer = props => {
+const NftContainer = (props: any) => {
     return (
         <div className="nft__details--preview">
             <img

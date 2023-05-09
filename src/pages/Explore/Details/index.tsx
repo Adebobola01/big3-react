@@ -7,11 +7,15 @@ import { fetchData } from "../../../utils/helpers";
 import uzuImg from "../../../assets/images/uzumakiFamily.png";
 import Error from "../../../components/Error";
 
-const Details = props => {
+const Details = (props: any) => {
+    interface DetailsType {
+        contractAddr: string;
+
+    }
 
     const { contractAddr, tokenId } = useParams();
-    const token = localStorage.getItem("token");
-    const [details, setDetails] = useState(null);
+    const token: string | null = localStorage.getItem("token");
+    const [details, setDetails]: [DetailsType | {}, any] = useState({});
     const [loading, setLoading] = useState(false);
 
     document.title = "Details";
@@ -37,11 +41,11 @@ const Details = props => {
         })()
     }, [])
 
-    let content;
+    let content: object | null = null;
     let contentData;
 
-    if (details) {
-        content = {...details};
+    if (Object.keys(details).length > 0) {
+        content = {...details}
         contentData =  (
             <section className="nft__details">
                 <div className="nft__details--heading">

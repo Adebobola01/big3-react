@@ -1,10 +1,10 @@
 import React from "react";
 import "./Footer.scss";
-import twitterLogo from "../../assets/images/Twitter-logo.svg";
-import linkedInLogo from "../../assets/images/icons8-linkedin-480.svg";
-import githubLogo from "../../assets/images/iconmonstr-github-5.svg";
+// import twitterLogo from "../../assets/images/Twitter-logo.svg";
+// import linkedInLogo from "../../assets/images/icons8-linkedin-480.svg";
+// import githubLogo from "../../assets/images/iconmonstr-github-5.svg";
 
-const Footer = props => {
+const Footer = (props: any) => {
     return (
         <footer className="footer" id="footer" >
                 <div className="footer__container">
@@ -34,7 +34,7 @@ const Footer = props => {
                                 className="social__link"
                             >
                                 <img
-                                    src={twitterLogo}
+                                    src={"twitterLogo"}
                                     alt="twitter"
                                     className="social-img"
                                 />
@@ -45,7 +45,7 @@ const Footer = props => {
                                 className="social__link"
                             >
                                 <img
-                                    src={linkedInLogo}
+                                    src={"linkedInLogo"}
                                     alt="linkedIn"
                                     className="social-img"
                                 />
@@ -60,7 +60,7 @@ const Footer = props => {
                                     alt="github"
                                     className="social-img"
                                 /> */}
-                            <svg alt="github" className="social-img"
+                            <svg className="social-img"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
                                 height="24"

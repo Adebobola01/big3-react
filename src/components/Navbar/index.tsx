@@ -9,7 +9,7 @@ import ToggleBtn from "../Buttons/ToggletBtn";
 import { AuthContext } from "../../context/auth-context";
 import LogoutBtn from "../Buttons/LogoutBtn";
 import Error from "../Error";
-const Navbar = props => {  
+const Navbar = (props: any) => {  
     const authContext = useContext(AuthContext);
     const navigate = useNavigate();
     return (

@@ -10,15 +10,16 @@ import Error from "../Error";
 import { AuthContext } from "../../context/auth-context";
 
 const token = localStorage.getItem("token");
-const expiryDate = localStorage.getItem("expiryDate");
-const address = localStorage.getItem("address");
+const expiryDate: any = localStorage.getItem("expiryDate");
+const address: string | null = localStorage.getItem("address");
 
-const Layout = props => {
+const Layout = (props: any) => {
+    let exp: any = localStorage.getItem("expiryDate");
 
     const authContext = useContext(AuthContext);
     const [openWallets, setOpenWallets] = useState(false);
     const [openSidebar, setOpenSidebar] = useState(false);
-    const expTime = new Date(localStorage.getItem("expiryDate")).getTime();
+    const expTime = new Date(exp).getTime();
     const currTime = new Date().getTime()
     const timeRemaining = expTime - currTime;
 
@@ -33,7 +34,7 @@ const Layout = props => {
             }
         };
         
-        if (token && stillValid) {
+        if (token && stillValid()) {
             authContext.autoConnect(address);
         }
         // model.setAutoLogout(new Date(expiryDate) - new Date());   

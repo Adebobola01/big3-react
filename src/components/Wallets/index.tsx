@@ -1,13 +1,13 @@
 import React,{useState, useContext} from "react";
 import "./Wallets.scss";
 import Backdrop from "../Backdrop";
-import metamaskLogo from "../../assets/images/MetaMask_Fox.svg";
-import walletConnectLogo from "../../assets/images/walletconnect-seeklogo.com.svg";
+// import "metamaskLogo" from "../../assets/images/MetaMask_Fox.svg";
+// import walletConnectLogo from "../../assets/images/walletconnect-seeklogo.com.svg";
 import { AuthContext } from "../../context/auth-context";
 import Loader from "../Loader";
 
 
-const Wallets = props => {
+const Wallets = (props: any) => {
     const authContext = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
     const connectWallet = async() => {
@@ -27,7 +27,7 @@ const Wallets = props => {
                 <div className="wallets">
                     <div className="wallet__btn" onClick={connectWallet} >
                         <img
-                            src={metamaskLogo}
+                            src={"metamaskLogo"}
                             alt="metamask__logo"
                             className="wallet__img"
                         />
@@ -36,7 +36,7 @@ const Wallets = props => {
                     </div>
                     <div className="wallet__btn">
                         <img
-                            src={walletConnectLogo}
+                            src={"walletConnectLogo"}
                             alt="metamask__logo"
                             className="wallet__img"
                         />
@@ -46,7 +46,7 @@ const Wallets = props => {
                     </div>
                     <div className="wallet__btn">
                         <img
-                            src={walletConnectLogo}
+                            src={"walletConnectLogo"}
                             alt="metamask__logo"
                             className="wallet__img"
                         />
@@ -56,7 +56,7 @@ const Wallets = props => {
                     </div>
                     <div className="wallet__btn">
                         <img
-                            src={walletConnectLogo}
+                            src={"walletConnectLogo"}
                             alt="metamask__logo"
                             className="wallet__img"
                         />
@@ -66,7 +66,7 @@ const Wallets = props => {
                     </div>
                     <div className="wallet__btn">
                         <img
-                            src={walletConnectLogo}
+                            src={"walletConnectLogo"}
                             alt="metamask__logo"
                             className="wallet__img"
                         />

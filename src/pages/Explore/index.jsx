@@ -2,14 +2,18 @@ import React, {useEffect, useState} from "react";
 import uzuImage from "../../assets/images/uzumakiFamily.png";
 import itachiImg from "../../assets/images/itachi.png";
 import { fetchData } from "../../utils/helpers";
-import "./Explore.scss"
+import "./Explore.scss";
+import Loader from "../../components/Loader";
 const Explore = props => {
     const [exploreNfts, setExploreNfts] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     document.title = "Explore";
-    const explore = async() => {
+    const explore = async () => {
+        setLoading(true);
         const data = await fetchData("GET", "explore");
         setExploreNfts(data.nfts);
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -57,34 +61,34 @@ const Explore = props => {
 
     return (
         <div className="explore__container">
-        <div className="explore__sort">
-            <p>aye sort ni mo fisi ile nibi bayi</p>
-            <p>aye sort ni mo fisi ile nibi bayi</p>
+            <div className="explore__sort">
+                <p>aye sort ni mo fisi ile nibi bayi</p>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
 
-            <p>aye sort ni mo fisi ile nibi bayi</p>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
 
-            <p>aye sort ni mo fisi ile nibi bayi</p>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
 
-            <p>aye sort ni mo fisi ile nibi bayi</p>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
 
-            <p>aye sort ni mo fisi ile nibi bayi</p>
-            <p>aye sort ni mo fisi ile nibi bayi</p>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
 
-            <p>aye sort ni mo fisi ile nibi bayi</p>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
 
-            <p>aye sort ni mo fisi ile nibi bayi</p>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
 
-            <p>aye sort ni mo fisi ile nibi bayi</p>
-            <p>aye sort ni mo fisi ile nibi bayi</p>
-        </div>
-        <div className="explore__main">
-            {/* <Link className="scroll-down" to="#footer" >
-                <span>&gt;&gt;</span>
-            </Link> */}
-                {
-                    contentData
-                }
-        </div>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
+                <p>aye sort ni mo fisi ile nibi bayi</p>
+            </div>
+            <div className="explore__main">
+                {/* <Link className="scroll-down" to="#footer" >
+                    <span>&gt;&gt;</span>
+                </Link> */}
+                    {
+                        loading ? <Loader/> : contentData
+                    }
+            </div>
         </div>
     )
 }

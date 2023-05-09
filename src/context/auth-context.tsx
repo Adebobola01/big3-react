@@ -2,7 +2,8 @@ import React, { createContext, useState } from "react";
 import { getUserAccount, verifyMessage, logoutHandler } from "../utils/helpers";
 import { useNavigate, redirect } from "react-router-dom";
 import Web3 from "web3";
-const { ethereum } = window;
+
+const {ethereum}: any = window;
 // const web3 = new Web3(Web3.givenProvider);
 const web3 = new Web3( Web3.givenProvider || "http://localhost:8545");
 
@@ -12,17 +13,13 @@ export const AuthContext = createContext({
     address: "",
     connect: () => { },
     disconnect: () => { },
-    autoConnect: ()=>{}
+    autoConnect: (param: any)=>{}
 });
 
-const AuthContextProvider = props => {
+const AuthContextProvider = (props: any) => {
     const navigate = useNavigate();
     const [connected, setConnected] = useState(false);
     const [address, setAddress] = useState("");
-
-    const redirectHome = ()=>{
-        return navigate("/")
-    }
     // const [authSignature, setAuthSignature] = useState("");
     const connectWallet = async () => {
         try {
@@ -47,12 +44,12 @@ const AuthContextProvider = props => {
         setAddress("");
 
     }
-    const autoConnect = (_address) => {
+    const autoConnectWallet = (_address: any) => {
         setConnected(true);
         setAddress(_address)
     }
     return (
-        <AuthContext.Provider value={{auth: connected, address: address, connect: connectWallet, disconnect: disconnectWallet, autoConnect: autoConnect }} >
+        <AuthContext.Provider value={{auth: connected, address: address, connect: connectWallet, disconnect: disconnectWallet, autoConnect: autoConnectWallet }} >
             {props.children}
         </AuthContext.Provider>
     )

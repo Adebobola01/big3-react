@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Create.scss"
 
-const CreateInput = props => {
+const CreateInput = (props: any) => {
     let content;
     let value = 0;
     const label = <label className="createInput_label" >{props.label}</label>;
@@ -9,7 +9,7 @@ const CreateInput = props => {
         case "textarea":
             content = <>
                 {label}
-                <textarea placeholder={props.placeholder} className="createInput_textarea" rows={"4"} onChange={(e)=>props.textareaChanged(e, props.param)} ></textarea>
+                <textarea placeholder={props.placeholder} className="createInput_textarea" rows={4} onChange={(e)=>props.textareaChanged(e, props.param)} ></textarea>
             </>
             break;
         case "input":
@@ -22,7 +22,7 @@ const CreateInput = props => {
             content = <>
                 {label}
                 <select name={props.name} className="createInput_field" defaultValue={props.options[0].value.toLowerCase()} onChange={(e)=>props.selectChanged(e, props.param)} style={{cursor: "pointer"}} >
-                {props.options.map(op => (
+                {props.options.map((op: any) => (
                     <option className="createInput_option" value={op.value.toLowerCase()} key={op.value} >{ op.value}</option>
                 ))}
                 </select>

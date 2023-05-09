@@ -1,7 +1,7 @@
 import React from "react";
 import "./ToggleBtn.scss";
 
-const ToggleBtn = props => {
+const ToggleBtn = (props: any) => {
     return (
         <button className="toggle-button" onClick={props.openSidebar} >
             <span className="toggle-button__bar"></span>

@@ -3,19 +3,23 @@ import "./List.scss";
 import Backdrop from "../Backdrop";
 // import ethUrl from "../../assets/images/ethereum-eth-logo.svg";
 import { fetchData } from "../../utils/helpers";
-import ethUrl from "../../assets/images/ethereum-1.svg"
+// import ethUrl from "../../assets/images/ethereum-1.svg"
 
+interface DurationType  {
+    value: number;
+    unit: string;
+}
 
-const List = props => {
+const List = (props: any) => {
     const details = { ...props.details };
-    const [price, setPrice] = useState();
-    const [duration, setDuration] = useState({
-        value: null,
+    const [price, setPrice]: [number, any] = useState(0);
+    const [duration, setDuration]: [DurationType, any] = useState({
+        value: 0,
         unit: "hours",
     });
 
-    const convTime = (val, unit) => {
-        let exp
+    const convTime = (val: number , unit: string): number=> {
+        let exp: number = 0;
         switch (unit) {
             case "hours":
                 exp = val * 60 * 60 * 1000;
@@ -28,16 +32,17 @@ const List = props => {
                 exp = val * 30 * 24 * 60 * 60 * 1000;
                 break;
             case "weeks":
-                exp = val * 7 * 24 * 60 * 60 * 1000; 
+                exp = val * 7 * 24 * 60 * 60 * 1000;
+                break;
             default:
                 break;
         }
         return exp;
     }
 
-    const list = async (e) => {
+    const list = async (e: any) => {
         e.preventDefault();
-        const expiryDate = new Date().getTime() + convTime(duration.value, duration.unit);
+        const expiryDate: number | null = new Date().getTime() + convTime(duration.value, duration.unit) ? convTime(duration.value, duration.unit) : null;
         // const expiryDate = convTime(duration.value, duration.unit);
         const res = await fetchData("POST", "list", {
             ...details,
@@ -59,15 +64,15 @@ const List = props => {
                     <div className="list__price">
                         <p>Price</p>
                         <div className="list__price-container"> 
-                            <input className="list__price--input" placeholder="Amount" type="number" step={0.0001} onChange={(e)=>setPrice(e.target.value)} ></input>
-                            <img src={ethUrl} />
+                            <input className="list__price--input" placeholder="Amount" type="number" step={0.0001} onChange={(e)=>setPrice(Number(e.target.value))} ></input>
+                            <img src={"ethUrl"} />
                         </div>
                     </div>
                     <div className="list__price">
                         <p>Duration</p>
                         <div className="list__price-container"> 
-                            <input className="list__duration--input" placeholder="24" type="number" onChange={(e) => setDuration((prev) => ({...prev, value: e.target.value}))} ></input>
-                            <select name="duration" id="duration" className="list__duration--select" onChange={(e) => setDuration((prev) => ({...prev, unit: e.target.value}))}>
+                            <input className="list__duration--input" placeholder="24" type="number" onChange={(e) => setDuration((prev: DurationType) => ({...prev, value: e.target.value}))} ></input>
+                            <select name="duration" id="duration" className="list__duration--select" onChange={(e) => setDuration((prev: DurationType) => ({...prev, unit: e.target.value}))}>
                                 <option value="hours">Hours</option>
                                 <option value="days">Days</option>
                                 <option value="weeks">Weeks</option>

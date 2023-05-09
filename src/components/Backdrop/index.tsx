@@ -1,6 +1,6 @@
 import React from "react";
 import "./Backdrop.scss";
-const Backdrop = props => {
+const Backdrop = (props: any) => {
 
 
 

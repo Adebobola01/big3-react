@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import "./LogoutBtn.scss";
 import { AuthContext } from "../../../context/auth-context";
-const LogoutBtn = props => {
+const LogoutBtn = (props: any) => {
     const authContext = useContext(AuthContext);
     const disconnect = () => {
         authContext.disconnect();

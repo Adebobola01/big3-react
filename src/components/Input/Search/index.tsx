@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import "./Search.scss";
 // import searchImg from "./assets/magnifying-glass-svgrepo-com.svg"
-const Search = props => {
+const Search = (props: any) => {
     const [value, setValue] = useState("");
-    const changed = (e) => {
+    const changed = (e: any) => {
         setValue(e.target.value);
     }
-    const submit = (e) => {
+    const submit = (e: any) => {
         e.preventDefault()
         console.log(value);
     }

@@ -4,7 +4,7 @@ import "./Sidebar.scss";
 import Backdrop from "../../Backdrop";
 import { AuthContext } from "../../../context/auth-context";
 
-const Sidebar = props => {
+const Sidebar = (props: any) => {
     // console.log(props.openSidebar);
     const authContext = useContext(AuthContext);
 

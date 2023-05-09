@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Error.scss";
 
-const Error = props => {
+const Error = (props: any) => {
     const [show, setShow] = useState(true)
 
     const classes =["Error", "openError"]
