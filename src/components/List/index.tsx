@@ -3,7 +3,7 @@ import "./List.scss";
 import Backdrop from "../Backdrop";
 // import ethUrl from "../../assets/images/ethereum-eth-logo.svg";
 import { fetchData } from "../../utils/helpers";
-// import ethUrl from "../../assets/images/ethereum-1.svg"
+import ethUrl from "../../assets/images/ethereum-1.svg"
 
 interface DurationType  {
     value: number;
@@ -65,7 +65,7 @@ const List = (props: any) => {
                         <p>Price</p>
                         <div className="list__price-container"> 
                             <input className="list__price--input" placeholder="Amount" type="number" step={0.0001} onChange={(e)=>setPrice(Number(e.target.value))} ></input>
-                            <img src={"ethUrl"} />
+                            <img src={ethUrl} />
                         </div>
                     </div>
                     <div className="list__price">

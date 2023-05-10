@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {ReactHTMLElement, useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import "./Details.scss";
 import NftContainer from "../../../components/NftContainer";
@@ -10,13 +10,28 @@ import Error from "../../../components/Error";
 const Details = (props: any) => {
     interface DetailsType {
         contractAddr: string;
-
+        collectionName: string;
+        name: string;
+        ownerAddress: string;
+        price: string;
+        description: string;
+        tokenId: string;
+        imageUrl: string
     }
 
     const { contractAddr, tokenId } = useParams();
     const token: string | null = localStorage.getItem("token");
-    const [details, setDetails]: [DetailsType | {}, any] = useState({});
-    const [loading, setLoading] = useState(false);
+    const [details, setDetails] = useState<DetailsType>({
+        contractAddr: "",
+        collectionName: "",
+        name: "",
+        ownerAddress: "",
+        price: "",
+        description: "",
+        tokenId: "",
+        imageUrl: "",
+    });
+    const [loading, setLoading] = useState<boolean>(false);
 
     document.title = "Details";
     const getDetails = async () => {
@@ -29,7 +44,7 @@ const Details = (props: any) => {
             setDetails(result.nft);
             // setLoading(false);
         } catch (error) {
-            setDetails(null);
+            // setDetails(null);
             console.log("Could not fetch nft data!")
         }
     }
@@ -41,23 +56,21 @@ const Details = (props: any) => {
         })()
     }, [])
 
-    let content: object | null = null;
-    let contentData;
+    let contentData: any = "";
 
-    if (Object.keys(details).length > 0) {
-        content = {...details}
+    if (details) {
         contentData =  (
             <section className="nft__details">
                 <div className="nft__details--heading">
-                    <a href="#" className="nft__details--collection">{content.collectionName}</a>
-                    <h3 className="nft___details--name">{content.name}</h3>
+                    <a href="#" className="nft__details--collection">{details.collectionName}</a>
+                    <h3 className="nft___details--name">{details?.name}</h3>
                     <p className="nft__details--owner">
-                        Owned by <a href="#">{`${content.ownerAddress.slice(0, 3)}...${content.ownerAddress.slice(-4)}`}</a>
+                        Owned by <a href="#">{`${details.ownerAddress.slice(0, 3)}...${details.ownerAddress.slice(-4)}`}</a>
                     </p>
                 </div>
                 <div className="purchase">
                     <p>Current Price</p>
-                    <span>{content.price} ETH</span>
+                    <span>{details.price} ETH</span>
                     <div className="purchase__btns">
                         <button className="purchase__btn buy-btn">BUY</button>
                         <button className="purchase__btn offer-btn">
@@ -70,7 +83,7 @@ const Details = (props: any) => {
                         <h2>Description</h2>
                         <div className="description__body">
                             <p>
-                                {content.description}
+                                {details.description}
                             </p>
                         </div>
                     </div>
@@ -123,11 +136,11 @@ const Details = (props: any) => {
                         <div className="details__body">
                             <div className="detail">
                                 <span>Contract Address</span>
-                                <span>{`${content.contractAddr.slice(0, 3)}...${content.contractAddr.slice(-7)}`}</span>
+                                <span>{`${details.contractAddr.slice(0, 3)}...${details.contractAddr.slice(-7)}`}</span>
                             </div>
                             <div className="detail">
                                 <span>Token ID</span>
-                                <span>{content.tokenId}</span>
+                                <span>{details.tokenId}</span>
                             </div>
                             <div className="detail">
                                 <span>Chain</span>
@@ -139,7 +152,7 @@ const Details = (props: any) => {
             </section>
         )
     } else {
-        content = <div style={{height: "90rem", display: "flex", justifyContent: "center", alignItems: "center", width: "100%"}} ><span style={{color: "white"}} >No content available!</span></div>
+        contentData = <div style={{height: "90rem", display: "flex", justifyContent: "center", alignItems: "center", width: "100%"}} ><span style={{color: "white"}} >No content available!</span></div>
     }
 
     // setLoading(false);

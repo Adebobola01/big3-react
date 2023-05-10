@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./Search.scss";
-// import searchImg from "./assets/magnifying-glass-svgrepo-com.svg"
+import searchImg from "./assets/magnifying-glass-svgrepo-com.svg"
 const Search = (props: any) => {
     const [value, setValue] = useState("");
     const changed = (e: any) => {

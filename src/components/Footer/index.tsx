@@ -1,8 +1,8 @@
 import React from "react";
 import "./Footer.scss";
-// import twitterLogo from "../../assets/images/Twitter-logo.svg";
-// import linkedInLogo from "../../assets/images/icons8-linkedin-480.svg";
-// import githubLogo from "../../assets/images/iconmonstr-github-5.svg";
+import twitterLogo from "../../assets/images/Twitter-logo.svg";
+import linkedInLogo from "../../assets/images/icons8-linkedin-480.svg";
+import githubLogo from "../../assets/images/iconmonstr-github-5.svg";
 
 const Footer = (props: any) => {
     return (
@@ -34,7 +34,7 @@ const Footer = (props: any) => {
                                 className="social__link"
                             >
                                 <img
-                                    src={"twitterLogo"}
+                                    src={twitterLogo}
                                     alt="twitter"
                                     className="social-img"
                                 />
@@ -45,7 +45,7 @@ const Footer = (props: any) => {
                                 className="social__link"
                             >
                                 <img
-                                    src={"linkedInLogo"}
+                                    src={linkedInLogo}
                                     alt="linkedIn"
                                     className="social-img"
                                 />

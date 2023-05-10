@@ -5,7 +5,7 @@ import CreateInput from "../../components/Input/Create";
 import { ethers, parseEther, Contract, formatUnits,  } from "ethers";
 import contractAbi from "../../artifacts/contracts/Big3MarketPlace.sol/Big3Marketplace.json";
 import { Web3Storage } from "web3.storage";
-// import camera from "./OOjs_UI_icon_camera.svg"
+import camera from "./OOjs_UI_icon_camera.svg"
 import { fetchData } from "../../utils/helpers";
 import axios from "axios"
 // const provider = new ethers.BrowserProvider(ethereum);
@@ -238,7 +238,7 @@ const Create = (props: any) => {
             <div className="create_body" >
                 <label htmlFor="fileInput" className="create_label" style={{position: "relative"}} >
                     {v} 
-                    <img className="create_svg" src={"camera"} alt="camera" style={{ height: "10rem", width: "10rem", opacity: "0.8", zIndex: v ? "-1" : "50", position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)",  }} />
+                    <img className="create_svg" src={camera} alt="camera" style={{ height: "10rem", width: "10rem", opacity: "0.8", zIndex: v ? "-1" : "50", position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)",  }} />
                     <input type="file" accept="image/png, image/jpg, image/jpeg" className="create_file" id="fileInput" onChange={getFile} />
                 </label>
 
