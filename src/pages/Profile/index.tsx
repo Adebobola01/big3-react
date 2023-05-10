@@ -10,10 +10,10 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/auth-context"
 import Error from "../../components/Error";
 import List from "../../components/List";
-const Profile = props => {
+const Profile = (props: any) => {
 
     const authContext = useContext(AuthContext);
-    const style = ({ isActive, isPending }) => {
+    const style = ({ isActive, isPending }: any) => {
         return {
             backgroundColor: isActive ? "rgba(91, 90, 97, 0.568)" : "",
             borderBottom: isActive ? "2px solid white" : "",
