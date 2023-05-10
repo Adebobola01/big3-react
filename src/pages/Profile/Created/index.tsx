@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 import "./Created.scss";
 
-const Created = props => {
+const Created = (props: any) => {
     const [created, setCreated] = useState([]);
     document.title = "Created";
     useEffect(() => {

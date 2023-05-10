@@ -7,14 +7,13 @@ const remainingMilliseconds = 180 * 60 * 1000;
 
 const token = localStorage.getItem("token")
 
-export const fetchData = async (method, endpoint, body) => {
+export const fetchData = async (method: string, endpoint: string, body?: object): Promise<any> => {
     const result = await fetch(`${baseUrl}/${endpoint}`, {
         method: method,
         headers: {
             Authorization: "Bearer " + token,
             "Content-Type": "application/json",
         },
-        
         body: body ? JSON.stringify({...body}) : null,
     });
     return result.json();
@@ -28,7 +27,7 @@ export const logoutHandler = () => {
 };
 
 
-const setToStorage = (token, userId, address) => {
+const setToStorage = (token: string, userId: string, address: string) => {
     localStorage.setItem("token", token);
     localStorage.setItem("userId", userId);
     localStorage.setItem("address", address);
@@ -37,13 +36,13 @@ const setToStorage = (token, userId, address) => {
     localStorage.setItem("expiryDate", expiryDate.toISOString());
 };
 
-export const setAutoLogout = (milliseconds, disconnect) => {
+export const setAutoLogout = (milliseconds: number, disconnect?: any) => {
     setTimeout(() => {
         disconnect();
     }, milliseconds);
 };
 
-export const getImage = (image) => {
+export const getImage = (image: string) => {
     if (!image) {
         return;
     }
@@ -58,7 +57,7 @@ export const getImage = (image) => {
 };
 
 
-export const getUserAccount = async (account) => {
+export const getUserAccount = async (account: string) => {
     try {
         const result = await fetch(`${baseUrl}/message`, {
             method: "POST",
@@ -78,7 +77,7 @@ export const getUserAccount = async (account) => {
 };
 
 
-export const verifyMessage = async (address) => {
+export const verifyMessage = async (address: string) => {
     try {
         if (address) {
             // const result = await fetch("https://big3-backend.onrender.com/verify", {

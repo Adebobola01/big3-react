@@ -8,9 +8,20 @@ import List from "../../../components/List";
 
 const {REACT_APP_BASEURL, REACT_APP_TITLE, REACT_APP_DESCRIPTION} = process.env;
 
-const YourNfts = props => {
+const YourNfts = (props: any) => {
+    //USE BETTER PRACTICE///
+    document.title = "Your Nfts";
+
+    type NftType = {
+        metadata: any;
+        tokenAddress: string;
+        tokenId: string;
+        name: string;
+    }[]
+
+
     const authContext = useContext(AuthContext);
-    const [userNfts, setUserNfts] = useState([]);
+    const [userNfts, setUserNfts] = useState<NftType>([]);
     const [listing, setListing] = useState(false);
     const [listDetails, setListDetails] = useState({});
     const [loading, setLoading] = useState(false);
@@ -18,26 +29,26 @@ const YourNfts = props => {
 
     const token = localStorage.getItem("token");
     const address = authContext.address;
-    document.title = "Your Nfts";
-    const listHandler = (details) => {
+
+    const listHandler = (details: object) => {
         setListDetails(details);
         setListing(!listing);
     }
 
 
-    const getUserData = async() => {        
+    const getUserData = async(): Promise<any> => {        
         try {
             setLoading(true);
             // const result = await fetch("https://big3-backend.onrender.com/profile", {
-            const {data} = await fetchData("POST", "profile", { userAddress: authContext.address });
+            const { data } = await fetchData("POST", "profile", { userAddress: authContext.address });
             console.log(data)
-            data.forEach(n => {
+            data.forEach((n: any) => {
                 if (!n.metadata) {
                     return;
                 }
                 n.metadata.image = getImage(n.metadata.image);
             })
-            setUserNfts(data);
+            return data;
         } catch (error) {
             console.log(error);
         }
@@ -45,7 +56,8 @@ const YourNfts = props => {
 
     useEffect(() => {
         (async () => {
-            await getUserData();
+            const data = await getUserData();
+            setUserNfts(data);
             setLoading(false)
         })();
     }, []);
@@ -54,7 +66,7 @@ const YourNfts = props => {
     let content;
 
     if (userNfts.length !== 0) {
-        content = userNfts.map(n => {
+        content = userNfts.map((n) => {
             if (!n.metadata) { return null };
         
             return (
