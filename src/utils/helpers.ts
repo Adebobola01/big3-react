@@ -8,15 +8,19 @@ const remainingMilliseconds = 180 * 60 * 1000;
 const token = localStorage.getItem("token")
 
 export const fetchData = async (method: string, endpoint: string, body?: object): Promise<any> => {
-    const result = await fetch(`${baseUrl}/${endpoint}`, {
-        method: method,
-        headers: {
-            Authorization: "Bearer " + token,
-            "Content-Type": "application/json",
-        },
-        body: body ? JSON.stringify({...body}) : null,
-    });
-    return result.json();
+    try {     
+        const result = await fetch(`${baseUrl}/${endpoint}`, {
+            method: method,
+            headers: {
+                Authorization: "Bearer " + token,
+                "Content-Type": "application/json",
+            },
+            body: body ? JSON.stringify({...body}) : null,
+        });
+        return result.json();
+    } catch (error) {
+        throw new Error("Could not fetch data!")
+    }
 }
 
 export const logoutHandler = () => {

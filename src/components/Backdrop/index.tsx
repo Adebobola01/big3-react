@@ -1,11 +1,11 @@
 import React from "react";
-import "./Backdrop.scss";
+import styles from "./backdrop.module.scss";
 const Backdrop = (props: any) => {
 
 
 
     return (
-        <div className={`backdrop ${props.open ? "open" : ""}`} onClick={props.click} ></div>
+        <div className={`${styles.backdrop} ${props.open ? styles.open : ""}`} onClick={props.click} ></div>
     )
 }
 
