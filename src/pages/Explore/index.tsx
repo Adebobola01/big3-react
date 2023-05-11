@@ -4,14 +4,26 @@ import itachiImg from "../../assets/images/itachi.png";
 import { fetchData } from "../../utils/helpers";
 import "./Explore.scss";
 import Loader from "../../components/Loader";
-const Explore = props => {
-    const [exploreNfts, setExploreNfts] = useState([]);
+const Explore = (props: any) => {
+
+    type NftType = {
+        contractAddr: string;
+        tokenId: string;
+        imageUrl: string;
+        name: string;
+        ownerAddress: string;
+        price: string;
+    }
+
+
+    const [exploreNfts, setExploreNfts] = useState<NftType[] | []>([]);
     const [loading, setLoading] = useState(false);
 
     document.title = "Explore";
     const explore = async () => {
         setLoading(true);
         const data = await fetchData("GET", "explore");
+        console.log(data);
         setExploreNfts(data.nfts);
         setLoading(false);
     }
@@ -20,11 +32,12 @@ const Explore = props => {
         explore();
     }, [])
 
-    const content = [...exploreNfts];
+    const content: NftType[] = [...exploreNfts];
     let contentData;
 
+
     if (content) {
-        contentData = content.map(nft => {
+        contentData = content.map((nft: NftType ): any => {
             const owner = nft.ownerAddress;
            return <a
                 className="explore__nft--container"
@@ -58,29 +71,10 @@ const Explore = props => {
             <span> No Content Available </span>
         </div>
     }
+    console.log(content )
 
     return (
         <div className="explore__container">
-            <div className="explore__sort">
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-                <p>aye sort ni mo fisi ile nibi bayi</p>
-            </div>
             <div className="explore__main">
                 {/* <Link className="scroll-down" to="#footer" >
                     <span>&gt;&gt;</span>

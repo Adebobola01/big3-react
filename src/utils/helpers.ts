@@ -1,7 +1,7 @@
 // const { ethereum } = window;
 
 
-const baseUrl = process.env.REACT_APP_BASEURL;
+const baseUrl = process.env.REACT_APP_BASEURL_LIVE;
 
 const remainingMilliseconds = 180 * 60 * 1000;
 

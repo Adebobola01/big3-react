@@ -1,6 +1,9 @@
-import React, {ReactHTMLElement, useEffect, useState} from "react";
+import React, { ReactHTMLElement, useEffect, useState } from "react";
+import { WalletChatWidget } from 'react-wallet-chat-v0';
+import 'react-wallet-chat-v0/dist/index.css'
+
 import { useParams } from "react-router-dom";
-import "./Details.scss";
+import styles from "./Details.module.scss";
 import NftContainer from "../../../components/NftContainer";
 import Loader from "../../../components/Loader"
 import { fetchData } from "../../../utils/helpers";
@@ -60,89 +63,90 @@ const Details = (props: any) => {
 
     if (details) {
         contentData =  (
-            <section className="nft__details">
-                <div className="nft__details--heading">
-                    <a href="#" className="nft__details--collection">{details.collectionName}</a>
-                    <h3 className="nft___details--name">{details?.name}</h3>
-                    <p className="nft__details--owner">
+            <section className={styles.nft__details}>
+                <WalletChatWidget/>
+                <div className={styles.nft__details__heading}>
+                    <a href="#">{details.collectionName}</a>
+                    <h3 className={styles.nft___details__name}>{details?.name}</h3>
+                    <p className={styles.nft__details__owner}>
                         Owned by <a href="#">{`${details.ownerAddress.slice(0, 3)}...${details.ownerAddress.slice(-4)}`}</a>
                     </p>
                 </div>
-                <div className="purchase">
+                <div className={styles.purchase}>
                     <p>Current Price</p>
                     <span>{details.price} ETH</span>
-                    <div className="purchase__btns">
-                        <button className="purchase__btn buy-btn">BUY</button>
-                        <button className="purchase__btn offer-btn">
+                    <div className={styles.purchase__btns}>
+                        <button className={`${styles.purchase__btn} ${styles.buy_btn}`}>BUY</button>
+                        <button className={`${styles.purchase__btn} ${styles.offer_btn}`}>
                             Make Offer
                         </button>
                     </div>
                 </div>
-                <div className="nft__details--body">
-                    <div className="description">
+                <div className={styles.nft__details__body}>
+                    <div className={styles.description}>
                         <h2>Description</h2>
-                        <div className="description__body">
+                        <div className={styles.description__body}>
                             <p>
                                 {details.description}
                             </p>
                         </div>
                     </div>
-                    <div className="properties">
+                    <div className={styles.properties}>
                         <h2>Properties</h2>
-                        <div className="properties__body">
-                            <div className="property">
+                        <div className={styles.properties__body}>
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
-                            <div className="property">
+                            <div className={styles.property}>
                                 <h2>Anime</h2>
                             </div>
                         </div>
                     </div>
-                    <div className="details">
+                    <div className={styles.details}>
                         <h2>Details</h2>
-                        <div className="details__body">
-                            <div className="detail">
+                        <div className={styles.details__body}>
+                            <div className={styles.detail}>
                                 <span>Contract Address</span>
                                 <span>{`${details.contractAddr.slice(0, 3)}...${details.contractAddr.slice(-7)}`}</span>
                             </div>
-                            <div className="detail">
+                            <div className={styles.detail}>
                                 <span>Token ID</span>
                                 <span>{details.tokenId}</span>
                             </div>
-                            <div className="detail">
+                            <div className={styles.detail}>
                                 <span>Chain</span>
                                 <span>Goerli</span>
                             </div>
@@ -157,113 +161,12 @@ const Details = (props: any) => {
 
     // setLoading(false);
     return (
-        <div className="nft">
-            <section className="profile__nft-preview">
+        <div className={styles.nft}>
+            <section className={styles.profile__nft_preview}>
                 <NftContainer image={details ? details?.imageUrl : ""} name={details ? details.name : ""}  price={details ? details.price : ""} />
             </section>
             { loading ? <Loader/> : contentData}
-            {/* <section className="nft__details">
-                <div className="nft__details--heading">
-                    <a href="#" className="nft__details--collection">Azuki</a>
-                    <h3 className="nft___details--name">Azuki #25</h3>
-                    <p className="nft__details--owner">
-                        Owned by <a href="#">Adebobola</a>
-                    </p>
-                </div>
-                <div className="purchase">
-                    <p>Current Price</p>
-                    <span>0.2 ETH</span>
-                    <div className="purchase__btns">
-                        <button className="purchase__btn buy-btn">BUY</button>
-                        <button className="purchase__btn offer-btn">
-                            Make Offer
-                        </button>
-                    </div>
-                </div>
-                <div className="nft__details--body">
-                    <div className="description">
-                        <h2>Description</h2>
-                        <div className="description__body">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Maxime mollitia, molestiae
-                                quas vel sint commodi repudiandae
-                                consequuntur voluptatum laborum numquam
-                                blanditiis harum quisquam eius sed odit
-                                fugiat iusto fuga praesentium optio, eaque
-                                rerum! Provident similique accusantium nemo
-                                autem. Veritatis obcaecati tenetur iure eius
-                                earum ut molestias architecto voluptate
-                                aliquam nihil, eveniet aliquid culpa officia
-                                aut! Impedit sit sunt quaerat, odit, tenetur
-                                error, harum nesciunt ipsum debitis quas
-                                aliquid. Reprehenderit,
-                            </p>
-                        </div>
-                    </div>
-                    <div className="properties">
-                        <h2>Properties</h2>
-                        <div className="properties__body">
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                            <div className="property">
-                                <h2>Anime</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="details">
-                        <h2>Details</h2>
-                        <div className="details__body">
-                            <div className="detail">
-                                <span>Contract Address</span>
-                                <span>0x23...8e90</span>
-                            </div>
-                            <div className="detail">
-                                <span>Token ID</span>
-                                <span>25</span>
-                            </div>
-                            <div className="detail">
-                                <span>Chain</span>
-                                <span>Goerli</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
+          
         </div>
     )
 }
