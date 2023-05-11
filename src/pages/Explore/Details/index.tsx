@@ -35,6 +35,7 @@ const Details = (props: any) => {
         imageUrl: "",
     });
     const [loading, setLoading] = useState<boolean>(false);
+    const [widgetState, setWidgetState] = useState({})
 
     document.title = "Details";
     const getDetails = async () => {
@@ -62,54 +63,113 @@ const Details = (props: any) => {
     let contentData: any = "";
 
     if (details) {
-        contentData =  (
-            <section className={styles.nft__details}>
-                <WalletChatWidget/>
-                <div className={styles.nft__details__heading}>
-                    <a href="#">{details.collectionName}</a>
-                    <h3 className={styles.nft___details__name}>{details?.name}</h3>
-                    <p className={styles.nft__details__owner}>
-                        Owned by <a href="#">{`${details.ownerAddress.slice(0, 3)}...${details.ownerAddress.slice(-4)}`}</a>
-                    </p>
-                </div>
-                <div className={styles.purchase}>
-                    <p>Current Price</p>
-                    <span>{details.price} ETH</span>
-                    <div className={styles.purchase__btns}>
-                        <button className={`${styles.purchase__btn} ${styles.buy_btn}`}>BUY</button>
-                        <button className={`${styles.purchase__btn} ${styles.offer_btn}`}>
-                            Make Offer
-                        </button>
+        contentData = (
+            <>
+            
+                <section className={styles.nft_preview}>
+                    <img src={details.imageUrl} alt="nft-img" />
+                    <div className={styles.properties}>
+                            <h2>Properties</h2>
+                            <div className={styles.properties__body}>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                                <div className={styles.property}>
+                                    <h2>Anime</h2>
+                                </div>
+                            </div>
                     </div>
-                </div>
-                <div className={styles.nft__details__body}>
-                    <div className={styles.description}>
-                        <h2>Description</h2>
-                        <div className={styles.description__body}>
-                            <p>
-                                {details.description}
-                            </p>
+                </section>
+                <section className={styles.nft__details}>
+                    <div className={styles.nft_preview_mobile} >
+                        <img src={details.imageUrl} />
+                    </div>
+                    <div className={styles.nft__details__heading}>
+                        <a href="#">{details.collectionName}</a>
+                        <h3 className={styles.nft___details__name}>{details?.name}</h3>
+                        <p className={styles.nft__details__owner}>
+                            Owned by <a href="#">{`${details.ownerAddress.slice(0, 3)}...${details.ownerAddress.slice(-4)}`}</a>
+                        </p>
+                    </div>
+                    <div className={styles.purchase}>
+                        <p>Current Price</p>
+                        <span>{details.price} ETH</span>
+                        <div className={styles.purchase__btns}>
+                            <button className={`${styles.purchase__btn} ${styles.buy_btn}`}>BUY</button>
+                            <button className={`${styles.purchase__btn} ${styles.offer_btn}`}>
+                                Make Offer
+                            </button>
+                            <button className={`${styles.purchase__btn} ${styles.offer_btn}`} onClick={() => {
+                                setWidgetState({
+                                    ...widgetState,
+                                    isOpen: true,
+                                    chatAddr: details.ownerAddress,
+                                })
+                            }} >Chat with Owner</button>
                         </div>
                     </div>
-                    <div className={styles.details}>
-                        <h2>Details</h2>
-                        <div className={styles.details__body}>
-                            <div className={styles.detail}>
-                                <span>Contract Address</span>
-                                <span>{`${details.contractAddr.slice(0, 3)}...${details.contractAddr.slice(-7)}`}</span>
+                    <div className={styles.nft__details__body}>
+                        <div className={styles.description}>
+                            <h2>Description</h2>
+                            <div className={styles.description__body}>
+                                <p>
+                                    {details.description}
+                                </p>
                             </div>
-                            <div className={styles.detail}>
-                                <span>Token ID</span>
-                                <span>{details.tokenId}</span>
-                            </div>
-                            <div className={styles.detail}>
-                                <span>Chain</span>
-                                <span>Goerli</span>
+                        </div>
+                        <div className={styles.details}>
+                            <h2>Details</h2>
+                            <div className={styles.details__body}>
+                                <div className={styles.detail}>
+                                    <span>Contract Address</span>
+                                    <span>{`${details.contractAddr.slice(0, 3)}...${details.contractAddr.slice(-7)}`}</span>
+                                </div>
+                                <div className={styles.detail}>
+                                    <span>Token ID</span>
+                                    <span>{details.tokenId}</span>
+                                </div>
+                                <div className={styles.detail}>
+                                    <span>Chain</span>
+                                    <span>Goerli</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </>
         )
     } else {
         contentData = <div style={{height: "90rem", display: "flex", justifyContent: "center", alignItems: "center", width: "100%"}} ><span style={{color: "white"}} >No content available!</span></div>
@@ -118,53 +178,7 @@ const Details = (props: any) => {
     // setLoading(false);
     return (
         <div className={styles.nft}>
-            <section className={styles.nft_preview}>
-                <img src={uzuImg} alt="nft-img" />
-                <div className={styles.properties}>
-                        <h2>Properties</h2>
-                        <div className={styles.properties__body}>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                            <div className={styles.property}>
-                                <h2>Anime</h2>
-                            </div>
-                        </div>
-                </div>
-            </section>
+            <WalletChatWidget widgetState={widgetState} />
             { loading ? <Loader/> : contentData}
           
         </div>
