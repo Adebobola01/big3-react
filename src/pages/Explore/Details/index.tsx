@@ -91,7 +91,36 @@ const Details = (props: any) => {
                             </p>
                         </div>
                     </div>
-                    <div className={styles.properties}>
+                    <div className={styles.details}>
+                        <h2>Details</h2>
+                        <div className={styles.details__body}>
+                            <div className={styles.detail}>
+                                <span>Contract Address</span>
+                                <span>{`${details.contractAddr.slice(0, 3)}...${details.contractAddr.slice(-7)}`}</span>
+                            </div>
+                            <div className={styles.detail}>
+                                <span>Token ID</span>
+                                <span>{details.tokenId}</span>
+                            </div>
+                            <div className={styles.detail}>
+                                <span>Chain</span>
+                                <span>Goerli</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        )
+    } else {
+        contentData = <div style={{height: "90rem", display: "flex", justifyContent: "center", alignItems: "center", width: "100%"}} ><span style={{color: "white"}} >No content available!</span></div>
+    }
+
+    // setLoading(false);
+    return (
+        <div className={styles.nft}>
+            <section className={styles.nft_preview}>
+                <img src={uzuImg} alt="nft-img" />
+                <div className={styles.properties}>
                         <h2>Properties</h2>
                         <div className={styles.properties__body}>
                             <div className={styles.property}>
@@ -134,36 +163,7 @@ const Details = (props: any) => {
                                 <h2>Anime</h2>
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.details}>
-                        <h2>Details</h2>
-                        <div className={styles.details__body}>
-                            <div className={styles.detail}>
-                                <span>Contract Address</span>
-                                <span>{`${details.contractAddr.slice(0, 3)}...${details.contractAddr.slice(-7)}`}</span>
-                            </div>
-                            <div className={styles.detail}>
-                                <span>Token ID</span>
-                                <span>{details.tokenId}</span>
-                            </div>
-                            <div className={styles.detail}>
-                                <span>Chain</span>
-                                <span>Goerli</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </section>
-        )
-    } else {
-        contentData = <div style={{height: "90rem", display: "flex", justifyContent: "center", alignItems: "center", width: "100%"}} ><span style={{color: "white"}} >No content available!</span></div>
-    }
-
-    // setLoading(false);
-    return (
-        <div className={styles.nft}>
-            <section className={styles.profile__nft_preview}>
-                <NftContainer image={details ? details?.imageUrl : ""} name={details ? details.name : ""}  price={details ? details.price : ""} />
             </section>
             { loading ? <Loader/> : contentData}
           

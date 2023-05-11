@@ -13,9 +13,12 @@
     background-color: rgb(22 21 34);
     color: #fff;
     padding: 2rem 4rem 6rem 6rem;
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
+    font-size: 3rem;
 
     a {
+      font-size: 2.4rem;
+      font-weight: 500;
       text-decoration: none;
       color: #7891d5;
 
@@ -27,13 +30,37 @@
     &__heading {
       border-bottom: 1px solid gray;
       font-size: 4rem;
+
+      p {
+        font-size: 3rem;
+        margin: 1rem 0;
+      }
+
+      h3 {
+        margin: 1rem 0;
+        font-size: 3rem;
+      }
     }
 
-    &--body {
+    &__body {
       font-family: "Courier New", Courier, monospace;
       // display: flex;
       // flex-direction: column;
       // align-items: center;
+    }
+  }
+  &_preview {
+    color: white;
+    width: 50rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    img {
+      width: 100%;
+      border-radius: 1rem;
+      height: 40rem;
+      margin-bottom: 4rem;
     }
   }
 }
@@ -58,27 +85,32 @@
   }
 }
 
-.profile {
-  display: flex;
-  min-height: 50rem;
-  height: 100vh;
-  // position: relative;
-  &__nft-preview {
-    background-color: rgb(30, 28, 46);
-    padding: 0 1rem 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+// .profile {
+//   display: flex;
+//   min-height: 50rem;
+//   height: 100vh;
+//   // position: relative;
+//   &__nft-preview {
+//     background-color: rgb(30, 28, 46);
+//     padding: 0 1rem 6rem;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
 
-    &__image {
-      width: 100%;
-    }
-  }
-}
+//     &__image {
+//       width: 100%;
+//     }
+//   }
+// }
 
 .description {
   margin-top: 4rem;
-  font-size: 4rem;
+  font-size: 6rem;
+
+  h2 {
+    font-weight: 700;
+    font-size: 4rem;
+  }
 
   &__body {
     border: 1px solid white;
@@ -89,8 +121,7 @@
 }
 
 .properties {
-  margin-top: 3rem;
-  font-size: 4rem;
+  font-size: 6rem;
   &__body {
     border: 1px solid white;
     border-radius: 1rem;
@@ -114,6 +145,7 @@
   padding: 1rem;
   border-radius: 0.5rem;
   margin-top: 1rem;
+  color: white;
 
   &:not(:last-child) {
     margin-right: 1rem;
