@@ -245,7 +245,7 @@ const Create = (props: any) => {
                 <CreateInput label="Name" placeholder="Item Name" type="input" param="name" inputChanged={getInput} />
                 <CreateInput label="Description" placeholder="A detailed description of your NFT" param="description" type="textarea" textareaChanged={getInput} />
                 <CreateInput label="Collection" type="select" name="Collection" options={options} param="collection" selectChanged={getInput} />
-                <p className="create_properties-header" >Properties</p>
+                <p className="create_properties-header" >Attributes</p>
                 {properties}
                 <button onClick={()=>{addProp()}} style={{padding: "1.6rem", width: "8rem", backgroundColor: "grey", border: "none", color: "white", borderRadius: "1rem", fontSize: "2rem", cursor: "pointer", marginTop: "4rem"}} > add</button>
                 <hr style={{ marginTop: "2rem"}} />
