@@ -23,7 +23,6 @@ const Explore = (props: any) => {
     const explore = async () => {
         setLoading(true);
         const data = await fetchData("GET", "explore");
-        console.log(data);
         setExploreNfts(data.nfts);
         setLoading(false);
     }

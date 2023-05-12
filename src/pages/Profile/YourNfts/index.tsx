@@ -41,7 +41,6 @@ const YourNfts = (props: any) => {
             setLoading(true);
             // const result = await fetch("https://big3-backend.onrender.com/profile", {
             const { data } = await fetchData("POST", "profile", { userAddress: authContext.address });
-            console.log(data)
             data.forEach((n: any) => {
                 if (!n.metadata) {
                     return;

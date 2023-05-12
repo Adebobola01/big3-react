@@ -49,7 +49,6 @@ const List = (props: any) => {
             expiryDate: expiryDate,
             price: price,
         })
-        console.log(res);
     }
 
     return (

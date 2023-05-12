@@ -7,11 +7,7 @@ const Listed = (props: any) => {
     useEffect(() => {
         setListed([]);
     }, []);
-
-
-    console.log(listed);
     const content = listed.length !== 0 ? <p>Listed Nfts</p> : <div className="profile-content"> <span> No Content Available </span> </div>
-    console.log("here")
     return (
         <>
             {content}   
