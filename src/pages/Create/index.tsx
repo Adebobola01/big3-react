@@ -102,7 +102,6 @@ const Create = (props: any) => {
         // // const decimals = await contract.decimals();
 
         const tx = await contract.balanceOf("0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266");
-        console.log(tx);
         // console.log(tx1);
     }
 

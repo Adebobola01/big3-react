@@ -28,7 +28,6 @@ const AuthContextProvider = (props: any) => {
             });
             const account = accounts[0];
             const res = await verifyMessage(account);
-            console.log(res)
             if (!res) {
                 return;
             }
