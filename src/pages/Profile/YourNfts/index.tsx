@@ -21,7 +21,7 @@ const YourNfts = (props: any) => {
 
 
     const authContext = useContext(AuthContext);
-    const [userNfts, setUserNfts] = useState<NftType>([]);
+    const [userNfts, setUserNfts] = useState<NftType>();
     const [listing, setListing] = useState(false);
     const [listDetails, setListDetails] = useState({});
     const [loading, setLoading] = useState(false);
@@ -64,7 +64,7 @@ const YourNfts = (props: any) => {
 
     let content;
 
-    if (userNfts.length !== 0) {
+    if (userNfts) {
         content = userNfts.map((n) => {
             if (!n.metadata) { return null };
         
