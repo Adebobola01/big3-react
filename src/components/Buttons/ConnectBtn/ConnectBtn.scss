@@ -1,49 +1,49 @@
-.connect__wallet{
+.connect__wallet {
+  &-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1.2rem;
+    opacity: 1;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 500;
+    transition: all 4s;
+    width: 100%;
+    overflow: hidden;
+    height: inherit;
+  }
 
-    &-btn{
-        background-color: transparent;
-        cursor: pointer;
-        border: none;
-        border-radius: 1.5rem;
-        padding: 1.2rem;
-        opacity: 1;
-        color: white;
-        font-size: 1.6rem;
-        transition: all 4s;
-        width: 100%;
-        overflow: hidden;
-        height: inherit;
+  &-container {
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    background: linear-gradient(to right, #db469f, #7891d5, #db469f);
+    background-position: 0% 50%;
+    background-size: 150% 100%;
+    height: auto;
+    width: 15rem;
+    &:hover {
+      animation: gradient 1s forwards;
+      // opacity: 0.6;
     }
-
-    &-container{
-        display: flex;
-        align-items: center;
-        border-radius: 1rem;
-        background: linear-gradient(to right, #db469f, #7891d5, #db469f);
-        background-position: 0% 50%;
-        background-size: 150% 100%;
-        height: auto;
-        width: 15rem;
-        &:hover {
-            animation: gradient 1s forwards;
-            // opacity: 0.6;
-        }
-    }
+  }
 }
 
-@media (max-width: 790px){
-    .connect__wallet-btn{
-        font-size: 1.4rem
-    }
+@media (max-width: 790px) {
+  .connect__wallet-btn {
+    font-size: 1.6rem;
+  }
 }
 
 @keyframes gradient {
-    0% {
-        background-position: 0% 100%;
-        transform: translateY(0);
-    }
-    100% {
-        background-position: 100% 150%;
-        transform: translateY(-3px);
-    }
+  0% {
+    background-position: 0% 100%;
+    transform: translateY(0);
+  }
+  100% {
+    background-position: 100% 150%;
+    transform: translateY(-3px);
+  }
 }

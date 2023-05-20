@@ -1,0 +1,120 @@
+.trending {
+  //   display: flex;
+  //   height: 50rem;
+  //   overflow-x: scroll;
+  text-align: left;
+  font-size: 2rem;
+  color: #fff;
+  padding-top: 2rem;
+  overflow-x: scroll;
+
+  &_header {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.6);
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 2rem;
+  }
+
+  &_body {
+    display: flex;
+    width: auto;
+  }
+
+  &_table {
+    border: none;
+    padding: 2rem 0 0 2rem;
+    margin-right: 4rem;
+    min-width: 70%;
+
+    th {
+      height: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &_index {
+    width: 2rem;
+  }
+  &_collections {
+    // width: 90rem;
+  }
+  &_volume {
+    width: 9rem;
+  }
+
+  &_collection {
+    display: flex;
+    align-items: center;
+
+    > img {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 8px;
+    }
+
+    > div {
+      margin-left: 2rem;
+
+      > P {
+        margin: 0;
+      }
+
+      > span {
+        font-weight: 600;
+        font-size: 1.8rem;
+        margin: 0;
+      }
+    }
+  }
+
+  &_btn {
+    background-color: transparent;
+    border: 0;
+    padding: 2rem 0;
+    color: #fff;
+    margin-right: 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+
+    &:is(:hover, :active, :focus-within) {
+      border-bottom: 1px solid #db469f;
+    }
+  }
+
+  &_active {
+    border-bottom: 1px solid #db469f;
+  }
+
+  > span {
+    font-size: 3rem;
+    margin: 2rem 0 0 2rem;
+  }
+
+  &_nft {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    margin-right: 2rem;
+
+    img {
+      height: 30rem;
+      object-fit: cover;
+    }
+    div {
+      background-color: rgb(52, 49, 78);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+
+      span {
+        margin: 0;
+      }
+    }
+
+    &s {
+      display: flex;
+      overflow-x: scroll;
+      padding: 3rem;
+    }
+  }
+}
