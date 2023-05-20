@@ -230,9 +230,9 @@ const Create = (props: any) => {
 
     return (
         <div className="create">
-            <head>
+            <section>
                 <title>Create</title>
-            </head>
+            </section>
             <h1 className="create_header">Create New NFT</h1>
             <div className="create_body" >
                 <label htmlFor="fileInput" className="create_label" style={{position: "relative"}} >
