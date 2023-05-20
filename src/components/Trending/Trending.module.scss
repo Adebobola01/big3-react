@@ -35,9 +35,6 @@
   &_index {
     width: 2rem;
   }
-  &_collections {
-    // width: 90rem;
-  }
   &_volume {
     width: 9rem;
   }
@@ -50,6 +47,7 @@
       width: 8rem;
       height: 8rem;
       border-radius: 8px;
+      object-fit: cover;
     }
 
     > div {
@@ -115,6 +113,14 @@
       display: flex;
       overflow-x: scroll;
       padding: 3rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .trending {
+    &_table {
+      min-width: 48rem;
     }
   }
 }
