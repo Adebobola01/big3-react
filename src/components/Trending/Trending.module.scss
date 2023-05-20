@@ -7,6 +7,15 @@
   color: #fff;
   padding-top: 2rem;
   overflow-x: scroll;
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: gray;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(51, 49, 49);
+  }
 
   &_header {
     border-bottom: 1px solid rgba(128, 128, 128, 0.6);
@@ -120,12 +129,33 @@
 .collection {
   &s {
     padding: 2rem;
+    display: flex;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: gray;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(51, 49, 49);
+    }
   }
 
-  width: 28rem;
+  min-width: 28rem;
   height: 30rem;
   display: flex;
   flex-direction: column;
+  margin-right: 2rem;
+
+  &_title {
+    color: #fff;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 4rem 0 0 2rem;
+  }
 
   img {
     width: 100%;
