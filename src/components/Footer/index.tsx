@@ -123,7 +123,7 @@ const Footer = (props: any) => {
                         <a href="/explore">Explore</a>
                     </div>
                 </div>
-                <span className={styles.footer_copyright}>© 2022 by <a href="#" className="dev">Adebobola</a> . All rights reserved. </span>
+                <span className={styles.footer_copyright}>© 2022 by <a href="https://www.linkedin.com/in/adebobola-oyedunmade-34a464218/" >Adebobola</a> . All rights reserved. </span>
             </div>
 
         </footer>
