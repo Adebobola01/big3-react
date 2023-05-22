@@ -83,47 +83,37 @@ const Footer = (props: any) => {
                 <p>Explore, Collect, Sell, buy and sell anime based NFTs.</p>
                 <div className={styles.footer_links}>
                     <div className={styles.footer_link} >
-                       <h2>marketPlace</h2>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
+                       <h2>MarketPlace</h2>
+                        <a href="/explore">All NFTs</a>
+                        <a href="/explore">Art</a>
+                        <a href="/explore">Gaming</a>
+                        <a href="/explore">Membership</a>
+                        <a href="/explore">Photography</a>
                     </div>
                     <div className={styles.footer_link} >
-                        <h2>marketPlace</h2>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
+                        <h2>My Account</h2>
+                        <a href="/explore">Profile</a>
+                        <a href="/explore">My Collections</a>
+                        <a href="/explore">Watchlist</a>
+                        <a href="/explore">Favourites</a>
+                        <a href="/explore">Create</a>
+                        <a href="/explore">Settings</a>
                     </div>
                     <div className={styles.footer_link} >
-                        <h2>marketPlace</h2>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
+                        <h2>Resources</h2>
+                        <a href="/explore">Learn</a>
+                        <a href="/explore">Help Center</a>
+                        <a href="/explore">Patners</a>
+                        <a href="/explore">Developer Platform</a>
                     </div>
                     <div className={styles.footer_link} >
-                        <h2>marketPlace</h2>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
-                        <a href="/explore">Explore</a>
+                        <h2>Company</h2>
+                        <a href="/explore">About</a>
+                        <a href="/explore">Ventures</a>
+                        <a href="/explore">Grants</a>
                     </div>
                 </div>
-                <span className={styles.footer_copyright}>© 2022 by <a href="https://www.linkedin.com/in/adebobola-oyedunmade-34a464218/" >Adebobola</a> . All rights reserved. </span>
+                <span className={styles.footer_copyright}>© 2022 <a href="https://www.linkedin.com/in/adebobola-oyedunmade-34a464218/" >Adebobola Oyedunmade</a></span>
             </div>
 
         </footer>
