@@ -1,11 +1,8 @@
 import React, { createContext, useState } from "react";
 import { getUserAccount, verifyMessage, logoutHandler } from "../utils/helpers";
 import { useNavigate, redirect } from "react-router-dom";
-import Web3 from "web3";
 
 const {ethereum}: any = window;
-// const web3 = new Web3(Web3.givenProvider);
-const web3 = new Web3( Web3.givenProvider || "http://localhost:8545");
 
 
 export const AuthContext = createContext({
