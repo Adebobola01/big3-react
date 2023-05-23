@@ -21,12 +21,12 @@ const Trending = (props: any) => {
                 <div className={styles.trending_body}>
                     <table className={styles.trending_table} >
                         <tr>
-                            <th className={styles.trending_index} >#</th>
-                            <th className={styles.trending_collections}>collection</th>
-                            <th className={styles.trending_volume}>volume</th>
+                            <th className={styles.trending_table_header} >#</th>
+                            <th className={styles.trending_table_header}>collection</th>
+                            <th className={styles.trending_table_header}>volume</th>
                         </tr>
                         <tr>
-                            <td>1</td>
+                            <td className={styles.trending_index} >1</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -36,10 +36,10 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                         <tr>
-                            <td>2</td>
+                            <td className={styles.trending_index} >2</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -49,10 +49,10 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                         <tr>
-                            <td>3</td>
+                            <td className={styles.trending_index}>3</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -62,10 +62,10 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                         <tr>
-                            <td>4</td>
+                            <td className={styles.trending_index}>4</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -75,10 +75,10 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                         <tr>
-                            <td>5</td>
+                            <td className={styles.trending_index}>5</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -88,17 +88,17 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                     </table>
                     <table className={styles.trending_table} >
                         <tr>
-                            <th className={styles.trending_index} >#</th>
-                            <th className={styles.trending_collections}>collection</th>
-                            <th className={styles.trending_volume}>volume</th>
+                            <th className={styles.trending_table_header} >#</th>
+                            <th className={styles.trending_table_header}>collection</th>
+                            <th className={styles.trending_table_header}>volume</th>
                         </tr>
                         <tr>
-                            <td>6</td>
+                            <td className={styles.trending_index} >6</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -108,10 +108,10 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                         <tr>
-                            <td>7</td>
+                            <td className={styles.trending_index} >7</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -121,10 +121,10 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                         <tr>
-                            <td>8</td>
+                            <td className={styles.trending_index} >8</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -134,10 +134,10 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                         <tr>
-                            <td>8</td>
+                            <td className={styles.trending_index} >8</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -147,10 +147,10 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td className={styles.trending_index} >10</td>
                             <td>
                                 <div className={styles.trending_collection} >
                                     <img src={akatsuki} alt="img" />
@@ -160,7 +160,7 @@ const Trending = (props: any) => {
                                     </div>
                                 </div>
                             </td>
-                            <td>7.8 ETH</td>
+                            <td className={styles.trending_index} >7.8 ETH</td>
                         </tr>
                     </table>
                 </div>

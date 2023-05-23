@@ -37,16 +37,17 @@
     margin-bottom: 2rem;
 
     th {
-      height: 2rem;
+      // height: 2rem;
       padding-bottom: 2rem;
+    }
+
+    &_header {
+      font-size: 2rem;
     }
   }
 
   &_index {
-    width: 2rem;
-  }
-  &_volume {
-    width: 9rem;
+    font-size: 2rem;
   }
 
   &_collection {
