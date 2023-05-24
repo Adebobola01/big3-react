@@ -20,148 +20,156 @@ const Trending = (props: any) => {
                 </header>
                 <div className={styles.trending_body}>
                     <table className={styles.trending_table} >
-                        <tr>
-                            <th className={styles.trending_table_header} >#</th>
-                            <th className={styles.trending_table_header}>collection</th>
-                            <th className={styles.trending_table_header}>volume</th>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index} >1</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                        <thead>
+                            <tr>
+                                <th className={styles.trending_table_header} >#</th>
+                                <th className={styles.trending_table_header}>collection</th>
+                                <th className={styles.trending_table_header}>volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className={styles.trending_index} >1</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index} >2</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                            <tr>
+                                <td className={styles.trending_index} >2</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index}>3</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                            <tr>
+                                <td className={styles.trending_index}>3</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index}>4</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                            <tr>
+                                <td className={styles.trending_index}>4</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index}>5</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                            <tr>
+                                <td className={styles.trending_index}>5</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                        </tbody>
                     </table>
                     <table className={styles.trending_table} >
-                        <tr>
-                            <th className={styles.trending_table_header} >#</th>
-                            <th className={styles.trending_table_header}>collection</th>
-                            <th className={styles.trending_table_header}>volume</th>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index} >6</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                        <thead>
+                            <tr>
+                                <th className={styles.trending_table_header} >#</th>
+                                <th className={styles.trending_table_header}>collection</th>
+                                <th className={styles.trending_table_header}>volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className={styles.trending_index} >6</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index} >7</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                            <tr>
+                                <td className={styles.trending_index} >7</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index} >8</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                            <tr>
+                                <td className={styles.trending_index} >8</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index} >8</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                            <tr>
+                                <td className={styles.trending_index} >9</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
-                        <tr>
-                            <td className={styles.trending_index} >10</td>
-                            <td>
-                                <div className={styles.trending_collection} >
-                                    <img src={akatsuki} alt="img" />
-                                    <div>
-                                        <span>Akatsuki</span>
-                                        <p>Floor: 0.3 ETH</p>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                            <tr>
+                                <td className={styles.trending_index} >10</td>
+                                <td>
+                                    <div className={styles.trending_collection} >
+                                        <img src={akatsuki} alt="img" />
+                                        <div>
+                                            <span>Akatsuki</span>
+                                            <p>Floor: 0.3 ETH</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td className={styles.trending_index} >7.8 ETH</td>
-                        </tr>
+                                </td>
+                                <td className={styles.trending_index} >7.8 ETH</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </section>
